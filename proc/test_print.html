@@ -1,0 +1,762 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="FTorch - A library for coupling (Py)Torch machine learning models to Fortran codes.Written in modern Fortran (2008) with source code available on GitHub it has been used in multiple scientific projects.The associated JOSS paper can read here.">
+    <meta name="author" content="ICCS Cambridge" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>test_print &ndash; FTorch</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+      <link href="../css/user.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">FTorch </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../page/index.html">User Guide</a></li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>test_print
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a></li>
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.3% of total for procedures.">12 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/ftorch_test_utils.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/ftorch_test_utils.f90.html'>ftorch_test_utils.f90</a></li>
+                <li class="breadcrumb-item"><a href='../module/ftorch_test_utils.html'>ftorch_test_utils</a></li>
+            <li class="breadcrumb-item active" aria-current="page">test_print</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/test_print.html#src">test_print</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>public  subroutine test_print(test_name, message, test_pass)  
+</h2>
+    
+
+    <p>Print the result of a test to the terminal</p>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-test_name"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>test_name</strong></td>
+            <td>
+                <p>Name of the test being run</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-message"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>message</strong></td>
+            <td>
+                <p>Message to print</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-test_pass"></span>
+              logical,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>test_pass</strong></td>
+            <td>
+                <p>Result of the value comparison</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Called by</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 14.1.2 (0)
+ -->
+<!-- Title: proc~~test_print~~CalledByGraph Pages: 1 -->
+<svg id="proctest_printCalledByGraph" width="563pt" height="410pt"
+ viewBox="0.00 0.00 563.00 410.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~test_print~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 406.27)">
+<title>proc~~test_print~~CalledByGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-406.27 559.33,-406.27 559.33,4 -4,4"/>
+<!-- proc~test_print -->
+<g id="proc~~test_print~~CalledByGraph_node1" class="node">
+<title>proc~test_print</title>
+<polygon fill="none" stroke="black" points="555.33,-213.27 494.31,-213.27 494.31,-189 555.33,-189 555.33,-213.27"/>
+<text xml:space="preserve" text-anchor="middle" x="524.82" y="-197.53" font-family="Helvetica,sans-Serif" font-size="10.50">test_print</text>
+</g>
+<!-- proc~allclose_real32_1d -->
+<g id="proc~~test_print~~CalledByGraph_node2" class="node">
+<title>proc~allclose_real32_1d</title>
+<g id="a_proc~~test_print~~CalledByGraph_node2"><a xlink:href="../proc/allclose_real32_1d.html" xlink:title="allclose_real32_1d">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="458.31,-360.27 348.54,-360.27 348.54,-336 458.31,-336 458.31,-360.27"/>
+<text xml:space="preserve" text-anchor="middle" x="403.42" y="-344.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">allclose_real32_1d</text>
+</a>
+</g>
+</g>
+<!-- proc~allclose_real32_1d&#45;&gt;proc~test_print -->
+<g id="proc~~test_print~~CalledByGraph_edge1" class="edge">
+<title>proc~allclose_real32_1d&#45;&gt;proc~test_print</title>
+<path fill="none" stroke="#000000" d="M445.96,-335.59C450.41,-333.22 454.65,-330.42 458.31,-327.13 489.62,-299.04 508.29,-252.42 517.27,-224.45"/>
+<polygon fill="#000000" stroke="#000000" points="520.53,-225.75 520.09,-215.17 513.83,-223.72 520.53,-225.75"/>
+</g>
+<!-- proc~allclose_real32_2d -->
+<g id="proc~~test_print~~CalledByGraph_node3" class="node">
+<title>proc~allclose_real32_2d</title>
+<g id="a_proc~~test_print~~CalledByGraph_node3"><a xlink:href="../proc/allclose_real32_2d.html" xlink:title="allclose_real32_2d">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="458.31,-318.27 348.54,-318.27 348.54,-294 458.31,-294 458.31,-318.27"/>
+<text xml:space="preserve" text-anchor="middle" x="403.42" y="-302.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">allclose_real32_2d</text>
+</a>
+</g>
+</g>
+<!-- proc~allclose_real32_2d&#45;&gt;proc~test_print -->
+<g id="proc~~test_print~~CalledByGraph_edge2" class="edge">
+<title>proc~allclose_real32_2d&#45;&gt;proc~test_print</title>
+<path fill="none" stroke="#000000" d="M444.01,-293.59C449.05,-291.18 453.96,-288.37 458.31,-285.13 480.73,-268.44 499.52,-242.17 511.14,-223.46"/>
+<polygon fill="#000000" stroke="#000000" points="514.08,-225.37 516.21,-214.99 508.07,-221.77 514.08,-225.37"/>
+</g>
+<!-- proc~allclose_real32_3d -->
+<g id="proc~~test_print~~CalledByGraph_node4" class="node">
+<title>proc~allclose_real32_3d</title>
+<g id="a_proc~~test_print~~CalledByGraph_node4"><a xlink:href="../proc/allclose_real32_3d.html" xlink:title="allclose_real32_3d">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="458.31,-276.27 348.54,-276.27 348.54,-252 458.31,-252 458.31,-276.27"/>
+<text xml:space="preserve" text-anchor="middle" x="403.42" y="-260.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">allclose_real32_3d</text>
+</a>
+</g>
+</g>
+<!-- proc~allclose_real32_3d&#45;&gt;proc~test_print -->
+<g id="proc~~test_print~~CalledByGraph_edge3" class="edge">
+<title>proc~allclose_real32_3d&#45;&gt;proc~test_print</title>
+<path fill="none" stroke="#000000" d="M439.65,-251.57C445.96,-248.99 452.4,-246.14 458.31,-243.13 471.44,-236.45 485.27,-227.84 496.82,-220.16"/>
+<polygon fill="#000000" stroke="#000000" points="498.75,-223.08 505.06,-214.57 494.82,-217.29 498.75,-223.08"/>
+</g>
+<!-- proc~allclose_real64_1d -->
+<g id="proc~~test_print~~CalledByGraph_node5" class="node">
+<title>proc~allclose_real64_1d</title>
+<g id="a_proc~~test_print~~CalledByGraph_node5"><a xlink:href="../proc/allclose_real64_1d.html" xlink:title="allclose_real64_1d">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="458.31,-234.27 348.54,-234.27 348.54,-210 458.31,-210 458.31,-234.27"/>
+<text xml:space="preserve" text-anchor="middle" x="403.42" y="-218.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">allclose_real64_1d</text>
+</a>
+</g>
+</g>
+<!-- proc~allclose_real64_1d&#45;&gt;proc~test_print -->
+<g id="proc~~test_print~~CalledByGraph_edge4" class="edge">
+<title>proc~allclose_real64_1d&#45;&gt;proc~test_print</title>
+<path fill="none" stroke="#000000" d="M458.53,-212.62C466.74,-211.17 475.09,-209.71 482.96,-208.32"/>
+<polygon fill="#000000" stroke="#000000" points="483.32,-211.81 492.57,-206.63 482.11,-204.92 483.32,-211.81"/>
+</g>
+<!-- proc~allclose_real64_2d -->
+<g id="proc~~test_print~~CalledByGraph_node6" class="node">
+<title>proc~allclose_real64_2d</title>
+<g id="a_proc~~test_print~~CalledByGraph_node6"><a xlink:href="../proc/allclose_real64_2d.html" xlink:title="allclose_real64_2d">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="458.31,-192.27 348.54,-192.27 348.54,-168 458.31,-168 458.31,-192.27"/>
+<text xml:space="preserve" text-anchor="middle" x="403.42" y="-176.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">allclose_real64_2d</text>
+</a>
+</g>
+</g>
+<!-- proc~allclose_real64_2d&#45;&gt;proc~test_print -->
+<g id="proc~~test_print~~CalledByGraph_edge5" class="edge">
+<title>proc~allclose_real64_2d&#45;&gt;proc~test_print</title>
+<path fill="none" stroke="#000000" d="M458.53,-189.65C466.74,-191.1 475.09,-192.56 482.96,-193.95"/>
+<polygon fill="#000000" stroke="#000000" points="482.11,-197.35 492.57,-195.64 483.32,-190.46 482.11,-197.35"/>
+</g>
+<!-- proc~allclose_real64_3d -->
+<g id="proc~~test_print~~CalledByGraph_node7" class="node">
+<title>proc~allclose_real64_3d</title>
+<g id="a_proc~~test_print~~CalledByGraph_node7"><a xlink:href="../proc/allclose_real64_3d.html" xlink:title="allclose_real64_3d">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="458.31,-150.27 348.54,-150.27 348.54,-126 458.31,-126 458.31,-150.27"/>
+<text xml:space="preserve" text-anchor="middle" x="403.42" y="-134.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">allclose_real64_3d</text>
+</a>
+</g>
+</g>
+<!-- proc~allclose_real64_3d&#45;&gt;proc~test_print -->
+<g id="proc~~test_print~~CalledByGraph_edge6" class="edge">
+<title>proc~allclose_real64_3d&#45;&gt;proc~test_print</title>
+<path fill="none" stroke="#000000" d="M439.65,-150.7C445.96,-153.28 452.4,-156.13 458.31,-159.13 471.44,-165.82 485.27,-174.43 496.82,-182.11"/>
+<polygon fill="#000000" stroke="#000000" points="494.82,-184.98 505.06,-187.7 498.75,-179.19 494.82,-184.98"/>
+</g>
+<!-- proc~isclose_real32 -->
+<g id="proc~~test_print~~CalledByGraph_node8" class="node">
+<title>proc~isclose_real32</title>
+<g id="a_proc~~test_print~~CalledByGraph_node8"><a xlink:href="../proc/isclose_real32.html" xlink:title="isclose_real32">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="446.68,-108.27 360.16,-108.27 360.16,-84 446.68,-84 446.68,-108.27"/>
+<text xml:space="preserve" text-anchor="middle" x="403.42" y="-92.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">isclose_real32</text>
+</a>
+</g>
+</g>
+<!-- proc~isclose_real32&#45;&gt;proc~test_print -->
+<g id="proc~~test_print~~CalledByGraph_edge7" class="edge">
+<title>proc~isclose_real32&#45;&gt;proc~test_print</title>
+<path fill="none" stroke="#000000" d="M444.01,-108.68C449.05,-111.09 453.96,-113.9 458.31,-117.13 480.73,-133.83 499.52,-160.1 511.14,-178.81"/>
+<polygon fill="#000000" stroke="#000000" points="508.07,-180.5 516.21,-187.28 514.08,-176.9 508.07,-180.5"/>
+</g>
+<!-- proc~isclose_real64 -->
+<g id="proc~~test_print~~CalledByGraph_node9" class="node">
+<title>proc~isclose_real64</title>
+<g id="a_proc~~test_print~~CalledByGraph_node9"><a xlink:href="../proc/isclose_real64.html" xlink:title="isclose_real64">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="446.68,-66.27 360.16,-66.27 360.16,-42 446.68,-42 446.68,-66.27"/>
+<text xml:space="preserve" text-anchor="middle" x="403.42" y="-50.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">isclose_real64</text>
+</a>
+</g>
+</g>
+<!-- proc~isclose_real64&#45;&gt;proc~test_print -->
+<g id="proc~~test_print~~CalledByGraph_edge8" class="edge">
+<title>proc~isclose_real64&#45;&gt;proc~test_print</title>
+<path fill="none" stroke="#000000" d="M445.96,-66.68C450.41,-69.05 454.65,-71.85 458.31,-75.13 489.62,-103.23 508.29,-149.85 517.27,-177.82"/>
+<polygon fill="#000000" stroke="#000000" points="513.83,-178.55 520.09,-187.1 520.53,-176.52 513.83,-178.55"/>
+</g>
+<!-- interface~allclose -->
+<g id="proc~~test_print~~CalledByGraph_node10" class="node">
+<title>interface~allclose</title>
+<g id="a_proc~~test_print~~CalledByGraph_node10"><a xlink:href="../interface/allclose.html" xlink:title="allclose">
+<polygon fill="#a7506f" stroke="#a7506f" points="258.78,-276.27 204.78,-276.27 204.78,-252 258.78,-252 258.78,-276.27"/>
+<text xml:space="preserve" text-anchor="middle" x="231.78" y="-260.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">allclose</text>
+</a>
+</g>
+</g>
+<!-- interface~allclose&#45;&gt;proc~allclose_real32_1d -->
+<g id="proc~~test_print~~CalledByGraph_edge10" class="edge">
+<title>interface~allclose&#45;&gt;proc~allclose_real32_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M259.15,-267.02C275.5,-269.75 296.4,-275.02 312.54,-285.13 333.37,-298.19 328.49,-312.91 348.54,-327.13 350.09,-328.23 351.7,-329.28 353.36,-330.29"/>
+<polygon fill="#000000" stroke="#000000" points="351.45,-333.24 361.93,-334.83 354.73,-327.05 351.45,-333.24"/>
+</g>
+<!-- interface~allclose&#45;&gt;proc~allclose_real32_2d -->
+<g id="proc~~test_print~~CalledByGraph_edge12" class="edge">
+<title>interface~allclose&#45;&gt;proc~allclose_real32_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M258.92,-270.61C280.66,-275.99 312.49,-283.87 340.66,-290.84"/>
+<polygon fill="#000000" stroke="#000000" points="339.63,-294.19 350.18,-293.2 341.31,-287.4 339.63,-294.19"/>
+</g>
+<!-- interface~allclose&#45;&gt;proc~allclose_real32_3d -->
+<g id="proc~~test_print~~CalledByGraph_edge14" class="edge">
+<title>interface~allclose&#45;&gt;proc~allclose_real32_3d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M258.92,-264.13C279.65,-264.13 309.57,-264.13 336.73,-264.13"/>
+<polygon fill="#000000" stroke="#000000" points="336.65,-267.64 346.65,-264.14 336.65,-260.64 336.65,-267.64"/>
+</g>
+<!-- interface~allclose&#45;&gt;proc~allclose_real64_1d -->
+<g id="proc~~test_print~~CalledByGraph_edge16" class="edge">
+<title>interface~allclose&#45;&gt;proc~allclose_real64_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M258.92,-257.66C280.66,-252.28 312.49,-244.4 340.66,-237.43"/>
+<polygon fill="#000000" stroke="#000000" points="341.31,-240.87 350.18,-235.07 339.63,-234.08 341.31,-240.87"/>
+</g>
+<!-- interface~allclose&#45;&gt;proc~allclose_real64_2d -->
+<g id="proc~~test_print~~CalledByGraph_edge18" class="edge">
+<title>interface~allclose&#45;&gt;proc~allclose_real64_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M259.15,-261.25C275.5,-258.52 296.4,-253.25 312.54,-243.13 333.37,-230.08 328.49,-215.36 348.54,-201.13 350.09,-200.04 351.7,-198.99 353.36,-197.98"/>
+<polygon fill="#000000" stroke="#000000" points="354.73,-201.22 361.93,-193.44 351.45,-195.03 354.73,-201.22"/>
+</g>
+<!-- interface~allclose&#45;&gt;proc~allclose_real64_3d -->
+<g id="proc~~test_print~~CalledByGraph_edge20" class="edge">
+<title>interface~allclose&#45;&gt;proc~allclose_real64_3d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M259.21,-263C276.2,-260.99 297.79,-255.85 312.54,-243.13 343.3,-216.61 319.35,-187.37 348.54,-159.13 349.28,-158.42 350.05,-157.72 350.84,-157.05"/>
+<polygon fill="#000000" stroke="#000000" points="352.58,-160.1 358.86,-151.57 348.63,-154.33 352.58,-160.1"/>
+</g>
+<!-- interface~isclose -->
+<g id="proc~~test_print~~CalledByGraph_node11" class="node">
+<title>interface~isclose</title>
+<g id="a_proc~~test_print~~CalledByGraph_node11"><a xlink:href="../interface/isclose.html" xlink:title="isclose">
+<polygon fill="#a7506f" stroke="#a7506f" points="258.78,-66.27 204.78,-66.27 204.78,-42 258.78,-42 258.78,-66.27"/>
+<text xml:space="preserve" text-anchor="middle" x="231.78" y="-50.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">isclose</text>
+</a>
+</g>
+</g>
+<!-- interface~isclose&#45;&gt;proc~isclose_real32 -->
+<g id="proc~~test_print~~CalledByGraph_edge22" class="edge">
+<title>interface~isclose&#45;&gt;proc~isclose_real32</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M258.92,-60.61C282.73,-66.5 318.66,-75.4 348.61,-82.81"/>
+<polygon fill="#000000" stroke="#000000" points="347.74,-86.2 358.28,-85.21 349.42,-79.41 347.74,-86.2"/>
+</g>
+<!-- interface~isclose&#45;&gt;proc~isclose_real64 -->
+<g id="proc~~test_print~~CalledByGraph_edge24" class="edge">
+<title>interface~isclose&#45;&gt;proc~isclose_real64</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M258.92,-54.13C282.73,-54.13 318.66,-54.13 348.61,-54.13"/>
+<polygon fill="#000000" stroke="#000000" points="348.24,-57.64 358.24,-54.14 348.24,-50.64 348.24,-57.64"/>
+</g>
+<!-- proc~allclose_operator_real32_1d -->
+<g id="proc~~test_print~~CalledByGraph_node12" class="node">
+<title>proc~allclose_operator_real32_1d</title>
+<g id="a_proc~~test_print~~CalledByGraph_node12"><a xlink:href="../proc/allclose_operator_real32_1d.html" xlink:title="allclose_operator_real32_1d">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="312.54,-402.27 151.02,-402.27 151.02,-378 312.54,-378 312.54,-402.27"/>
+<text xml:space="preserve" text-anchor="middle" x="231.78" y="-386.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">allclose_operator_real32_1d</text>
+</a>
+</g>
+</g>
+<!-- proc~allclose_operator_real32_1d&#45;&gt;proc~allclose_real32_1d -->
+<g id="proc~~test_print~~CalledByGraph_edge9" class="edge">
+<title>proc~allclose_operator_real32_1d&#45;&gt;proc~allclose_real32_1d</title>
+<path fill="none" stroke="#000000" d="M283.68,-377.53C301.54,-373.11 321.81,-368.09 340.48,-363.47"/>
+<polygon fill="#000000" stroke="#000000" points="341.23,-366.89 350.09,-361.09 339.54,-360.1 341.23,-366.89"/>
+</g>
+<!-- proc~allclose_operator_real32_2d -->
+<g id="proc~~test_print~~CalledByGraph_node13" class="node">
+<title>proc~allclose_operator_real32_2d</title>
+<g id="a_proc~~test_print~~CalledByGraph_node13"><a xlink:href="../proc/allclose_operator_real32_2d.html" xlink:title="allclose_operator_real32_2d">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="312.54,-360.27 151.02,-360.27 151.02,-336 312.54,-336 312.54,-360.27"/>
+<text xml:space="preserve" text-anchor="middle" x="231.78" y="-344.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">allclose_operator_real32_2d</text>
+</a>
+</g>
+</g>
+<!-- proc~allclose_operator_real32_2d&#45;&gt;proc~allclose_real32_2d -->
+<g id="proc~~test_print~~CalledByGraph_edge11" class="edge">
+<title>proc~allclose_operator_real32_2d&#45;&gt;proc~allclose_real32_2d</title>
+<path fill="none" stroke="#000000" d="M283.68,-335.53C301.54,-331.11 321.81,-326.09 340.48,-321.47"/>
+<polygon fill="#000000" stroke="#000000" points="341.23,-324.89 350.09,-319.09 339.54,-318.1 341.23,-324.89"/>
+</g>
+<!-- proc~allclose_operator_real32_3d -->
+<g id="proc~~test_print~~CalledByGraph_node14" class="node">
+<title>proc~allclose_operator_real32_3d</title>
+<g id="a_proc~~test_print~~CalledByGraph_node14"><a xlink:href="../proc/allclose_operator_real32_3d.html" xlink:title="allclose_operator_real32_3d">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="312.54,-318.27 151.02,-318.27 151.02,-294 312.54,-294 312.54,-318.27"/>
+<text xml:space="preserve" text-anchor="middle" x="231.78" y="-302.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">allclose_operator_real32_3d</text>
+</a>
+</g>
+</g>
+<!-- proc~allclose_operator_real32_3d&#45;&gt;proc~allclose_real32_3d -->
+<g id="proc~~test_print~~CalledByGraph_edge13" class="edge">
+<title>proc~allclose_operator_real32_3d&#45;&gt;proc~allclose_real32_3d</title>
+<path fill="none" stroke="#000000" d="M283.68,-293.53C301.54,-289.11 321.81,-284.09 340.48,-279.47"/>
+<polygon fill="#000000" stroke="#000000" points="341.23,-282.89 350.09,-277.09 339.54,-276.1 341.23,-282.89"/>
+</g>
+<!-- proc~allclose_operator_real64_1d -->
+<g id="proc~~test_print~~CalledByGraph_node15" class="node">
+<title>proc~allclose_operator_real64_1d</title>
+<g id="a_proc~~test_print~~CalledByGraph_node15"><a xlink:href="../proc/allclose_operator_real64_1d.html" xlink:title="allclose_operator_real64_1d">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="312.54,-234.27 151.02,-234.27 151.02,-210 312.54,-210 312.54,-234.27"/>
+<text xml:space="preserve" text-anchor="middle" x="231.78" y="-218.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">allclose_operator_real64_1d</text>
+</a>
+</g>
+</g>
+<!-- proc~allclose_operator_real64_1d&#45;&gt;proc~allclose_real64_1d -->
+<g id="proc~~test_print~~CalledByGraph_edge15" class="edge">
+<title>proc~allclose_operator_real64_1d&#45;&gt;proc~allclose_real64_1d</title>
+<path fill="none" stroke="#000000" d="M312.63,-222.13C320.72,-222.13 328.86,-222.13 336.77,-222.13"/>
+<polygon fill="#000000" stroke="#000000" points="336.64,-225.64 346.64,-222.14 336.64,-218.64 336.64,-225.64"/>
+</g>
+<!-- proc~allclose_operator_real64_2d -->
+<g id="proc~~test_print~~CalledByGraph_node16" class="node">
+<title>proc~allclose_operator_real64_2d</title>
+<g id="a_proc~~test_print~~CalledByGraph_node16"><a xlink:href="../proc/allclose_operator_real64_2d.html" xlink:title="allclose_operator_real64_2d">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="312.54,-192.27 151.02,-192.27 151.02,-168 312.54,-168 312.54,-192.27"/>
+<text xml:space="preserve" text-anchor="middle" x="231.78" y="-176.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">allclose_operator_real64_2d</text>
+</a>
+</g>
+</g>
+<!-- proc~allclose_operator_real64_2d&#45;&gt;proc~allclose_real64_2d -->
+<g id="proc~~test_print~~CalledByGraph_edge17" class="edge">
+<title>proc~allclose_operator_real64_2d&#45;&gt;proc~allclose_real64_2d</title>
+<path fill="none" stroke="#000000" d="M312.63,-180.13C320.72,-180.13 328.86,-180.13 336.77,-180.13"/>
+<polygon fill="#000000" stroke="#000000" points="336.64,-183.64 346.64,-180.14 336.64,-176.64 336.64,-183.64"/>
+</g>
+<!-- proc~allclose_operator_real64_3d -->
+<g id="proc~~test_print~~CalledByGraph_node17" class="node">
+<title>proc~allclose_operator_real64_3d</title>
+<g id="a_proc~~test_print~~CalledByGraph_node17"><a xlink:href="../proc/allclose_operator_real64_3d.html" xlink:title="allclose_operator_real64_3d">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="312.54,-150.27 151.02,-150.27 151.02,-126 312.54,-126 312.54,-150.27"/>
+<text xml:space="preserve" text-anchor="middle" x="231.78" y="-134.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">allclose_operator_real64_3d</text>
+</a>
+</g>
+</g>
+<!-- proc~allclose_operator_real64_3d&#45;&gt;proc~allclose_real64_3d -->
+<g id="proc~~test_print~~CalledByGraph_edge19" class="edge">
+<title>proc~allclose_operator_real64_3d&#45;&gt;proc~allclose_real64_3d</title>
+<path fill="none" stroke="#000000" d="M312.63,-138.13C320.72,-138.13 328.86,-138.13 336.77,-138.13"/>
+<polygon fill="#000000" stroke="#000000" points="336.64,-141.64 346.64,-138.14 336.64,-134.64 336.64,-141.64"/>
+</g>
+<!-- proc~isclose_operator_real32 -->
+<g id="proc~~test_print~~CalledByGraph_node18" class="node">
+<title>proc~isclose_operator_real32</title>
+<g id="a_proc~~test_print~~CalledByGraph_node18"><a xlink:href="../proc/isclose_operator_real32.html" xlink:title="isclose_operator_real32">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="300.91,-108.27 162.64,-108.27 162.64,-84 300.91,-84 300.91,-108.27"/>
+<text xml:space="preserve" text-anchor="middle" x="231.78" y="-92.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">isclose_operator_real32</text>
+</a>
+</g>
+</g>
+<!-- proc~isclose_operator_real32&#45;&gt;proc~isclose_real32 -->
+<g id="proc~~test_print~~CalledByGraph_edge21" class="edge">
+<title>proc~isclose_operator_real32&#45;&gt;proc~isclose_real32</title>
+<path fill="none" stroke="#000000" d="M301.29,-96.13C317.12,-96.13 333.74,-96.13 348.82,-96.13"/>
+<polygon fill="#000000" stroke="#000000" points="348.51,-99.64 358.51,-96.14 348.51,-92.64 348.51,-99.64"/>
+</g>
+<!-- proc~isclose_operator_real64 -->
+<g id="proc~~test_print~~CalledByGraph_node19" class="node">
+<title>proc~isclose_operator_real64</title>
+<g id="a_proc~~test_print~~CalledByGraph_node19"><a xlink:href="../proc/isclose_operator_real64.html" xlink:title="isclose_operator_real64">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="300.91,-24.27 162.64,-24.27 162.64,0 300.91,0 300.91,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="231.78" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">isclose_operator_real64</text>
+</a>
+</g>
+</g>
+<!-- proc~isclose_operator_real64&#45;&gt;proc~isclose_real64 -->
+<g id="proc~~test_print~~CalledByGraph_edge23" class="edge">
+<title>proc~isclose_operator_real64&#45;&gt;proc~isclose_real64</title>
+<path fill="none" stroke="#000000" d="M283.68,-24.74C304.28,-29.84 328.07,-35.73 348.93,-40.89"/>
+<polygon fill="#000000" stroke="#000000" points="347.84,-44.23 358.38,-43.23 349.52,-37.43 347.84,-44.23"/>
+</g>
+<!-- interface~operator (.allclose.) -->
+<g id="proc~~test_print~~CalledByGraph_node20" class="node">
+<title>interface~operator (.allclose.)</title>
+<g id="a_proc~~test_print~~CalledByGraph_node20"><a xlink:href="../interface/operator (.allclose.).html" xlink:title="operator (.allclose.)">
+<polygon fill="#a7506f" stroke="#a7506f" points="115.02,-276.27 0,-276.27 0,-252 115.02,-252 115.02,-276.27"/>
+<text xml:space="preserve" text-anchor="middle" x="57.51" y="-260.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">operator (.allclose.)</text>
+</a>
+</g>
+</g>
+<!-- interface~operator (.allclose.)&#45;&gt;proc~allclose_operator_real32_1d -->
+<g id="proc~~test_print~~CalledByGraph_edge25" class="edge">
+<title>interface~operator (.allclose.)&#45;&gt;proc~allclose_operator_real32_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M65.95,-276.64C79.81,-298.79 111.74,-344.89 151.02,-369.13 153.28,-370.53 155.63,-371.84 158.05,-373.05"/>
+<polygon fill="#000000" stroke="#000000" points="156.36,-376.13 166.92,-376.98 159.2,-369.73 156.36,-376.13"/>
+</g>
+<!-- interface~operator (.allclose.)&#45;&gt;proc~allclose_operator_real32_2d -->
+<g id="proc~~test_print~~CalledByGraph_edge26" class="edge">
+<title>interface~operator (.allclose.)&#45;&gt;proc~allclose_operator_real32_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M73.26,-276.55C90.76,-290.7 121.32,-313.6 151.02,-327.13 154.76,-328.84 158.66,-330.42 162.64,-331.9"/>
+<polygon fill="#000000" stroke="#000000" points="161.28,-335.13 171.88,-335.05 163.54,-328.51 161.28,-335.13"/>
+</g>
+<!-- interface~operator (.allclose.)&#45;&gt;proc~allclose_operator_real32_3d -->
+<g id="proc~~test_print~~CalledByGraph_edge27" class="edge">
+<title>interface~operator (.allclose.)&#45;&gt;proc~allclose_operator_real32_3d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M110.2,-276.74C128.42,-281.18 149.11,-286.22 168.15,-290.86"/>
+<polygon fill="#000000" stroke="#000000" points="167.11,-294.22 177.66,-293.18 168.77,-287.41 167.11,-294.22"/>
+</g>
+<!-- interface~operator (.allclose.)&#45;&gt;proc~allclose_operator_real64_1d -->
+<g id="proc~~test_print~~CalledByGraph_edge28" class="edge">
+<title>interface~operator (.allclose.)&#45;&gt;proc~allclose_operator_real64_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M110.2,-251.53C128.42,-247.09 149.11,-242.05 168.15,-237.41"/>
+<polygon fill="#000000" stroke="#000000" points="168.77,-240.86 177.66,-235.09 167.11,-234.05 168.77,-240.86"/>
+</g>
+<!-- interface~operator (.allclose.)&#45;&gt;proc~allclose_operator_real64_2d -->
+<g id="proc~~test_print~~CalledByGraph_edge29" class="edge">
+<title>interface~operator (.allclose.)&#45;&gt;proc~allclose_operator_real64_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M73.26,-251.72C90.76,-237.57 121.32,-214.67 151.02,-201.13 154.76,-199.43 158.66,-197.85 162.64,-196.37"/>
+<polygon fill="#000000" stroke="#000000" points="163.54,-199.76 171.88,-193.22 161.28,-193.14 163.54,-199.76"/>
+</g>
+<!-- interface~operator (.allclose.)&#45;&gt;proc~allclose_operator_real64_3d -->
+<g id="proc~~test_print~~CalledByGraph_edge30" class="edge">
+<title>interface~operator (.allclose.)&#45;&gt;proc~allclose_operator_real64_3d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M65.95,-251.63C79.81,-229.48 111.74,-183.38 151.02,-159.13 153.28,-157.74 155.63,-156.43 158.05,-155.22"/>
+<polygon fill="#000000" stroke="#000000" points="159.2,-158.54 166.92,-151.29 156.36,-152.14 159.2,-158.54"/>
+</g>
+<!-- interface~operator (.isclose.) -->
+<g id="proc~~test_print~~CalledByGraph_node21" class="node">
+<title>interface~operator (.isclose.)</title>
+<g id="a_proc~~test_print~~CalledByGraph_node21"><a xlink:href="../interface/operator (.isclose.).html" xlink:title="operator (.isclose.)">
+<polygon fill="#a7506f" stroke="#a7506f" points="112.77,-66.27 2.25,-66.27 2.25,-42 112.77,-42 112.77,-66.27"/>
+<text xml:space="preserve" text-anchor="middle" x="57.51" y="-50.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">operator (.isclose.)</text>
+</a>
+</g>
+</g>
+<!-- interface~operator (.isclose.)&#45;&gt;proc~isclose_operator_real32 -->
+<g id="proc~~test_print~~CalledByGraph_edge31" class="edge">
+<title>interface~operator (.isclose.)&#45;&gt;proc~isclose_operator_real32</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M110.2,-66.74C128.42,-71.18 149.11,-76.22 168.15,-80.86"/>
+<polygon fill="#000000" stroke="#000000" points="167.11,-84.22 177.66,-83.18 168.77,-77.41 167.11,-84.22"/>
+</g>
+<!-- interface~operator (.isclose.)&#45;&gt;proc~isclose_operator_real64 -->
+<g id="proc~~test_print~~CalledByGraph_edge32" class="edge">
+<title>interface~operator (.isclose.)&#45;&gt;proc~isclose_operator_real64</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M110.2,-41.53C128.42,-37.09 149.11,-32.05 168.15,-27.41"/>
+<polygon fill="#000000" stroke="#000000" points="168.77,-30.86 177.66,-25.09 167.11,-24.05 168.77,-30.86"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CalledByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 14.1.2 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 28.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.873868 0.873868) rotate(0) translate(4 28.27)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 729.52,-28.27 729.52,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="69.27,-24.27 0,-24.27 0,0 69.27,0 69.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="34.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="143.89,-24.27 87.38,-24.27 87.38,0 143.89,0 143.89,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="115.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="221.39,-24.27 161.88,-24.27 161.88,0 221.39,0 221.39,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="191.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="368.27,-24.27 239,-24.27 239,0 368.27,0 368.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="303.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="529.39,-24.27 385.88,-24.27 385.88,0 529.39,0 529.39,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="457.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="603.89,-24.27 547.38,-24.27 547.38,0 603.89,0 603.89,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="575.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="725.52,-24.27 621.75,-24.27 621.75,0 725.52,0 725.52,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="673.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">subroutine </span><span class="n">test_print</span><span class="p">(</span><span class="n">test_name</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="n">test_pass</span><span class="p">)</span>
+
+<span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">test_name</span><span class="w">  </span><span class="c">!! Name of the test being run</span>
+<span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">message</span><span class="w">    </span><span class="c">!! Message to print</span>
+<span class="w">      </span><span class="kt">logical</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">test_pass</span><span class="w">           </span><span class="c">!! Result of the value comparison</span>
+
+<span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">report</span>
+
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">test_pass</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">        </span><span class="n">report</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">27</span><span class="p">)</span><span class="o">//</span><span class="s2">"[32m"</span><span class="o">//</span><span class="s2">"PASSED"</span><span class="o">//</span><span class="nb">char</span><span class="p">(</span><span class="mi">27</span><span class="p">)</span><span class="o">//</span><span class="s2">"[0m"</span>
+<span class="w">      </span><span class="k">else</span>
+<span class="k">        </span><span class="n">report</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">27</span><span class="p">)</span><span class="o">//</span><span class="s2">"[31m"</span><span class="o">//</span><span class="s2">"FAILED"</span><span class="o">//</span><span class="nb">char</span><span class="p">(</span><span class="mi">27</span><span class="p">)</span><span class="o">//</span><span class="s2">"[0m"</span>
+<span class="w">      </span><span class="k">end if</span>
+<span class="k">      write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s1">'(A, " :: [", A, "] ", A)'</span><span class="p">)</span><span class="w"> </span><span class="n">report</span><span class="p">,</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">test_name</span><span class="p">),</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end subroutine </span><span class="n">test_print</span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              FTorch
+ was developed by ICCS Cambridge<br>              &copy; 2026 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

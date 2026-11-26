@@ -1,0 +1,306 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="FTorch - A library for coupling (Py)Torch machine learning models to Fortran codes.Written in modern Fortran (2008) with source code available on GitHub it has been used in multiple scientific projects.The associated JOSS paper can read here.">
+    <meta name="author" content="ICCS Cambridge" >
+    <link rel="icon" href="../../favicon.png">
+
+    <title>Generic Example &ndash; FTorch</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../../css/brands.min.css" rel="stylesheet">
+    <link href="../../css/regular.min.css" rel="stylesheet">
+    <link href="../../css/solid.min.css" rel="stylesheet">
+    <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../../css/local.css" rel="stylesheet">
+    <link href="../../css/pygments.css" rel="stylesheet">
+      <link href="../../css/user.css" rel="stylesheet">
+    <script src="../../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../../index.html">FTorch </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../index.html">User Guide</a></li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../../lists/types.html">Derived Types</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>Generic Example</h1>
+    <div class="container p-2 mb-4 bg-light border rounded-3">
+      <div class="row align-items-center justify-content-between">
+        <div class="col">
+          <ul class="list-inline" style="margin-bottom:0px; display:inline">
+              <li class="list-inline-item" id="author"><i class="fa fa-pencil"></i> Jack Atkinson</li>
+              <li class="list-inline-item" id="date"><i class="fa fa-calendar-o"></i> Last Updated: October 2025</li>
+          </ul>
+        </div>
+        <div class="col">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../index.html'>User Guide</a></li>
+                <li class="breadcrumb-item"><a href='index.html'>Usage</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Generic Example</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col-3">
+        <div class="card card-body bg-light" id="sidebar-toc">
+          <ul class="nav flex-column align-items">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">User Guide</a>
+            </li>
+          </ul>
+          <hr>
+          <nav class="nav nav-pills flex-column">
+              <a class="nav-link" href="../installation/index.html">Installation</a>
+                <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="../installation/general.html">Installation and Build</a>
+              <a class="nav-link" href="../installation/systems.html">System-Specific Guidance</a>
+              <a class="nav-link" href="../installation/gpu.html">GPU Support</a>
+              <a class="nav-link" href="../installation/hpc.html">HPC Support</a>
+
+                </nav>
+              <a class="nav-link" href="index.html">Usage</a>
+                <nav class="nav nav-pills flex-column">
+                                <a class="nav-link active disabled" href="generic_example.html">Generic Example</a>
+              <a class="nav-link" href="worked_examples.html">Worked Examples</a>
+              <a class="nav-link" href="tensor.html">Tensor API</a>
+              <a class="nav-link" href="optimizers.html">Optimizers API</a>
+              <a class="nav-link" href="api_equivalents.html">API Equivalents</a>
+              <a class="nav-link" href="transposing.html">When to transpose data</a>
+              <a class="nav-link" href="batching.html">Batching</a>
+              <a class="nav-link" href="offline.html">Offline training</a>
+              <a class="nav-link" href="online.html">Online training</a>
+              <a class="nav-link" href="troubleshooting.html">Troubleshooting</a>
+
+                </nav>
+              <a class="nav-link" href="../community/index.html">Community</a>
+                <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="../community/news_archive.html">News archive</a>
+              <a class="nav-link" href="../community/presentations.html">Presentations</a>
+              <a class="nav-link" href="../community/case_studies.html">FTorch Case Studies</a>
+              <a class="nav-link" href="../community/changelog.html">FTorch Changelog</a>
+
+                </nav>
+              <a class="nav-link" href="../developer/index.html">Developer Guide</a>
+                <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="../developer/developer.html">Developer Guide</a>
+              <a class="nav-link" href="../developer/testing.html">FTorch test suite</a>
+              <a class="nav-link" href="../developer/release_checklist.html">Release Checklist</a>
+
+                </nav>
+              <a class="nav-link" href="../LICENSE.html">FTorch License</a>
+          </nav>
+        </div>
+      </div>
+
+    <div class="col-9" id='text'>
+      <h2 id="generic-example">Generic Example</h2>
+<p>This page provides abstract guidance to the general process of using FTorch.
+It covers the full process of saving a model from PyTorch and coupling it into a Fortran code.
+To see this process in context we strongly advise following the
+<a href="worked_examples.html">Worked Examples</a>.</p>
+<h3 id="overview-of-the-interfacing-process">Overview of the interfacing process</h3>
+<p>In order to use FTorch users will typically need to follow these steps:</p>
+<ol>
+<li>Save a PyTorch model as <a href="https://docs.pytorch.org/docs/2.10/jit.html">TorchScript</a>.</li>
+<li>Write Fortran using the FTorch bindings to use the model from within Fortran.</li>
+<li>Build and compile the code, linking against the FTorch library</li>
+</ol>
+<p>These are outlined in detail below.</p>
+<h4 id="1-saving-the-model-in-pytorch-format">1. Saving the model in PyTorch format</h4>
+<p>The PyTorch model should be written out in the usual way using
+<a href="https://docs.pytorch.org/docs/stable/generated/torch.save.html"><code>torch.save</code></a>.
+That is, using the pickle file format commonly used for PyTorch objects such as
+models and tensors. The <code>.pt</code> file extension should be used.</p>
+<h4 id="2-converting-the-model-to-torchscript">2. Converting the model to TorchScript</h4>
+<p>The trained PyTorch model needs to be exported to
+<a href="https://docs.pytorch.org/docs/2.10/jit.html">TorchScript</a>.
+This can be done from within your code using the
+<a href="https://docs.pytorch.org/docs/2.10/generated/torch.jit.script.html#torch.jit.script"><code>jit.script</code></a>
+or
+<a href="https://docs.pytorch.org/docs/2.10/generated/torch.jit.trace.html#torch.jit.trace"><code>jit.trace</code></a>
+functionalities from within Python.</p>
+<p>If you are not familiar with these we provide a tool
+<a href="https://github.com/Cambridge-ICCS/FTorch/blob/main/ftorch_utils/pt2ts.py"><code>pt2ts</code></a>
+as part of FTorch which allows to convert a model in PyTorch file format into
+one using the TorchScript format. To make use of this tool, install the
+<code>ftorch-utils</code> Python package and its dependencies by running</p>
+<div class="codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>.
+</code></pre></div>
+
+<p>in FTorch's root directory. This will install the <code>pt2ts</code> script into your Python
+environment. For usage instructions, call <code>pt2ts --help</code> or read the
+<a href="https://github.com/Cambridge-ICCS/FTorch/tree/main/ftorch_utils/README.md">ftorch-utils README</a>.</p>
+<h4 id="3-using-the-model-from-fortran">3. Using the model from Fortran</h4>
+<p>To use the trained Torch model from within Fortran we need to import the <code>ftorch</code>
+module and use the binding routines to load the model, convert the data,
+and run inference.
+A very simple example is given below.</p>
+<p>This minimal snippet loads a saved Torch model, creates an input consisting of a
+<code>10x10</code> matrix of ones, and runs the model to infer output.<br>
+This is for illustrative purposes only, and we recommend following the
+<a href="https://github.com/Cambridge-ICCS/FTorch/tree/main/examples">examples</a>
+before writing your own code to fully explore the features.</p>
+<div class="codehilite"><pre><span></span><code><span class="c">! Import FTorch library for interfacing with PyTorch</span>
+<span class="k">use </span><span class="n">ftorch</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">torch_model</span><span class="p">,</span><span class="w"> </span><span class="n">torch_tensor</span><span class="p">,</span><span class="w"> </span><span class="n">torch_kCPU</span><span class="p">,</span><span class="w"> </span><span class="n">torch_delete</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                   </span><span class="n">torch_tensor_from_array</span><span class="p">,</span><span class="w"> </span><span class="n">torch_model_load</span><span class="p">,</span><span class="w"> </span><span class="n">torch_model_forward</span>
+
+<span class="k">implicit none</span>
+
+<span class="c">! Generate an object to hold the Torch model</span>
+<span class="k">type</span><span class="p">(</span><span class="n">torch_model</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">model</span>
+
+<span class="c">! Set up array of n_inputs input tensors and array of n_outputs output tensors</span>
+<span class="c">! Note: In this example there is only one input tensor (n_inputs = 1) and one</span>
+<span class="c">!       output tensor (n_outputs = 1)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">n_inputs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">n_outputs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">type</span><span class="p">(</span><span class="n">torch_tensor</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="n">n_inputs</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">model_input_arr</span>
+<span class="k">type</span><span class="p">(</span><span class="n">torch_tensor</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="n">n_outputs</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">model_output_arr</span>
+
+<span class="c">! Set up the model inputs and output as Fortran arrays</span>
+<span class="kt">real</span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="k">target</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">input</span>
+<span class="kt">real</span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="k">target</span><span class="w">     </span><span class="kd">::</span><span class="w"> </span><span class="n">output</span>
+
+<span class="c">! Initialise the Torch model to be used</span>
+<span class="n">torch_model_load</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="s2">"/path/to/saved/model.pt"</span><span class="p">,</span><span class="w"> </span><span class="n">torch_kCPU</span><span class="p">)</span>
+
+<span class="c">! Initialise the inputs as Fortran array of ones</span>
+<span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span>
+
+<span class="c">! Wrap Fortran data as no-copy Torch Tensors</span>
+<span class="c">! There may well be some reshaping required depending on the </span>
+<span class="c">! structure of the model which is not covered here (see examples)</span>
+<span class="k">call </span><span class="n">torch_tensor_from_array</span><span class="p">(</span><span class="n">model_input_arr</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">torch_kCPU</span><span class="p">)</span>
+<span class="k">call </span><span class="n">torch_tensor_from_array</span><span class="p">(</span><span class="n">model_output_arr</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">output</span><span class="p">,</span><span class="w"> </span><span class="n">torch_kCPU</span><span class="p">)</span>
+
+<span class="c">! Run model forward method and Infer</span>
+<span class="c">! Again, there may be some reshaping required depending on model design</span>
+<span class="k">call </span><span class="n">torch_model_forward</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">model_input_arr</span><span class="p">,</span><span class="w"> </span><span class="n">model_output_arr</span><span class="p">)</span>
+
+<span class="c">! Write out the result of running the model</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">output</span>
+
+<span class="c">! Clean up</span>
+<span class="k">call </span><span class="n">torch_delete</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<span class="k">call </span><span class="n">torch_delete</span><span class="p">(</span><span class="n">model_input_arr</span><span class="p">)</span>
+<span class="k">call </span><span class="n">torch_delete</span><span class="p">(</span><span class="n">model_output_arr</span><span class="p">)</span>
+</code></pre></div>
+
+<h4 id="4-building-the-code">4. Building the code</h4>
+<p>The code now needs to be compiled and linked against our installed library.
+Here we describe how to do this for two build systems, CMake and make.</p>
+<h5 id="cmake">CMake</h5>
+<p>If using CMake include the following in the <code>CMakeLists.txt</code>
+file to find the FTorch installation and link it to the executable.</p>
+<p>This can be done by adding the following to the <code>CMakeLists.txt</code> file:</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">find_package</span><span class="p">(</span><span class="s">FTorch</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="w"> </span><span class="s">&lt;executable&gt;</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">FTorch::ftorch</span><span class="w"> </span><span class="p">)</span>
+<span class="nb">message</span><span class="p">(</span><span class="s">STATUS</span><span class="w"> </span><span class="s2">"Building with Fortran PyTorch coupling"</span><span class="p">)</span>
+</code></pre></div>
+
+<p>and using the <code>-DCMAKE_PREFIX_PATH=&lt;/path/to/install/location&gt;</code> flag when running CMake.  </p>
+<div class="alert alert-info">
+<p class="alert-title h4">Note</p>
+<p><em>If you used the <code>CMAKE_INSTALL_PREFIX</code> argument when
+<a href="../installation/general.html">building and installing the library</a>
+then you should use the same path for <code>&lt;/path/to/install/location&gt;</code>.</em></p>
+</div>
+<h5 id="make">Make</h5>
+<p>To build with <code>make</code> we need to <em>include</em> the library and <em>link</em> the
+executable against it when compiling.</p>
+<p>For full details of the flags to set and the linking process see the
+<a href="../installation/hpc.html#building-and-linking">HPC build pages</a>.</p>
+<h3 id="running-on-gpus">Running on GPUs</h3>
+<p>In order to run a model on GPU, two main changes to the above process are required:</p>
+<ol>
+<li>When saving your TorchScript model, ensure that it is on the GPU.</li>
+<li>When calling <code>torch_tensor_from_array</code> in Fortran, the device for the input
+   tensor(s) should be set to <code>torch_kCUDA</code>, rather than <code>torch_kCPU</code>.</li>
+</ol>
+<p>For more information refer to the <a href="../installation/gpu.html">GPU Documentation</a></p>
+    </div>
+  </div>
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              FTorch
+ was developed by ICCS Cambridge<br>              &copy; 2026 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

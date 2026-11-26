@@ -1,0 +1,1728 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="FTorch - A library for coupling (Py)Torch machine learning models to Fortran codes.Written in modern Fortran (2008) with source code available on GitHub it has been used in multiple scientific projects.The associated JOSS paper can read here.">
+    <meta name="author" content="ICCS Cambridge" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>torch_from_blob_c &ndash; FTorch</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+      <link href="../css/user.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">FTorch </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../page/index.html">User Guide</a></li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>torch_from_blob_c
+      <small>Interface</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a></li>
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.4% of total for procedures.">15 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/ftorch_tensor.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/ftorch_tensor.f90.html'>ftorch_tensor.f90</a></li>
+                <li class="breadcrumb-item"><a href='../module/ftorch_tensor.html'>ftorch_tensor</a></li>
+            <li class="breadcrumb-item active" aria-current="page">torch_from_blob_c</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+    <em>None</em>
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+      <h2>interface</h2>
+      
+      <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Called by</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 14.1.2 (0)
+ -->
+<!-- Title: interface~~torch_from_blob_c~~CalledByGraph Pages: 1 -->
+<svg id="interfacetorch_from_blob_cCalledByGraph" width="641pt" height="2059pt"
+ viewBox="0.00 0.00 641.00 2059.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="interface~~torch_from_blob_c~~CalledByGraph" class="graph" transform="scale(0.820134 0.820134) rotate(0) translate(4 2506.27)">
+<title>interface~~torch_from_blob_c~~CalledByGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-2506.27 777.58,-2506.27 777.58,4 -4,4"/>
+<!-- interface~torch_from_blob_c -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node1" class="node">
+<title>interface~torch_from_blob_c</title>
+<polygon fill="none" stroke="black" points="773.58,-1263.27 665.31,-1263.27 665.31,-1239 773.58,-1239 773.58,-1263.27"/>
+<text xml:space="preserve" text-anchor="middle" x="719.45" y="-1247.54" font-family="Helvetica,sans-Serif" font-size="10.50">torch_from_blob_c</text>
+</g>
+<!-- proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node2" class="node">
+<title>proc~torch_tensor_from_blob</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node2"><a xlink:href="../proc/torch_tensor_from_blob.html" xlink:title="torch_tensor_from_blob">
+<polygon fill="#d9534f" stroke="#d9534f" points="629.31,-1263.27 493.29,-1263.27 493.29,-1239 629.31,-1239 629.31,-1263.27"/>
+<text xml:space="preserve" text-anchor="middle" x="561.3" y="-1247.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_blob</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_blob&#45;&gt;interface~torch_from_blob_c -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge1" class="edge">
+<title>proc~torch_tensor_from_blob&#45;&gt;interface~torch_from_blob_c</title>
+<path fill="none" stroke="#000000" d="M629.43,-1251.13C637.42,-1251.13 645.58,-1251.13 653.54,-1251.13"/>
+<polygon fill="#000000" stroke="#000000" points="653.52,-1254.64 663.52,-1251.14 653.52,-1247.64 653.52,-1254.64"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_1d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node3" class="node">
+<title>proc~torch_tensor_from_array_int16_1d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node3"><a xlink:href="../proc/torch_tensor_from_array_int16_1d.html" xlink:title="torch_tensor_from_array_int16_1d">
+<polygon fill="#d9534f" stroke="#d9534f" points="433.67,-2502.27 241.4,-2502.27 241.4,-2478 433.67,-2478 433.67,-2502.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-2486.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_1d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int16_1d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge2" class="edge">
+<title>proc~torch_tensor_from_array_int16_1d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M434.05,-2485.28C442.8,-2481.48 450.8,-2476.25 457.29,-2469.14 540.97,-2377.5 557.73,-1436.48 560,-1274.74"/>
+<polygon fill="#000000" stroke="#000000" points="563.49,-1275.27 560.13,-1265.23 556.49,-1275.18 563.49,-1275.27"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_1d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node4" class="node">
+<title>proc~torch_tensor_from_array_int16_1d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node4"><a xlink:href="../proc/torch_tensor_from_array_int16_1d_legacy.html" xlink:title="torch_tensor_from_array_int16_1d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-1242.27 221.15,-1242.27 221.15,-1218 453.92,-1218 453.92,-1242.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1226.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_1d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int16_1d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge3" class="edge">
+<title>proc~torch_tensor_from_array_int16_1d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M454.29,-1241.1C463.49,-1241.97 472.64,-1242.83 481.5,-1243.67"/>
+<polygon fill="#000000" stroke="#000000" points="481.16,-1247.16 491.44,-1244.61 481.82,-1240.19 481.16,-1247.16"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_2d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node5" class="node">
+<title>proc~torch_tensor_from_array_int16_2d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node5"><a xlink:href="../proc/torch_tensor_from_array_int16_2d.html" xlink:title="torch_tensor_from_array_int16_2d">
+<polygon fill="#d9534f" stroke="#d9534f" points="433.67,-2460.27 241.4,-2460.27 241.4,-2436 433.67,-2436 433.67,-2460.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-2444.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_2d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int16_2d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge4" class="edge">
+<title>proc~torch_tensor_from_array_int16_2d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M434.03,-2443.26C442.78,-2439.47 450.78,-2434.24 457.29,-2427.14 538.08,-2338.94 557.18,-1433.82 559.92,-1274.89"/>
+<polygon fill="#000000" stroke="#000000" points="563.42,-1275.22 560.09,-1265.17 556.42,-1275.11 563.42,-1275.22"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_2d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node6" class="node">
+<title>proc~torch_tensor_from_array_int16_2d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node6"><a xlink:href="../proc/torch_tensor_from_array_int16_2d_legacy.html" xlink:title="torch_tensor_from_array_int16_2d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-1200.27 221.15,-1200.27 221.15,-1176 453.92,-1176 453.92,-1200.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1184.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_2d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int16_2d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge5" class="edge">
+<title>proc~torch_tensor_from_array_int16_2d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M422.74,-1200.74C434.43,-1203.15 446.23,-1205.94 457.29,-1209.13 479.89,-1215.66 504.29,-1225.48 523.68,-1233.99"/>
+<polygon fill="#000000" stroke="#000000" points="522.23,-1237.17 532.79,-1238.06 525.09,-1230.78 522.23,-1237.17"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_3d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node7" class="node">
+<title>proc~torch_tensor_from_array_int16_3d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node7"><a xlink:href="../proc/torch_tensor_from_array_int16_3d.html" xlink:title="torch_tensor_from_array_int16_3d">
+<polygon fill="#d9534f" stroke="#d9534f" points="433.67,-2418.27 241.4,-2418.27 241.4,-2394 433.67,-2394 433.67,-2418.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-2402.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_3d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int16_3d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge6" class="edge">
+<title>proc~torch_tensor_from_array_int16_3d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M434.01,-2401.24C442.76,-2397.45 450.77,-2392.23 457.29,-2385.14 535.19,-2300.36 556.61,-1430.88 559.84,-1275"/>
+<polygon fill="#000000" stroke="#000000" points="563.34,-1275.16 560.04,-1265.09 556.34,-1275.01 563.34,-1275.16"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_3d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node8" class="node">
+<title>proc~torch_tensor_from_array_int16_3d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node8"><a xlink:href="../proc/torch_tensor_from_array_int16_3d_legacy.html" xlink:title="torch_tensor_from_array_int16_3d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-1158.27 221.15,-1158.27 221.15,-1134 453.92,-1134 453.92,-1158.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1142.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_3d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int16_3d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge7" class="edge">
+<title>proc~torch_tensor_from_array_int16_3d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M434.79,-1158.77C442.56,-1161.1 450.15,-1163.87 457.29,-1167.13 490.4,-1182.3 521.84,-1210.7 541.08,-1230.24"/>
+<polygon fill="#000000" stroke="#000000" points="538.53,-1232.64 547.98,-1237.43 543.58,-1227.79 538.53,-1232.64"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_4d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node9" class="node">
+<title>proc~torch_tensor_from_array_int16_4d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node9"><a xlink:href="../proc/torch_tensor_from_array_int16_4d.html" xlink:title="torch_tensor_from_array_int16_4d">
+<polygon fill="#d9534f" stroke="#d9534f" points="433.67,-2376.27 241.4,-2376.27 241.4,-2352 433.67,-2352 433.67,-2376.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-2360.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_4d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int16_4d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge8" class="edge">
+<title>proc~torch_tensor_from_array_int16_4d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M433.98,-2359.22C442.74,-2355.43 450.76,-2350.22 457.29,-2343.14 532.39,-2261.69 556.07,-1425.99 559.76,-1274.59"/>
+<polygon fill="#000000" stroke="#000000" points="563.25,-1275.07 559.99,-1264.99 556.25,-1274.9 563.25,-1275.07"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_4d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node10" class="node">
+<title>proc~torch_tensor_from_array_int16_4d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node10"><a xlink:href="../proc/torch_tensor_from_array_int16_4d_legacy.html" xlink:title="torch_tensor_from_array_int16_4d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-1116.27 221.15,-1116.27 221.15,-1092 453.92,-1092 453.92,-1116.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1100.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_4d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int16_4d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge9" class="edge">
+<title>proc~torch_tensor_from_array_int16_4d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M439.51,-1116.68C445.71,-1119.06 451.69,-1121.85 457.29,-1125.13 499.87,-1150.1 532.3,-1199.66 548.61,-1228.63"/>
+<polygon fill="#000000" stroke="#000000" points="545.48,-1230.19 553.34,-1237.3 551.62,-1226.84 545.48,-1230.19"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_5d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node11" class="node">
+<title>proc~torch_tensor_from_array_int16_5d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node11"><a xlink:href="../proc/torch_tensor_from_array_int16_5d.html" xlink:title="torch_tensor_from_array_int16_5d">
+<polygon fill="#d9534f" stroke="#d9534f" points="433.67,-2334.27 241.4,-2334.27 241.4,-2310 433.67,-2310 433.67,-2334.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-2318.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_5d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int16_5d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge10" class="edge">
+<title>proc~torch_tensor_from_array_int16_5d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M433.96,-2317.19C442.72,-2313.41 450.75,-2308.2 457.29,-2301.14 529.45,-2223.17 555.42,-1424.24 559.66,-1275.06"/>
+<polygon fill="#000000" stroke="#000000" points="563.15,-1275.31 559.93,-1265.21 556.15,-1275.11 563.15,-1275.31"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_5d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node12" class="node">
+<title>proc~torch_tensor_from_array_int16_5d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node12"><a xlink:href="../proc/torch_tensor_from_array_int16_5d_legacy.html" xlink:title="torch_tensor_from_array_int16_5d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-1074.27 221.15,-1074.27 221.15,-1050 453.92,-1050 453.92,-1074.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1058.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_5d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int16_5d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge11" class="edge">
+<title>proc~torch_tensor_from_array_int16_5d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M442.1,-1074.71C447.42,-1077.11 452.53,-1079.89 457.29,-1083.13 509.85,-1118.93 540.39,-1191.32 553.18,-1228.29"/>
+<polygon fill="#000000" stroke="#000000" points="549.77,-1229.12 556.24,-1237.52 556.42,-1226.92 549.77,-1229.12"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_1d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node13" class="node">
+<title>proc~torch_tensor_from_array_int32_1d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node13"><a xlink:href="../proc/torch_tensor_from_array_int32_1d.html" xlink:title="torch_tensor_from_array_int32_1d">
+<polygon fill="#d9534f" stroke="#d9534f" points="433.67,-2292.27 241.4,-2292.27 241.4,-2268 433.67,-2268 433.67,-2292.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-2276.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_1d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int32_1d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge12" class="edge">
+<title>proc~torch_tensor_from_array_int32_1d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M433.93,-2275.17C442.7,-2271.39 450.73,-2266.19 457.29,-2259.14 526.6,-2184.56 554.8,-1420.48 559.56,-1274.99"/>
+<polygon fill="#000000" stroke="#000000" points="563.05,-1275.17 559.87,-1265.06 556.06,-1274.94 563.05,-1275.17"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_1d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node14" class="node">
+<title>proc~torch_tensor_from_array_int32_1d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node14"><a xlink:href="../proc/torch_tensor_from_array_int32_1d_legacy.html" xlink:title="torch_tensor_from_array_int32_1d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-1032.27 221.15,-1032.27 221.15,-1008 453.92,-1008 453.92,-1032.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1016.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_1d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int32_1d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge13" class="edge">
+<title>proc~torch_tensor_from_array_int32_1d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M443.61,-1032.75C448.43,-1035.15 453.02,-1037.93 457.29,-1041.13 519.88,-1088.21 546.63,-1183.55 556.02,-1227.71"/>
+<polygon fill="#000000" stroke="#000000" points="552.53,-1228.12 557.92,-1237.24 559.39,-1226.75 552.53,-1228.12"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_2d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node15" class="node">
+<title>proc~torch_tensor_from_array_int32_2d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node15"><a xlink:href="../proc/torch_tensor_from_array_int32_2d.html" xlink:title="torch_tensor_from_array_int32_2d">
+<polygon fill="#d9534f" stroke="#d9534f" points="433.67,-2250.27 241.4,-2250.27 241.4,-2226 433.67,-2226 433.67,-2250.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-2234.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_2d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int32_2d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge14" class="edge">
+<title>proc~torch_tensor_from_array_int32_2d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M433.9,-2233.14C442.67,-2229.36 450.72,-2224.18 457.29,-2217.14 523.76,-2145.93 554.15,-1416.52 559.45,-1274.89"/>
+<polygon fill="#000000" stroke="#000000" points="562.93,-1275.34 559.8,-1265.22 555.94,-1275.08 562.93,-1275.34"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_2d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node16" class="node">
+<title>proc~torch_tensor_from_array_int32_2d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node16"><a xlink:href="../proc/torch_tensor_from_array_int32_2d_legacy.html" xlink:title="torch_tensor_from_array_int32_2d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-990.27 221.15,-990.27 221.15,-966 453.92,-966 453.92,-990.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-974.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_2d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int32_2d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge15" class="edge">
+<title>proc~torch_tensor_from_array_int32_2d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M444.44,-990.69C448.98,-993.12 453.3,-995.91 457.29,-999.13 530.2,-1057.96 551.96,-1176.75 558.07,-1227.4"/>
+<polygon fill="#000000" stroke="#000000" points="554.58,-1227.66 559.14,-1237.22 561.53,-1226.9 554.58,-1227.66"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_3d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node17" class="node">
+<title>proc~torch_tensor_from_array_int32_3d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node17"><a xlink:href="../proc/torch_tensor_from_array_int32_3d.html" xlink:title="torch_tensor_from_array_int32_3d">
+<polygon fill="#d9534f" stroke="#d9534f" points="433.67,-2208.27 241.4,-2208.27 241.4,-2184 433.67,-2184 433.67,-2208.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-2192.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_3d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int32_3d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge16" class="edge">
+<title>proc~torch_tensor_from_array_int32_3d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M434.15,-2190.98C442.82,-2187.23 450.77,-2182.08 457.29,-2175.14 520.94,-2107.28 553.49,-1412.21 559.34,-1274.7"/>
+<polygon fill="#000000" stroke="#000000" points="562.82,-1275.14 559.74,-1265 555.83,-1274.84 562.82,-1275.14"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_3d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node18" class="node">
+<title>proc~torch_tensor_from_array_int32_3d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node18"><a xlink:href="../proc/torch_tensor_from_array_int32_3d_legacy.html" xlink:title="torch_tensor_from_array_int32_3d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-948.27 221.15,-948.27 221.15,-924 453.92,-924 453.92,-948.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-932.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_3d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int32_3d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge17" class="edge">
+<title>proc~torch_tensor_from_array_int32_3d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M445.19,-948.75C449.48,-951.17 453.54,-953.95 457.29,-957.13 540.81,-1028.12 556.65,-1170.98 559.63,-1227.42"/>
+<polygon fill="#000000" stroke="#000000" points="556.12,-1227.32 560.04,-1237.16 563.11,-1227.02 556.12,-1227.32"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_4d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node19" class="node">
+<title>proc~torch_tensor_from_array_int32_4d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node19"><a xlink:href="../proc/torch_tensor_from_array_int32_4d.html" xlink:title="torch_tensor_from_array_int32_4d">
+<polygon fill="#d9534f" stroke="#d9534f" points="433.67,-2166.27 241.4,-2166.27 241.4,-2142 433.67,-2142 433.67,-2166.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-2150.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_4d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int32_4d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge18" class="edge">
+<title>proc~torch_tensor_from_array_int32_4d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M434.11,-2148.95C442.79,-2145.2 450.75,-2140.07 457.29,-2133.14 518.06,-2068.69 552.74,-1409.03 559.2,-1274.87"/>
+<polygon fill="#000000" stroke="#000000" points="562.68,-1275.23 559.66,-1265.08 555.69,-1274.9 562.68,-1275.23"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_4d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node20" class="node">
+<title>proc~torch_tensor_from_array_int32_4d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node20"><a xlink:href="../proc/torch_tensor_from_array_int32_4d_legacy.html" xlink:title="torch_tensor_from_array_int32_4d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-906.27 221.15,-906.27 221.15,-882 453.92,-882 453.92,-906.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-890.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_4d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int32_4d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge19" class="edge">
+<title>proc~torch_tensor_from_array_int32_4d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M445.62,-906.73C449.77,-909.16 453.68,-911.94 457.29,-915.13 551.57,-998.52 560.79,-1165.7 560.82,-1227.48"/>
+<polygon fill="#000000" stroke="#000000" points="557.32,-1227.14 560.73,-1237.17 564.32,-1227.2 557.32,-1227.14"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_5d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node21" class="node">
+<title>proc~torch_tensor_from_array_int32_5d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node21"><a xlink:href="../proc/torch_tensor_from_array_int32_5d.html" xlink:title="torch_tensor_from_array_int32_5d">
+<polygon fill="#d9534f" stroke="#d9534f" points="433.67,-2124.27 241.4,-2124.27 241.4,-2100 433.67,-2100 433.67,-2124.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-2108.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_5d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int32_5d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge20" class="edge">
+<title>proc~torch_tensor_from_array_int32_5d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M434.07,-2106.91C442.76,-2103.17 450.73,-2098.05 457.29,-2091.14 515.2,-2030.07 551.97,-1405.45 559.05,-1274.95"/>
+<polygon fill="#000000" stroke="#000000" points="562.53,-1275.28 559.57,-1265.11 555.54,-1274.91 562.53,-1275.28"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_5d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node22" class="node">
+<title>proc~torch_tensor_from_array_int32_5d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node22"><a xlink:href="../proc/torch_tensor_from_array_int32_5d_legacy.html" xlink:title="torch_tensor_from_array_int32_5d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-864.27 221.15,-864.27 221.15,-840 453.92,-840 453.92,-864.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-848.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_5d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int32_5d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge21" class="edge">
+<title>proc~torch_tensor_from_array_int32_5d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M446.02,-864.75C450.03,-867.18 453.81,-869.96 457.29,-873.13 510.94,-922.11 546.78,-1152.53 557.18,-1227.5"/>
+<polygon fill="#000000" stroke="#000000" points="553.65,-1227.58 558.47,-1237.02 560.59,-1226.64 553.65,-1227.58"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_1d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node23" class="node">
+<title>proc~torch_tensor_from_array_int64_1d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node23"><a xlink:href="../proc/torch_tensor_from_array_int64_1d.html" xlink:title="torch_tensor_from_array_int64_1d">
+<polygon fill="#d9534f" stroke="#d9534f" points="433.67,-2082.27 241.4,-2082.27 241.4,-2058 433.67,-2058 433.67,-2082.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-2066.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_1d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int64_1d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge22" class="edge">
+<title>proc~torch_tensor_from_array_int64_1d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M434.03,-2064.87C442.72,-2061.13 450.71,-2056.03 457.29,-2049.14 512.36,-1991.43 551.16,-1401.46 558.89,-1274.94"/>
+<polygon fill="#000000" stroke="#000000" points="562.37,-1275.29 559.48,-1265.1 555.39,-1274.87 562.37,-1275.29"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_1d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node24" class="node">
+<title>proc~torch_tensor_from_array_int64_1d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node24"><a xlink:href="../proc/torch_tensor_from_array_int64_1d_legacy.html" xlink:title="torch_tensor_from_array_int64_1d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-822.27 221.15,-822.27 221.15,-798 453.92,-798 453.92,-822.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-806.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_1d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int64_1d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge23" class="edge">
+<title>proc~torch_tensor_from_array_int64_1d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M446.12,-822.64C450.1,-825.1 453.85,-827.91 457.29,-831.13 516.46,-886.55 549.1,-1147.33 557.87,-1227.58"/>
+<polygon fill="#000000" stroke="#000000" points="554.37,-1227.77 558.91,-1237.34 561.33,-1227.03 554.37,-1227.77"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_2d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node25" class="node">
+<title>proc~torch_tensor_from_array_int64_2d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node25"><a xlink:href="../proc/torch_tensor_from_array_int64_2d.html" xlink:title="torch_tensor_from_array_int64_2d">
+<polygon fill="#d9534f" stroke="#d9534f" points="433.67,-2040.27 241.4,-2040.27 241.4,-2016 433.67,-2016 433.67,-2040.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-2024.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_2d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int64_2d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge24" class="edge">
+<title>proc~torch_tensor_from_array_int64_2d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M433.98,-2022.82C442.68,-2019.09 450.69,-2014 457.29,-2007.13 561.14,-1899.09 561.88,-1391.45 560.66,-1274.99"/>
+<polygon fill="#000000" stroke="#000000" points="564.16,-1275.05 560.53,-1265.09 557.16,-1275.14 564.16,-1275.05"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_2d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node26" class="node">
+<title>proc~torch_tensor_from_array_int64_2d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node26"><a xlink:href="../proc/torch_tensor_from_array_int64_2d_legacy.html" xlink:title="torch_tensor_from_array_int64_2d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-780.27 221.15,-780.27 221.15,-756 453.92,-756 453.92,-780.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-764.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_2d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int64_2d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge25" class="edge">
+<title>proc~torch_tensor_from_array_int64_2d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M446.47,-780.72C450.33,-783.16 453.96,-785.95 457.29,-789.13 521.89,-850.93 551.09,-1141.38 558.4,-1227.2"/>
+<polygon fill="#000000" stroke="#000000" points="554.9,-1227.35 559.21,-1237.03 561.88,-1226.77 554.9,-1227.35"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_3d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node27" class="node">
+<title>proc~torch_tensor_from_array_int64_3d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node27"><a xlink:href="../proc/torch_tensor_from_array_int64_3d.html" xlink:title="torch_tensor_from_array_int64_3d">
+<polygon fill="#d9534f" stroke="#d9534f" points="433.67,-1998.27 241.4,-1998.27 241.4,-1974 433.67,-1974 433.67,-1998.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1982.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_3d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int64_3d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge26" class="edge">
+<title>proc~torch_tensor_from_array_int64_3d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M433.92,-1980.77C442.64,-1977.05 450.66,-1971.98 457.29,-1965.13 555.46,-1863.8 560.62,-1387.74 560.45,-1275.08"/>
+<polygon fill="#000000" stroke="#000000" points="563.95,-1275.22 560.41,-1265.23 556.95,-1275.24 563.95,-1275.22"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_3d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node28" class="node">
+<title>proc~torch_tensor_from_array_int64_3d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node28"><a xlink:href="../proc/torch_tensor_from_array_int64_3d_legacy.html" xlink:title="torch_tensor_from_array_int64_3d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-738.27 221.15,-738.27 221.15,-714 453.92,-714 453.92,-738.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-722.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_3d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int64_3d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge27" class="edge">
+<title>proc~torch_tensor_from_array_int64_3d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M446.54,-738.64C450.38,-741.11 453.99,-743.92 457.29,-747.13 527.5,-815.5 553.03,-1136.99 558.89,-1227.42"/>
+<polygon fill="#000000" stroke="#000000" points="555.39,-1227.54 559.51,-1237.3 562.38,-1227.1 555.39,-1227.54"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_4d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node29" class="node">
+<title>proc~torch_tensor_from_array_int64_4d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node29"><a xlink:href="../proc/torch_tensor_from_array_int64_4d.html" xlink:title="torch_tensor_from_array_int64_4d">
+<polygon fill="#d9534f" stroke="#d9534f" points="433.67,-1956.27 241.4,-1956.27 241.4,-1932 433.67,-1932 433.67,-1956.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1940.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_4d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int64_4d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge28" class="edge">
+<title>proc~torch_tensor_from_array_int64_4d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M434.15,-1938.59C442.76,-1934.89 450.7,-1929.87 457.29,-1923.13 549.94,-1828.34 559.31,-1382.59 560.21,-1274.7"/>
+<polygon fill="#000000" stroke="#000000" points="563.71,-1275.05 560.27,-1265.03 556.71,-1275 563.71,-1275.05"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_4d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node30" class="node">
+<title>proc~torch_tensor_from_array_int64_4d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node30"><a xlink:href="../proc/torch_tensor_from_array_int64_4d_legacy.html" xlink:title="torch_tensor_from_array_int64_4d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-696.27 221.15,-696.27 221.15,-672 453.92,-672 453.92,-696.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-680.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_4d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int64_4d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge29" class="edge">
+<title>proc~torch_tensor_from_array_int64_4d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M446.86,-696.75C450.59,-699.19 454.09,-701.97 457.29,-705.13 533.04,-780.02 554.76,-1132.05 559.29,-1227.31"/>
+<polygon fill="#000000" stroke="#000000" points="555.79,-1227.43 559.74,-1237.26 562.79,-1227.11 555.79,-1227.43"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_5d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node31" class="node">
+<title>proc~torch_tensor_from_array_int64_5d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node31"><a xlink:href="../proc/torch_tensor_from_array_int64_5d.html" xlink:title="torch_tensor_from_array_int64_5d">
+<polygon fill="#d9534f" stroke="#d9534f" points="433.67,-1914.27 241.4,-1914.27 241.4,-1890 433.67,-1890 433.67,-1914.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1898.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_5d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int64_5d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge30" class="edge">
+<title>proc~torch_tensor_from_array_int64_5d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M434.08,-1896.52C442.71,-1892.84 450.67,-1887.84 457.29,-1881.13 544.18,-1793.12 557.86,-1379.71 559.94,-1275.19"/>
+<polygon fill="#000000" stroke="#000000" points="563.44,-1275.34 560.12,-1265.28 556.44,-1275.22 563.44,-1275.34"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_5d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node32" class="node">
+<title>proc~torch_tensor_from_array_int64_5d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node32"><a xlink:href="../proc/torch_tensor_from_array_int64_5d_legacy.html" xlink:title="torch_tensor_from_array_int64_5d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-654.27 221.15,-654.27 221.15,-630 453.92,-630 453.92,-654.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-638.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_5d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int64_5d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge31" class="edge">
+<title>proc~torch_tensor_from_array_int64_5d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M446.91,-654.7C450.63,-657.15 454.11,-659.95 457.29,-663.13 538.58,-744.55 556.35,-1127.01 559.63,-1227.11"/>
+<polygon fill="#000000" stroke="#000000" points="556.13,-1227.19 559.94,-1237.08 563.13,-1226.98 556.13,-1227.19"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_1d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node33" class="node">
+<title>proc~torch_tensor_from_array_int8_1d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node33"><a xlink:href="../proc/torch_tensor_from_array_int8_1d.html" xlink:title="torch_tensor_from_array_int8_1d">
+<polygon fill="#d9534f" stroke="#d9534f" points="430.29,-1872.27 244.77,-1872.27 244.77,-1848 430.29,-1848 430.29,-1872.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1856.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_1d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int8_1d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge32" class="edge">
+<title>proc~torch_tensor_from_array_int8_1d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M430.51,-1855.84C440.49,-1852.07 449.75,-1846.69 457.29,-1839.13 538.58,-1757.72 556.35,-1375.26 559.63,-1275.16"/>
+<polygon fill="#000000" stroke="#000000" points="563.13,-1275.29 559.94,-1265.19 556.13,-1275.08 563.13,-1275.29"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_1d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node34" class="node">
+<title>proc~torch_tensor_from_array_int8_1d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node34"><a xlink:href="../proc/torch_tensor_from_array_int8_1d_legacy.html" xlink:title="torch_tensor_from_array_int8_1d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="450.54,-612.27 224.52,-612.27 224.52,-588 450.54,-588 450.54,-612.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-596.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_1d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int8_1d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge33" class="edge">
+<title>proc~torch_tensor_from_array_int8_1d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M446.96,-612.65C450.66,-615.12 454.13,-617.93 457.29,-621.13 544.18,-709.15 557.86,-1122.56 559.94,-1227.08"/>
+<polygon fill="#000000" stroke="#000000" points="556.44,-1227.05 560.12,-1236.99 563.44,-1226.93 556.44,-1227.05"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_2d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node35" class="node">
+<title>proc~torch_tensor_from_array_int8_2d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node35"><a xlink:href="../proc/torch_tensor_from_array_int8_2d.html" xlink:title="torch_tensor_from_array_int8_2d">
+<polygon fill="#d9534f" stroke="#d9534f" points="430.29,-1830.27 244.77,-1830.27 244.77,-1806 430.29,-1806 430.29,-1830.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1814.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_2d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int8_2d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge34" class="edge">
+<title>proc~torch_tensor_from_array_int8_2d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M430.71,-1813.63C440.6,-1809.89 449.77,-1804.57 457.29,-1797.13 533.04,-1722.25 554.76,-1370.22 559.29,-1274.96"/>
+<polygon fill="#000000" stroke="#000000" points="562.79,-1275.16 559.74,-1265.01 555.79,-1274.84 562.79,-1275.16"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_2d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node36" class="node">
+<title>proc~torch_tensor_from_array_int8_2d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node36"><a xlink:href="../proc/torch_tensor_from_array_int8_2d_legacy.html" xlink:title="torch_tensor_from_array_int8_2d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="450.54,-570.27 224.52,-570.27 224.52,-546 450.54,-546 450.54,-570.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-554.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_2d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int8_2d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge35" class="edge">
+<title>proc~torch_tensor_from_array_int8_2d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M447,-570.61C450.69,-573.09 454.14,-575.92 457.29,-579.13 549.94,-673.93 559.31,-1119.68 560.21,-1227.57"/>
+<polygon fill="#000000" stroke="#000000" points="556.71,-1227.27 560.27,-1237.24 563.71,-1227.22 556.71,-1227.27"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_3d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node37" class="node">
+<title>proc~torch_tensor_from_array_int8_3d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node37"><a xlink:href="../proc/torch_tensor_from_array_int8_3d.html" xlink:title="torch_tensor_from_array_int8_3d">
+<polygon fill="#d9534f" stroke="#d9534f" points="430.29,-1788.27 244.77,-1788.27 244.77,-1764 430.29,-1764 430.29,-1788.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1772.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_3d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int8_3d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge36" class="edge">
+<title>proc~torch_tensor_from_array_int8_3d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M430.6,-1771.52C440.51,-1767.8 449.71,-1762.51 457.29,-1755.13 527.5,-1686.77 553.03,-1365.28 558.89,-1274.85"/>
+<polygon fill="#000000" stroke="#000000" points="562.38,-1275.17 559.51,-1264.97 555.39,-1274.73 562.38,-1275.17"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_3d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node38" class="node">
+<title>proc~torch_tensor_from_array_int8_3d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node38"><a xlink:href="../proc/torch_tensor_from_array_int8_3d_legacy.html" xlink:title="torch_tensor_from_array_int8_3d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="450.54,-528.27 224.52,-528.27 224.52,-504 450.54,-504 450.54,-528.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-512.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_3d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int8_3d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge37" class="edge">
+<title>proc~torch_tensor_from_array_int8_3d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M447.29,-528.75C450.87,-531.2 454.23,-533.98 457.29,-537.13 555.46,-638.47 560.62,-1114.53 560.45,-1227.19"/>
+<polygon fill="#000000" stroke="#000000" points="556.95,-1227.03 560.41,-1237.04 563.95,-1227.05 556.95,-1227.03"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_4d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node39" class="node">
+<title>proc~torch_tensor_from_array_int8_4d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node39"><a xlink:href="../proc/torch_tensor_from_array_int8_4d.html" xlink:title="torch_tensor_from_array_int8_4d">
+<polygon fill="#d9534f" stroke="#d9534f" points="430.29,-1746.27 244.77,-1746.27 244.77,-1722 430.29,-1722 430.29,-1746.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1730.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_4d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int8_4d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge38" class="edge">
+<title>proc~torch_tensor_from_array_int8_4d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M430.77,-1729.28C440.58,-1725.58 449.72,-1720.37 457.29,-1713.13 521.89,-1651.34 551.09,-1360.89 558.4,-1275.07"/>
+<polygon fill="#000000" stroke="#000000" points="561.88,-1275.5 559.21,-1265.24 554.9,-1274.92 561.88,-1275.5"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_4d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node40" class="node">
+<title>proc~torch_tensor_from_array_int8_4d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node40"><a xlink:href="../proc/torch_tensor_from_array_int8_4d_legacy.html" xlink:title="torch_tensor_from_array_int8_4d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="450.54,-486.27 224.52,-486.27 224.52,-462 450.54,-462 450.54,-486.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-470.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_4d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int8_4d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge39" class="edge">
+<title>proc~torch_tensor_from_array_int8_4d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M447.32,-486.72C450.9,-489.17 454.24,-491.96 457.29,-495.13 561.14,-603.18 561.88,-1110.82 560.66,-1227.28"/>
+<polygon fill="#000000" stroke="#000000" points="557.16,-1227.13 560.53,-1237.18 564.16,-1227.22 557.16,-1227.13"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_5d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node41" class="node">
+<title>proc~torch_tensor_from_array_int8_5d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node41"><a xlink:href="../proc/torch_tensor_from_array_int8_5d.html" xlink:title="torch_tensor_from_array_int8_5d">
+<polygon fill="#d9534f" stroke="#d9534f" points="430.29,-1704.27 244.77,-1704.27 244.77,-1680 430.29,-1680 430.29,-1704.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1688.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_5d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int8_5d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge40" class="edge">
+<title>proc~torch_tensor_from_array_int8_5d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M430.63,-1687.13C440.46,-1683.45 449.65,-1678.29 457.29,-1671.13 516.46,-1615.72 549.1,-1354.94 557.87,-1274.69"/>
+<polygon fill="#000000" stroke="#000000" points="561.33,-1275.24 558.91,-1264.93 554.37,-1274.5 561.33,-1275.24"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_5d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node42" class="node">
+<title>proc~torch_tensor_from_array_int8_5d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node42"><a xlink:href="../proc/torch_tensor_from_array_int8_5d_legacy.html" xlink:title="torch_tensor_from_array_int8_5d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="450.54,-444.27 224.52,-444.27 224.52,-420 450.54,-420 450.54,-444.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-428.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_5d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int8_5d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge41" class="edge">
+<title>proc~torch_tensor_from_array_int8_5d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M447.35,-444.69C450.92,-447.15 454.25,-449.95 457.29,-453.13 512.36,-510.84 551.16,-1100.81 558.89,-1227.33"/>
+<polygon fill="#000000" stroke="#000000" points="555.39,-1227.4 559.48,-1237.17 562.37,-1226.98 555.39,-1227.4"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_1d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node43" class="node">
+<title>proc~torch_tensor_from_array_real32_1d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node43"><a xlink:href="../proc/torch_tensor_from_array_real32_1d.html" xlink:title="torch_tensor_from_array_real32_1d">
+<polygon fill="#d9534f" stroke="#d9534f" points="437.04,-1662.27 238.02,-1662.27 238.02,-1638 437.04,-1638 437.04,-1662.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1646.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_1d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real32_1d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge42" class="edge">
+<title>proc~torch_tensor_from_array_real32_1d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M437.43,-1642.06C444.67,-1638.73 451.41,-1634.5 457.29,-1629.13 510.94,-1580.16 546.78,-1349.74 557.18,-1274.77"/>
+<polygon fill="#000000" stroke="#000000" points="560.59,-1275.63 558.47,-1265.25 553.65,-1274.69 560.59,-1275.63"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_1d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node44" class="node">
+<title>proc~torch_tensor_from_array_real32_1d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node44"><a xlink:href="../proc/torch_tensor_from_array_real32_1d_legacy.html" xlink:title="torch_tensor_from_array_real32_1d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="457.29,-402.27 217.77,-402.27 217.77,-378 457.29,-378 457.29,-402.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-386.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_1d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real32_1d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge43" class="edge">
+<title>proc~torch_tensor_from_array_real32_1d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M447.37,-402.67C450.94,-405.14 454.26,-407.94 457.29,-411.13 515.2,-472.2 551.97,-1096.82 559.05,-1227.32"/>
+<polygon fill="#000000" stroke="#000000" points="555.54,-1227.36 559.57,-1237.16 562.53,-1226.99 555.54,-1227.36"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_2d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node45" class="node">
+<title>proc~torch_tensor_from_array_real32_2d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node45"><a xlink:href="../proc/torch_tensor_from_array_real32_2d.html" xlink:title="torch_tensor_from_array_real32_2d">
+<polygon fill="#d9534f" stroke="#d9534f" points="437.04,-1620.27 238.02,-1620.27 238.02,-1596 437.04,-1596 437.04,-1620.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1604.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_2d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real32_2d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge44" class="edge">
+<title>proc~torch_tensor_from_array_real32_2d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M437.54,-1599.72C444.7,-1596.47 451.41,-1592.34 457.29,-1587.13 551.57,-1503.75 560.79,-1336.57 560.82,-1274.79"/>
+<polygon fill="#000000" stroke="#000000" points="564.32,-1275.07 560.73,-1265.1 557.32,-1275.13 564.32,-1275.07"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_2d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node46" class="node">
+<title>proc~torch_tensor_from_array_real32_2d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node46"><a xlink:href="../proc/torch_tensor_from_array_real32_2d_legacy.html" xlink:title="torch_tensor_from_array_real32_2d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="457.29,-360.27 217.77,-360.27 217.77,-336 457.29,-336 457.29,-360.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-344.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_2d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real32_2d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge45" class="edge">
+<title>proc~torch_tensor_from_array_real32_2d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M447.4,-360.65C450.95,-363.12 454.27,-365.94 457.29,-369.13 518.06,-433.58 552.74,-1093.24 559.2,-1227.4"/>
+<polygon fill="#000000" stroke="#000000" points="555.69,-1227.37 559.66,-1237.19 562.68,-1227.04 555.69,-1227.37"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_3d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node47" class="node">
+<title>proc~torch_tensor_from_array_real32_3d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node47"><a xlink:href="../proc/torch_tensor_from_array_real32_3d.html" xlink:title="torch_tensor_from_array_real32_3d">
+<polygon fill="#d9534f" stroke="#d9534f" points="437.04,-1578.27 238.02,-1578.27 238.02,-1554 437.04,-1554 437.04,-1578.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1562.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_3d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real32_3d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge46" class="edge">
+<title>proc~torch_tensor_from_array_real32_3d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M437.32,-1557.47C444.53,-1554.27 451.31,-1550.22 457.29,-1545.13 540.81,-1474.15 556.65,-1331.29 559.63,-1274.85"/>
+<polygon fill="#000000" stroke="#000000" points="563.11,-1275.25 560.04,-1265.11 556.12,-1274.95 563.11,-1275.25"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_3d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node48" class="node">
+<title>proc~torch_tensor_from_array_real32_3d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node48"><a xlink:href="../proc/torch_tensor_from_array_real32_3d_legacy.html" xlink:title="torch_tensor_from_array_real32_3d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="457.29,-318.27 217.77,-318.27 217.77,-294 457.29,-294 457.29,-318.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-302.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_3d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real32_3d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge47" class="edge">
+<title>proc~torch_tensor_from_array_real32_3d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M447.42,-318.63C450.97,-321.11 454.28,-323.93 457.29,-327.13 520.94,-394.99 553.49,-1090.06 559.34,-1227.57"/>
+<polygon fill="#000000" stroke="#000000" points="555.83,-1227.43 559.74,-1237.27 562.82,-1227.13 555.83,-1227.43"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_4d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node49" class="node">
+<title>proc~torch_tensor_from_array_real32_4d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node49"><a xlink:href="../proc/torch_tensor_from_array_real32_4d.html" xlink:title="torch_tensor_from_array_real32_4d">
+<polygon fill="#d9534f" stroke="#d9534f" points="437.04,-1536.27 238.02,-1536.27 238.02,-1512 437.04,-1512 437.04,-1536.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1520.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_4d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real32_4d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge48" class="edge">
+<title>proc~torch_tensor_from_array_real32_4d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M437.33,-1515C444.49,-1511.9 451.26,-1508 457.29,-1503.13 530.2,-1444.31 551.96,-1325.52 558.07,-1274.87"/>
+<polygon fill="#000000" stroke="#000000" points="561.53,-1275.37 559.14,-1265.05 554.58,-1274.61 561.53,-1275.37"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_4d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node50" class="node">
+<title>proc~torch_tensor_from_array_real32_4d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node50"><a xlink:href="../proc/torch_tensor_from_array_real32_4d_legacy.html" xlink:title="torch_tensor_from_array_real32_4d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="457.29,-276.27 217.77,-276.27 217.77,-252 457.29,-252 457.29,-276.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-260.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_4d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real32_4d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge49" class="edge">
+<title>proc~torch_tensor_from_array_real32_4d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M447.44,-276.61C450.98,-279.09 454.29,-281.92 457.29,-285.13 523.76,-356.34 554.15,-1085.75 559.45,-1227.38"/>
+<polygon fill="#000000" stroke="#000000" points="555.94,-1227.19 559.8,-1237.05 562.93,-1226.93 555.94,-1227.19"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_5d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node51" class="node">
+<title>proc~torch_tensor_from_array_real32_5d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node51"><a xlink:href="../proc/torch_tensor_from_array_real32_5d.html" xlink:title="torch_tensor_from_array_real32_5d">
+<polygon fill="#d9534f" stroke="#d9534f" points="437.04,-1494.27 238.02,-1494.27 238.02,-1470 437.04,-1470 437.04,-1494.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1478.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_5d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real32_5d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge50" class="edge">
+<title>proc~torch_tensor_from_array_real32_5d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M437.27,-1472.43C444.4,-1469.44 451.18,-1465.73 457.29,-1461.13 519.88,-1414.06 546.63,-1318.72 556.02,-1274.56"/>
+<polygon fill="#000000" stroke="#000000" points="559.39,-1275.52 557.92,-1265.03 552.53,-1274.15 559.39,-1275.52"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_5d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node52" class="node">
+<title>proc~torch_tensor_from_array_real32_5d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node52"><a xlink:href="../proc/torch_tensor_from_array_real32_5d_legacy.html" xlink:title="torch_tensor_from_array_real32_5d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="457.29,-234.27 217.77,-234.27 217.77,-210 457.29,-210 457.29,-234.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-218.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_5d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real32_5d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge51" class="edge">
+<title>proc~torch_tensor_from_array_real32_5d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M447.46,-234.59C451,-237.08 454.3,-239.91 457.29,-243.13 526.6,-317.71 554.8,-1081.79 559.56,-1227.28"/>
+<polygon fill="#000000" stroke="#000000" points="556.06,-1227.33 559.87,-1237.21 563.05,-1227.1 556.06,-1227.33"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_1d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node53" class="node">
+<title>proc~torch_tensor_from_array_real64_1d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node53"><a xlink:href="../proc/torch_tensor_from_array_real64_1d.html" xlink:title="torch_tensor_from_array_real64_1d">
+<polygon fill="#d9534f" stroke="#d9534f" points="437.04,-1452.27 238.02,-1452.27 238.02,-1428 437.04,-1428 437.04,-1452.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1436.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_1d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real64_1d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge52" class="edge">
+<title>proc~torch_tensor_from_array_real64_1d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M437.4,-1429.55C444.42,-1426.75 451.15,-1423.32 457.29,-1419.13 509.85,-1383.34 540.39,-1310.95 553.18,-1273.98"/>
+<polygon fill="#000000" stroke="#000000" points="556.42,-1275.35 556.24,-1264.75 549.77,-1273.15 556.42,-1275.35"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_1d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node54" class="node">
+<title>proc~torch_tensor_from_array_real64_1d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node54"><a xlink:href="../proc/torch_tensor_from_array_real64_1d_legacy.html" xlink:title="torch_tensor_from_array_real64_1d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="457.29,-192.27 217.77,-192.27 217.77,-168 457.29,-168 457.29,-192.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-176.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_1d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real64_1d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge53" class="edge">
+<title>proc~torch_tensor_from_array_real64_1d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M447.73,-192.76C451.16,-195.2 454.37,-197.99 457.29,-201.13 529.45,-279.1 555.42,-1078.03 559.66,-1227.21"/>
+<polygon fill="#000000" stroke="#000000" points="556.15,-1227.16 559.93,-1237.06 563.15,-1226.96 556.15,-1227.16"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_2d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node55" class="node">
+<title>proc~torch_tensor_from_array_real64_2d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node55"><a xlink:href="../proc/torch_tensor_from_array_real64_2d.html" xlink:title="torch_tensor_from_array_real64_2d">
+<polygon fill="#d9534f" stroke="#d9534f" points="437.04,-1410.27 238.02,-1410.27 238.02,-1386 437.04,-1386 437.04,-1410.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1394.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_2d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real64_2d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge54" class="edge">
+<title>proc~torch_tensor_from_array_real64_2d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M437.4,-1386.38C444.35,-1383.84 451.06,-1380.79 457.29,-1377.13 499.87,-1352.17 532.3,-1302.61 548.61,-1273.64"/>
+<polygon fill="#000000" stroke="#000000" points="551.62,-1275.43 553.34,-1264.97 545.48,-1272.08 551.62,-1275.43"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_2d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node56" class="node">
+<title>proc~torch_tensor_from_array_real64_2d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node56"><a xlink:href="../proc/torch_tensor_from_array_real64_2d_legacy.html" xlink:title="torch_tensor_from_array_real64_2d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="457.29,-150.27 217.77,-150.27 217.77,-126 457.29,-126 457.29,-150.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-134.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_2d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real64_2d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge55" class="edge">
+<title>proc~torch_tensor_from_array_real64_2d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M447.74,-150.74C451.17,-153.19 454.38,-155.98 457.29,-159.13 532.39,-240.58 556.07,-1076.28 559.76,-1227.68"/>
+<polygon fill="#000000" stroke="#000000" points="556.25,-1227.37 559.99,-1237.28 563.25,-1227.2 556.25,-1227.37"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_3d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node57" class="node">
+<title>proc~torch_tensor_from_array_real64_3d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node57"><a xlink:href="../proc/torch_tensor_from_array_real64_3d.html" xlink:title="torch_tensor_from_array_real64_3d">
+<polygon fill="#d9534f" stroke="#d9534f" points="437.04,-1368.27 238.02,-1368.27 238.02,-1344 437.04,-1344 437.04,-1368.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1352.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_3d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real64_3d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge56" class="edge">
+<title>proc~torch_tensor_from_array_real64_3d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M434.79,-1343.5C442.56,-1341.17 450.15,-1338.4 457.29,-1335.13 490.4,-1319.97 521.84,-1291.57 541.08,-1272.03"/>
+<polygon fill="#000000" stroke="#000000" points="543.58,-1274.48 547.98,-1264.84 538.53,-1269.63 543.58,-1274.48"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_3d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node58" class="node">
+<title>proc~torch_tensor_from_array_real64_3d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node58"><a xlink:href="../proc/torch_tensor_from_array_real64_3d_legacy.html" xlink:title="torch_tensor_from_array_real64_3d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="457.29,-108.27 217.77,-108.27 217.77,-84 457.29,-84 457.29,-108.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-92.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_3d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real64_3d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge57" class="edge">
+<title>proc~torch_tensor_from_array_real64_3d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M447.75,-108.73C451.18,-111.19 454.39,-113.97 457.29,-117.14 535.19,-201.91 556.61,-1071.39 559.84,-1227.27"/>
+<polygon fill="#000000" stroke="#000000" points="556.34,-1227.26 560.04,-1237.18 563.34,-1227.11 556.34,-1227.26"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_4d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node59" class="node">
+<title>proc~torch_tensor_from_array_real64_4d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node59"><a xlink:href="../proc/torch_tensor_from_array_real64_4d.html" xlink:title="torch_tensor_from_array_real64_4d">
+<polygon fill="#d9534f" stroke="#d9534f" points="437.04,-1326.27 238.02,-1326.27 238.02,-1302 437.04,-1302 437.04,-1326.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1310.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_4d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real64_4d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge58" class="edge">
+<title>proc~torch_tensor_from_array_real64_4d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M422.74,-1301.53C434.43,-1299.12 446.23,-1296.33 457.29,-1293.13 479.89,-1286.61 504.29,-1276.79 523.68,-1268.28"/>
+<polygon fill="#000000" stroke="#000000" points="525.09,-1271.49 532.79,-1264.21 522.23,-1265.1 525.09,-1271.49"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_4d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node60" class="node">
+<title>proc~torch_tensor_from_array_real64_4d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node60"><a xlink:href="../proc/torch_tensor_from_array_real64_4d_legacy.html" xlink:title="torch_tensor_from_array_real64_4d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="457.29,-66.27 217.77,-66.27 217.77,-42 457.29,-42 457.29,-66.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-50.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_4d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real64_4d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge59" class="edge">
+<title>proc~torch_tensor_from_array_real64_4d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M447.77,-66.72C451.19,-69.18 454.39,-71.97 457.29,-75.14 538.08,-163.33 557.18,-1068.45 559.92,-1227.38"/>
+<polygon fill="#000000" stroke="#000000" points="556.42,-1227.16 560.09,-1237.1 563.42,-1227.05 556.42,-1227.16"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_5d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node61" class="node">
+<title>proc~torch_tensor_from_array_real64_5d</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node61"><a xlink:href="../proc/torch_tensor_from_array_real64_5d.html" xlink:title="torch_tensor_from_array_real64_5d">
+<polygon fill="#d9534f" stroke="#d9534f" points="437.04,-1284.27 238.02,-1284.27 238.02,-1260 437.04,-1260 437.04,-1284.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1268.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_5d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real64_5d&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge60" class="edge">
+<title>proc~torch_tensor_from_array_real64_5d&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M437.42,-1262.77C452.27,-1261.36 467.42,-1259.93 481.77,-1258.57"/>
+<polygon fill="#000000" stroke="#000000" points="481.96,-1262.07 491.59,-1257.64 481.3,-1255.1 481.96,-1262.07"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_5d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node62" class="node">
+<title>proc~torch_tensor_from_array_real64_5d_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node62"><a xlink:href="../proc/torch_tensor_from_array_real64_5d_legacy.html" xlink:title="torch_tensor_from_array_real64_5d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="457.29,-24.27 217.77,-24.27 217.77,0 457.29,0 457.29,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_5d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real64_5d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge61" class="edge">
+<title>proc~torch_tensor_from_array_real64_5d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M447.78,-24.71C451.2,-27.17 454.4,-29.97 457.29,-33.13 540.97,-124.77 557.73,-1065.79 560,-1227.53"/>
+<polygon fill="#000000" stroke="#000000" points="556.49,-1227.09 560.13,-1237.04 563.49,-1227 556.49,-1227.09"/>
+</g>
+<!-- interface~torch_tensor_from_array -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node63" class="node">
+<title>interface~torch_tensor_from_array</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node63"><a xlink:href="../interface/torch_tensor_from_array.html" xlink:title="torch_tensor_from_array">
+<polygon fill="#a7506f" stroke="#a7506f" points="161.52,-1893.27 20.25,-1893.27 20.25,-1869 161.52,-1869 161.52,-1893.27"/>
+<text xml:space="preserve" text-anchor="middle" x="90.88" y="-1877.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int16_1d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge62" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int16_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M92.72,-1893.7C98.11,-1971.35 130.71,-2385.15 217.77,-2469.14 221.75,-2472.98 226.18,-2476.25 230.91,-2479.03"/>
+<polygon fill="#000000" stroke="#000000" points="229.15,-2482.06 239.66,-2483.39 232.27,-2475.8 229.15,-2482.06"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int16_2d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge64" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int16_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M92.92,-1893.53C99.36,-1967.46 136.3,-2349.76 217.77,-2427.14 221.78,-2430.94 226.23,-2434.19 230.98,-2436.95"/>
+<polygon fill="#000000" stroke="#000000" points="229.25,-2440 239.76,-2441.29 232.35,-2433.72 229.25,-2440"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int16_3d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge66" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int16_3d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M93.17,-1893.49C100.75,-1963.94 141.92,-2314.4 217.77,-2385.14 221.77,-2388.87 226.19,-2392.05 230.9,-2394.77"/>
+<polygon fill="#000000" stroke="#000000" points="229.07,-2397.77 239.59,-2399.04 232.16,-2391.49 229.07,-2397.77"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int16_4d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge68" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int16_4d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M93.5,-1893.77C102.41,-1961.3 147.62,-2279.1 217.77,-2343.14 221.81,-2346.82 226.26,-2349.98 231,-2352.67"/>
+<polygon fill="#000000" stroke="#000000" points="229.2,-2355.68 239.73,-2356.9 232.26,-2349.39 229.2,-2355.68"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int16_5d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge70" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int16_5d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M91.34,-1893.49C89.54,-1950.17 90.12,-2187.52 217.77,-2301.14 221.81,-2304.73 226.24,-2307.81 230.95,-2310.45"/>
+<polygon fill="#000000" stroke="#000000" points="229.06,-2313.43 239.59,-2314.61 232.1,-2307.12 229.06,-2313.43"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int32_1d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge72" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int32_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M91.8,-1893.69C92.19,-1947.27 101.28,-2158.56 217.77,-2259.14 221.86,-2262.67 226.34,-2265.7 231.08,-2268.3"/>
+<polygon fill="#000000" stroke="#000000" points="229.24,-2271.3 239.77,-2272.41 232.22,-2264.97 229.24,-2271.3"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int32_2d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge74" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int32_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M92.38,-1893.66C95.09,-1943.5 112.16,-2129.31 217.77,-2217.14 221.77,-2220.46 226.12,-2223.34 230.7,-2225.83"/>
+<polygon fill="#000000" stroke="#000000" points="229.16,-2228.97 239.7,-2230.03 232.12,-2222.63 229.16,-2228.97"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int32_3d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge76" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int32_3d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M93.11,-1893.67C98.33,-1939.61 122.94,-2099.91 217.77,-2175.14 221.8,-2178.33 226.15,-2181.11 230.72,-2183.52"/>
+<polygon fill="#000000" stroke="#000000" points="229.12,-2186.63 239.67,-2187.59 232.02,-2180.26 229.12,-2186.63"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int32_4d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge78" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int32_4d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M94.05,-1893.62C101.99,-1935.24 133.51,-2070.24 217.77,-2133.14 221.84,-2136.18 226.21,-2138.83 230.79,-2141.14"/>
+<polygon fill="#000000" stroke="#000000" points="229.14,-2144.24 239.7,-2145.06 231.96,-2137.83 229.14,-2144.24"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int32_5d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge80" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int32_5d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M95.34,-1893.61C106.28,-1930.59 143.89,-2040.28 217.77,-2091.14 221.75,-2093.87 225.97,-2096.29 230.37,-2098.42"/>
+<polygon fill="#000000" stroke="#000000" points="228.93,-2101.61 239.5,-2102.29 231.66,-2095.16 228.93,-2101.61"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int64_1d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge82" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int64_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M97.1,-1893.36C111.28,-1924.99 153.82,-2009.8 217.77,-2049.14 221.83,-2051.63 226.11,-2053.85 230.54,-2055.83"/>
+<polygon fill="#000000" stroke="#000000" points="229.11,-2059.02 239.69,-2059.43 231.67,-2052.51 229.11,-2059.02"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int64_2d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge84" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int64_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M100.25,-1893.64C118.32,-1919.54 163.75,-1978.98 217.77,-2007.13 221.9,-2009.29 226.2,-2011.22 230.62,-2012.96"/>
+<polygon fill="#000000" stroke="#000000" points="229.09,-2016.13 239.69,-2016.18 231.43,-2009.54 229.09,-2016.13"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int64_3d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge86" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int64_3d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M106.24,-1893.67C128.49,-1912.38 173.39,-1947.32 217.77,-1965.13 222.49,-1967.03 227.38,-1968.75 232.37,-1970.32"/>
+<polygon fill="#000000" stroke="#000000" points="231.39,-1973.68 241.97,-1973.09 233.33,-1966.96 231.39,-1973.68"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int64_4d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge88" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int64_4d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M125.15,-1893.72C150.3,-1902.88 185.84,-1915.03 217.77,-1923.13 226.5,-1925.35 235.65,-1927.41 244.83,-1929.31"/>
+<polygon fill="#000000" stroke="#000000" points="244.04,-1932.73 254.53,-1931.25 245.41,-1925.86 244.04,-1932.73"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int64_5d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge90" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int64_5d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M161.99,-1887.15C183.22,-1888.98 207.04,-1891.02 230.1,-1893"/>
+<polygon fill="#000000" stroke="#000000" points="229.57,-1896.47 239.83,-1893.83 230.17,-1889.49 229.57,-1896.47"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int8_1d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge92" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int8_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M161.99,-1875.12C184.17,-1873.21 209.18,-1871.07 233.19,-1869.01"/>
+<polygon fill="#000000" stroke="#000000" points="233.33,-1872.51 242.99,-1868.16 232.73,-1865.53 233.33,-1872.51"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int8_2d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge94" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int8_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M125.15,-1868.55C150.3,-1859.39 185.84,-1847.24 217.77,-1839.13 226.5,-1836.92 235.65,-1834.86 244.83,-1832.96"/>
+<polygon fill="#000000" stroke="#000000" points="245.41,-1836.41 254.53,-1831.02 244.04,-1829.54 245.41,-1836.41"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int8_3d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge96" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int8_3d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M106.24,-1868.6C128.49,-1849.89 173.39,-1814.95 217.77,-1797.13 222.79,-1795.12 228,-1793.3 233.32,-1791.65"/>
+<polygon fill="#000000" stroke="#000000" points="234.25,-1795.03 242.91,-1788.92 232.33,-1788.29 234.25,-1795.03"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int8_4d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge98" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int8_4d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M100.25,-1868.63C118.32,-1842.73 163.75,-1783.29 217.77,-1755.13 222.86,-1752.48 228.23,-1750.16 233.74,-1748.12"/>
+<polygon fill="#000000" stroke="#000000" points="234.69,-1751.49 243.08,-1745.02 232.49,-1744.85 234.69,-1751.49"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int8_5d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge100" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_int8_5d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M97.1,-1868.91C111.28,-1837.28 153.82,-1752.47 217.77,-1713.13 222.9,-1709.98 228.37,-1707.27 234.05,-1704.95"/>
+<polygon fill="#000000" stroke="#000000" points="234.83,-1708.38 243.03,-1701.68 232.44,-1701.81 234.83,-1708.38"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_real32_1d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge102" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_real32_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M95.34,-1868.66C106.28,-1831.68 143.89,-1721.99 217.77,-1671.13 220.83,-1669.03 224.04,-1667.11 227.36,-1665.37"/>
+<polygon fill="#000000" stroke="#000000" points="228.62,-1668.64 236.24,-1661.29 225.69,-1662.28 228.62,-1668.64"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_real32_2d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge104" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_real32_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M94.05,-1868.65C101.99,-1827.03 133.51,-1692.03 217.77,-1629.13 220.79,-1626.88 223.97,-1624.84 227.28,-1622.99"/>
+<polygon fill="#000000" stroke="#000000" points="228.71,-1626.19 236.18,-1618.68 225.65,-1619.89 228.71,-1626.19"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_real32_3d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge106" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_real32_3d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M93.11,-1868.6C98.33,-1822.66 122.94,-1662.36 217.77,-1587.13 220.86,-1584.69 224.13,-1582.48 227.55,-1580.5"/>
+<polygon fill="#000000" stroke="#000000" points="228.81,-1583.79 236.18,-1576.18 225.67,-1577.53 228.81,-1583.79"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_real32_4d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge108" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_real32_4d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M92.38,-1868.61C95.09,-1818.77 112.16,-1632.96 217.77,-1545.13 220.84,-1542.58 224.11,-1540.29 227.54,-1538.24"/>
+<polygon fill="#000000" stroke="#000000" points="228.94,-1541.46 236.23,-1533.76 225.74,-1535.23 228.94,-1541.46"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_real32_5d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge110" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_real32_5d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M91.8,-1868.58C92.19,-1815 101.28,-1603.71 217.77,-1503.13 220.83,-1500.49 224.11,-1498.12 227.56,-1496.01"/>
+<polygon fill="#000000" stroke="#000000" points="229.09,-1499.16 236.32,-1491.41 225.84,-1492.96 229.09,-1499.16"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_real64_1d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge112" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_real64_1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M91.34,-1868.78C89.54,-1812.1 90.12,-1574.75 217.77,-1461.13 220.93,-1458.32 224.33,-1455.83 227.91,-1453.61"/>
+<polygon fill="#000000" stroke="#000000" points="229.24,-1456.86 236.44,-1449.09 225.96,-1450.68 229.24,-1456.86"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_real64_2d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge114" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_real64_2d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M93.5,-1868.5C102.41,-1800.97 147.62,-1483.17 217.77,-1419.13 220.89,-1416.29 224.26,-1413.75 227.82,-1411.51"/>
+<polygon fill="#000000" stroke="#000000" points="229.16,-1414.76 236.29,-1406.93 225.83,-1408.6 229.16,-1414.76"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_real64_3d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge116" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_real64_3d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M93.17,-1868.78C100.75,-1798.33 141.92,-1447.87 217.77,-1377.13 220.9,-1374.21 224.29,-1371.63 227.88,-1369.34"/>
+<polygon fill="#000000" stroke="#000000" points="229.34,-1372.52 236.46,-1364.67 226,-1366.37 229.34,-1372.52"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_real64_4d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge118" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_real64_4d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M92.92,-1868.74C99.36,-1794.81 136.3,-1412.51 217.77,-1335.13 220.88,-1332.19 224.24,-1329.57 227.81,-1327.26"/>
+<polygon fill="#000000" stroke="#000000" points="229.28,-1330.45 236.35,-1322.56 225.9,-1324.32 229.28,-1330.45"/>
+</g>
+<!-- interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_real64_5d -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge120" class="edge">
+<title>interface~torch_tensor_from_array&#45;&gt;proc~torch_tensor_from_array_real64_5d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M92.72,-1868.57C98.11,-1790.92 130.71,-1377.12 217.77,-1293.13 220.85,-1290.16 224.2,-1287.53 227.75,-1285.2"/>
+<polygon fill="#000000" stroke="#000000" points="229.22,-1288.39 236.26,-1280.47 225.82,-1282.27 229.22,-1288.39"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_node64" class="node">
+<title>interface~torch_tensor_from_array_legacy</title>
+<g id="a_interface~~torch_from_blob_c~~CalledByGraph_node64"><a xlink:href="../interface/torch_tensor_from_array_legacy.html" xlink:title="torch_tensor_from_array_legacy">
+<polygon fill="#a7506f" stroke="#a7506f" points="181.77,-633.27 0,-633.27 0,-609 181.77,-609 181.77,-633.27"/>
+<text xml:space="preserve" text-anchor="middle" x="90.88" y="-617.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int16_1d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge63" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int16_1d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M92.72,-633.7C98.11,-711.35 130.71,-1125.15 217.77,-1209.13 218.39,-1209.73 219.02,-1210.32 219.67,-1210.89"/>
+<polygon fill="#000000" stroke="#000000" points="217.26,-1213.46 227.35,-1216.68 221.47,-1207.87 217.26,-1213.46"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int16_2d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge65" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int16_2d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M92.92,-633.53C99.36,-707.46 136.3,-1089.76 217.77,-1167.13 218.4,-1167.73 219.03,-1168.31 219.68,-1168.88"/>
+<polygon fill="#000000" stroke="#000000" points="217.29,-1171.47 227.41,-1174.62 221.47,-1165.85 217.29,-1171.47"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int16_3d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge67" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int16_3d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M93.17,-633.49C100.75,-703.94 141.92,-1054.4 217.77,-1125.13 218.42,-1125.74 219.07,-1126.33 219.74,-1126.9"/>
+<polygon fill="#000000" stroke="#000000" points="217.59,-1129.67 227.74,-1132.72 221.71,-1124.01 217.59,-1129.67"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int16_4d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge69" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int16_4d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M93.5,-633.77C102.41,-701.3 147.62,-1019.1 217.77,-1083.13 218.42,-1083.73 219.09,-1084.31 219.76,-1084.88"/>
+<polygon fill="#000000" stroke="#000000" points="217.64,-1087.67 227.81,-1090.64 221.72,-1081.98 217.64,-1087.67"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int16_5d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge71" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int16_5d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M91.34,-633.49C89.54,-690.17 90.12,-927.52 217.77,-1041.13 218.56,-1041.84 219.36,-1042.52 220.17,-1043.18"/>
+<polygon fill="#000000" stroke="#000000" points="217.95,-1045.9 228.17,-1048.71 221.94,-1040.14 217.95,-1045.9"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int32_1d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge73" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int32_1d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M91.8,-633.69C92.19,-687.27 101.28,-898.56 217.77,-999.13 218.58,-999.84 219.41,-1000.52 220.26,-1001.19"/>
+<polygon fill="#000000" stroke="#000000" points="218.29,-1004.08 228.55,-1006.75 222.19,-998.27 218.29,-1004.08"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int32_2d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge75" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int32_2d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M92.38,-633.66C95.09,-683.5 112.16,-869.31 217.77,-957.13 218.74,-957.94 219.72,-958.72 220.73,-959.47"/>
+<polygon fill="#000000" stroke="#000000" points="218.65,-962.29 228.95,-964.75 222.43,-956.4 218.65,-962.29"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int32_3d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge77" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int32_3d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M93.11,-633.67C98.33,-679.61 122.94,-839.91 217.77,-915.13 218.92,-916.05 220.1,-916.93 221.31,-917.78"/>
+<polygon fill="#000000" stroke="#000000" points="219.31,-920.66 229.67,-922.86 222.94,-914.67 219.31,-920.66"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int32_4d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge79" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int32_4d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M94.05,-633.62C101.99,-675.24 133.51,-810.24 217.77,-873.13 219.13,-874.15 220.53,-875.13 221.96,-876.06"/>
+<polygon fill="#000000" stroke="#000000" points="220.02,-878.99 230.44,-880.88 223.48,-872.9 220.02,-878.99"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int32_5d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge81" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int32_5d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M95.34,-633.61C106.28,-670.59 143.89,-780.28 217.77,-831.13 219.4,-832.26 221.07,-833.33 222.78,-834.34"/>
+<polygon fill="#000000" stroke="#000000" points="221.09,-837.41 231.58,-838.92 224.32,-831.2 221.09,-837.41"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int64_1d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge83" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int64_1d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M97.1,-633.36C111.28,-664.99 153.82,-749.8 217.77,-789.13 219.83,-790.4 221.94,-791.59 224.09,-792.72"/>
+<polygon fill="#000000" stroke="#000000" points="222.57,-795.87 233.12,-796.87 225.5,-789.51 222.57,-795.87"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int64_2d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge85" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int64_2d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M100.25,-633.64C118.32,-659.54 163.75,-718.98 217.77,-747.13 220.83,-748.73 223.98,-750.2 227.21,-751.57"/>
+<polygon fill="#000000" stroke="#000000" points="225.73,-754.75 236.33,-755.03 228.22,-748.21 225.73,-754.75"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int64_3d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge87" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int64_3d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M106.24,-633.67C128.49,-652.38 173.39,-687.32 217.77,-705.13 222.49,-707.03 227.38,-708.75 232.37,-710.32"/>
+<polygon fill="#000000" stroke="#000000" points="231.39,-713.68 241.97,-713.09 233.33,-706.96 231.39,-713.68"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int64_4d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge89" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int64_4d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M125.15,-633.72C150.3,-642.88 185.84,-655.03 217.77,-663.13 226.5,-665.35 235.65,-667.41 244.83,-669.31"/>
+<polygon fill="#000000" stroke="#000000" points="244.04,-672.73 254.53,-671.25 245.41,-665.86 244.04,-672.73"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int64_5d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge91" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int64_5d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M181.94,-628.87C190.95,-629.64 200.21,-630.43 209.5,-631.23"/>
+<polygon fill="#000000" stroke="#000000" points="209.07,-634.71 219.34,-632.08 209.67,-627.73 209.07,-634.71"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int8_1d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge93" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int8_1d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M181.94,-613.4C192.04,-612.54 202.47,-611.64 212.9,-610.75"/>
+<polygon fill="#000000" stroke="#000000" points="213.04,-614.25 222.71,-609.91 212.44,-607.27 213.04,-614.25"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int8_2d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge95" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int8_2d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M125.15,-608.55C150.3,-599.39 185.84,-587.24 217.77,-579.13 226.5,-576.92 235.65,-574.86 244.83,-572.96"/>
+<polygon fill="#000000" stroke="#000000" points="245.41,-576.41 254.53,-571.02 244.04,-569.54 245.41,-576.41"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int8_3d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge97" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int8_3d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M106.24,-608.6C128.49,-589.89 173.39,-554.95 217.77,-537.13 222.49,-535.24 227.38,-533.52 232.37,-531.95"/>
+<polygon fill="#000000" stroke="#000000" points="233.33,-535.31 241.97,-529.18 231.39,-528.59 233.33,-535.31"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int8_4d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge99" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int8_4d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M100.25,-608.63C118.32,-582.73 163.75,-523.29 217.77,-495.13 220.83,-493.54 223.98,-492.07 227.21,-490.7"/>
+<polygon fill="#000000" stroke="#000000" points="228.22,-494.06 236.33,-487.24 225.73,-487.52 228.22,-494.06"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int8_5d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge101" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int8_5d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M97.1,-608.91C111.28,-577.28 153.82,-492.47 217.77,-453.13 219.83,-451.87 221.94,-450.68 224.09,-449.55"/>
+<polygon fill="#000000" stroke="#000000" points="225.5,-452.76 233.12,-445.4 222.57,-446.4 225.5,-452.76"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real32_1d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge103" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real32_1d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M95.34,-608.66C106.28,-571.68 143.89,-461.99 217.77,-411.13 219.4,-410.01 221.07,-408.94 222.78,-407.93"/>
+<polygon fill="#000000" stroke="#000000" points="224.32,-411.07 231.58,-403.35 221.09,-404.86 224.32,-411.07"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real32_2d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge105" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real32_2d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M94.05,-608.65C101.99,-567.03 133.51,-432.03 217.77,-369.13 219.13,-368.12 220.53,-367.14 221.96,-366.21"/>
+<polygon fill="#000000" stroke="#000000" points="223.48,-369.37 230.44,-361.39 220.02,-363.28 223.48,-369.37"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real32_3d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge107" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real32_3d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M93.11,-608.6C98.33,-562.66 122.94,-402.36 217.77,-327.13 218.92,-326.22 220.1,-325.34 221.31,-324.49"/>
+<polygon fill="#000000" stroke="#000000" points="222.94,-327.6 229.67,-319.41 219.31,-321.61 222.94,-327.6"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real32_4d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge109" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real32_4d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M92.38,-608.61C95.09,-558.77 112.16,-372.96 217.77,-285.13 218.74,-284.33 219.72,-283.55 220.73,-282.8"/>
+<polygon fill="#000000" stroke="#000000" points="222.43,-285.87 228.95,-277.52 218.65,-279.98 222.43,-285.87"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real32_5d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge111" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real32_5d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M91.8,-608.58C92.19,-555 101.28,-343.71 217.77,-243.13 218.58,-242.43 219.41,-241.75 220.26,-241.08"/>
+<polygon fill="#000000" stroke="#000000" points="222.19,-244 228.55,-235.52 218.29,-238.19 222.19,-244"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real64_1d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge113" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real64_1d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M91.34,-608.78C89.54,-552.1 90.12,-314.75 217.77,-201.13 218.56,-200.43 219.36,-199.75 220.17,-199.09"/>
+<polygon fill="#000000" stroke="#000000" points="221.94,-202.13 228.17,-193.56 217.95,-196.37 221.94,-202.13"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real64_2d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge115" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real64_2d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M93.5,-608.5C102.41,-540.97 147.62,-223.17 217.77,-159.13 218.42,-158.54 219.09,-157.96 219.76,-157.39"/>
+<polygon fill="#000000" stroke="#000000" points="221.72,-160.29 227.81,-151.63 217.64,-154.6 221.72,-160.29"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real64_3d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge117" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real64_3d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M93.17,-608.78C100.75,-538.33 141.92,-187.87 217.77,-117.14 218.42,-116.53 219.07,-115.94 219.74,-115.37"/>
+<polygon fill="#000000" stroke="#000000" points="221.71,-118.26 227.74,-109.55 217.59,-112.6 221.71,-118.26"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real64_4d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge119" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real64_4d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M92.92,-608.74C99.36,-534.81 136.3,-152.51 217.77,-75.14 218.4,-74.54 219.03,-73.96 219.68,-73.39"/>
+<polygon fill="#000000" stroke="#000000" points="221.47,-76.42 227.41,-67.65 217.29,-70.8 221.47,-76.42"/>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real64_5d_legacy -->
+<g id="interface~~torch_from_blob_c~~CalledByGraph_edge121" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real64_5d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M92.72,-608.57C98.11,-530.92 130.71,-117.12 217.77,-33.13 218.39,-32.54 219.02,-31.95 219.67,-31.38"/>
+<polygon fill="#000000" stroke="#000000" points="221.47,-34.4 227.35,-25.59 217.26,-28.81 221.47,-34.4"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var paninterfacetorch_from_blob_cCalledByGraph = svgPanZoom('#interfacetorch_from_blob_cCalledByGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CalledByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 14.1.2 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 28.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.873868 0.873868) rotate(0) translate(4 28.27)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 729.52,-28.27 729.52,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="69.27,-24.27 0,-24.27 0,0 69.27,0 69.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="34.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="143.89,-24.27 87.38,-24.27 87.38,0 143.89,0 143.89,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="115.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="221.39,-24.27 161.88,-24.27 161.88,0 221.39,0 221.39,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="191.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="368.27,-24.27 239,-24.27 239,0 368.27,0 368.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="303.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="529.39,-24.27 385.88,-24.27 385.88,0 529.39,0 529.39,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="457.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="603.89,-24.27 547.38,-24.27 547.38,0 603.89,0 603.89,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="575.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="725.52,-24.27 621.75,-24.27 621.75,0 725.52,0 725.52,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="673.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+      <h2>public  function torch_from_blob_c(data, ndims, tensor_shape, strides, dtype, device_type, device_index, requires_grad) result(tensor_p) bind(c, name = "torch_from_blob")  
+</h2>
+
+    
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data"></span>
+              type(c_ptr),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              value
+            </td>
+            <td>::</td>
+            <td><strong>data</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ndims"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              value
+            </td>
+            <td>::</td>
+            <td><strong>ndims</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor_shape"></span>
+              integer(kind=c_int64_t),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor_shape</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-strides"></span>
+              integer(kind=c_int64_t),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>strides</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dtype~2"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              value
+            </td>
+            <td>::</td>
+            <td><strong>dtype</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~3"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              value
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~3"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              value
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~4"></span>
+              logical(kind=c_bool),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              value
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+      <h3>Return Value <span class="anchor" id="variable-tensor_p"></span><small>type(c_ptr)</small></h3>
+    
+    <br>
+
+ </div>
+</div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              FTorch
+ was developed by ICCS Cambridge<br>              &copy; 2026 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

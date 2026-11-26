@@ -1,0 +1,2349 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="FTorch - A library for coupling (Py)Torch machine learning models to Fortran codes.Written in modern Fortran (2008) with source code available on GitHub it has been used in multiple scientific projects.The associated JOSS paper can read here.">
+    <meta name="author" content="ICCS Cambridge" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>All Modules &ndash; FTorch
+</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+      <link href="../css/user.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">FTorch </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../page/index.html">User Guide</a></li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12" id='text'>
+			 <h1>Modules</h1>
+			 <table class="table">
+			 <thead><tr><th>Module</th><th>Source File</th><th>Description</th></tr></thead>
+			 <tbody>
+			   <tr class="active">
+                 <td><a href='../module/ftorch.html'>ftorch</a></td>
+                 <td><a href='../sourcefile/ftorch.f90.html'>ftorch.f90</a></td>
+                 <td><p>Main module for FTorch containing types and procedures.</p><a href="../module/ftorch.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+<!--active-->			   <tr class="">
+                 <td><a href='../module/ftorch_devices.html'>ftorch_devices</a></td>
+                 <td><a href='../sourcefile/ftorch_devices.f90.html'>ftorch_devices.F90</a></td>
+                 <td><p>Module for defining FTorch's enumerators for device types.</p><a href="../module/ftorch_devices.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+<!---->			   <tr class="active">
+                 <td><a href='../module/ftorch_loss.html'>ftorch_loss</a></td>
+                 <td><a href='../sourcefile/ftorch_loss.f90.html'>ftorch_loss.f90</a></td>
+                 <td><p>Module for the FTorch <code>torch_model</code> type and associated procedures.</p><a href="../module/ftorch_loss.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+<!--active-->			   <tr class="">
+                 <td><a href='../module/ftorch_model.html'>ftorch_model</a></td>
+                 <td><a href='../sourcefile/ftorch_model.f90.html'>ftorch_model.f90</a></td>
+                 <td><p>Module for the FTorch <code>torch_model</code> type and associated procedures.</p><a href="../module/ftorch_model.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+<!---->			   <tr class="active">
+                 <td><a href='../module/ftorch_optim.html'>ftorch_optim</a></td>
+                 <td><a href='../sourcefile/ftorch_optim.f90.html'>ftorch_optim.f90</a></td>
+                 <td><p>Optimisers module for FTorch.</p><a href="../module/ftorch_optim.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+<!--active-->			   <tr class="">
+                 <td><a href='../module/ftorch_tensor.html'>ftorch_tensor</a></td>
+                 <td><a href='../sourcefile/ftorch_tensor.f90.html'>ftorch_tensor.f90</a></td>
+                 <td><p>Module for the FTorch <code>torch_tensor</code> type and associated procedures.
+ Generated from <code>ftorch_tensor.fypp</code> using the
+ <a href="https://fypp.readthedocs.io/en/stable/index.html">fypp Fortran preprocessor</a>.</p><a href="../module/ftorch_tensor.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+<!---->			   <tr class="active">
+                 <td><a href='../module/ftorch_test_utils.html'>ftorch_test_utils</a></td>
+                 <td><a href='../sourcefile/ftorch_test_utils.f90.html'>ftorch_test_utils.f90</a></td>
+                 <td><p>Utils module for FTorch containing value comparisons for testing</p><a href="../module/ftorch_test_utils.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+<!--active-->			   <tr class="">
+                 <td><a href='../module/ftorch_types.html'>ftorch_types</a></td>
+                 <td><a href='../sourcefile/ftorch_types.f90.html'>ftorch_types.f90</a></td>
+                 <td><p>Module for defining FTorch's enumerators for data types.</p><a href="../module/ftorch_types.html" class="pull-right"><emph>Read more&hellip;</emph></a></td>
+               </tr>
+<!---->			 </tbody></table>
+             <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 14.1.2 (0)
+ -->
+<!-- Title: module~~graph~~ModuleGraph Pages: 1 -->
+<svg id="modulegraphModuleGraph" width="752pt" height="4449pt"
+ viewBox="0.00 0.00 752.00 4449.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~graph~~ModuleGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 4444.86)">
+<title>module~~graph~~ModuleGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-4444.86 748.33,-4444.86 748.33,4 -4,4"/>
+<!-- module~ftorch -->
+<g id="module~~graph~~ModuleGraph_node1" class="node">
+<title>module~ftorch</title>
+<g id="a_module~~graph~~ModuleGraph_node1"><a xlink:href="../module/ftorch.html" xlink:title="ftorch">
+<polygon fill="#337ab7" stroke="#337ab7" points="744.33,-1193.27 690.33,-1193.27 690.33,-1169 744.33,-1169 744.33,-1193.27"/>
+<text xml:space="preserve" text-anchor="middle" x="717.33" y="-1177.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ftorch</text>
+</a>
+</g>
+</g>
+<!-- module~ftorch_devices -->
+<g id="module~~graph~~ModuleGraph_node2" class="node">
+<title>module~ftorch_devices</title>
+<g id="a_module~~graph~~ModuleGraph_node2"><a xlink:href="../module/ftorch_devices.html" xlink:title="ftorch_devices">
+<polygon fill="#337ab7" stroke="#337ab7" points="312.16,-4376.27 224.14,-4376.27 224.14,-4352 312.16,-4352 312.16,-4376.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-4360.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ftorch_devices</text>
+</a>
+</g>
+</g>
+<!-- module~ftorch&#45;&gt;module~ftorch_devices -->
+<g id="module~~graph~~ModuleGraph_edge1" class="edge">
+<title>module~ftorch&#45;&gt;module~ftorch_devices</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M716.39,-1193.75C717.29,-1406.37 727.16,-4236.29 614.69,-4364.14"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M612.69,-4364.14C594.09,-4385.28 415.85,-4375.22 323.72,-4368.49"/>
+<polygon fill="#000000" stroke="#000000" points="324.14,-4365.01 313.9,-4367.76 323.62,-4371.99 324.14,-4365.01"/>
+</g>
+<!-- module~ftorch_loss -->
+<g id="module~~graph~~ModuleGraph_node3" class="node">
+<title>module~ftorch_loss</title>
+<g id="a_module~~graph~~ModuleGraph_node3"><a xlink:href="../module/ftorch_loss.html" xlink:title="ftorch_loss">
+<polygon fill="#337ab7" stroke="#337ab7" points="647.58,-1173.27 579.81,-1173.27 579.81,-1149 647.58,-1149 647.58,-1173.27"/>
+<text xml:space="preserve" text-anchor="middle" x="613.69" y="-1157.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ftorch_loss</text>
+</a>
+</g>
+</g>
+<!-- module~ftorch&#45;&gt;module~ftorch_loss -->
+<g id="module~~graph~~ModuleGraph_edge2" class="edge">
+<title>module~ftorch&#45;&gt;module~ftorch_loss</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M689.89,-1175.93C680.48,-1174.08 669.6,-1171.94 659.09,-1169.87"/>
+<polygon fill="#000000" stroke="#000000" points="659.89,-1166.46 649.41,-1167.97 658.54,-1173.33 659.89,-1166.46"/>
+</g>
+<!-- module~ftorch_model -->
+<g id="module~~graph~~ModuleGraph_node4" class="node">
+<title>module~ftorch_model</title>
+<g id="a_module~~graph~~ModuleGraph_node4"><a xlink:href="../module/ftorch_model.html" xlink:title="ftorch_model">
+<polygon fill="#337ab7" stroke="#337ab7" points="654.33,-1253.27 573.06,-1253.27 573.06,-1229 654.33,-1229 654.33,-1253.27"/>
+<text xml:space="preserve" text-anchor="middle" x="613.69" y="-1237.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ftorch_model</text>
+</a>
+</g>
+</g>
+<!-- module~ftorch&#45;&gt;module~ftorch_model -->
+<g id="module~~graph~~ModuleGraph_edge3" class="edge">
+<title>module~ftorch&#45;&gt;module~ftorch_model</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M695.27,-1193.57C680.92,-1202.04 661.69,-1213.39 645.61,-1222.89"/>
+<polygon fill="#000000" stroke="#000000" points="644.21,-1219.65 637.38,-1227.74 647.77,-1225.67 644.21,-1219.65"/>
+</g>
+<!-- module~ftorch_optim -->
+<g id="module~~graph~~ModuleGraph_node5" class="node">
+<title>module~ftorch_optim</title>
+<g id="a_module~~graph~~ModuleGraph_node5"><a xlink:href="../module/ftorch_optim.html" xlink:title="ftorch_optim">
+<polygon fill="#337ab7" stroke="#337ab7" points="652.83,-1131.27 574.56,-1131.27 574.56,-1107 652.83,-1107 652.83,-1131.27"/>
+<text xml:space="preserve" text-anchor="middle" x="613.69" y="-1115.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ftorch_optim</text>
+</a>
+</g>
+</g>
+<!-- module~ftorch&#45;&gt;module~ftorch_optim -->
+<g id="module~~graph~~ModuleGraph_edge4" class="edge">
+<title>module~ftorch&#45;&gt;module~ftorch_optim</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M698.45,-1168.64C686.22,-1160.27 669.53,-1149.16 654.33,-1140.14 652.67,-1139.15 650.97,-1138.16 649.23,-1137.18"/>
+<polygon fill="#000000" stroke="#000000" points="650.99,-1134.15 640.54,-1132.38 647.61,-1140.28 650.99,-1134.15"/>
+</g>
+<!-- module~ftorch_tensor -->
+<g id="module~~graph~~ModuleGraph_node6" class="node">
+<title>module~ftorch_tensor</title>
+<g id="a_module~~graph~~ModuleGraph_node6"><a xlink:href="../module/ftorch_tensor.html" xlink:title="ftorch_tensor">
+<polygon fill="#337ab7" stroke="#337ab7" points="530.68,-1193.27 449.41,-1193.27 449.41,-1169 530.68,-1169 530.68,-1193.27"/>
+<text xml:space="preserve" text-anchor="middle" x="490.05" y="-1177.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ftorch_tensor</text>
+</a>
+</g>
+</g>
+<!-- module~ftorch&#45;&gt;module~ftorch_tensor -->
+<g id="module~~graph~~ModuleGraph_edge5" class="edge">
+<title>module~ftorch&#45;&gt;module~ftorch_tensor</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M690.09,-1181.65C679.05,-1181.85 666.06,-1182.04 654.33,-1182.14 618.21,-1182.43 609.18,-1182.36 573.06,-1182.14 563.13,-1182.07 552.52,-1181.97 542.34,-1181.86"/>
+<polygon fill="#000000" stroke="#000000" points="542.65,-1178.36 532.61,-1181.74 542.56,-1185.36 542.65,-1178.36"/>
+</g>
+<!-- module~ftorch_test_utils -->
+<g id="module~~graph~~ModuleGraph_node7" class="node">
+<title>module~ftorch_test_utils</title>
+<g id="a_module~~graph~~ModuleGraph_node7"><a xlink:href="../module/ftorch_test_utils.html" xlink:title="ftorch_test_utils">
+<polygon fill="#337ab7" stroke="#337ab7" points="537.06,-4416.27 443.04,-4416.27 443.04,-4392 537.06,-4392 537.06,-4416.27"/>
+<text xml:space="preserve" text-anchor="middle" x="490.05" y="-4400.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ftorch_test_utils</text>
+</a>
+</g>
+</g>
+<!-- module~ftorch&#45;&gt;module~ftorch_test_utils -->
+<g id="module~~graph~~ModuleGraph_edge6" class="edge">
+<title>module~ftorch&#45;&gt;module~ftorch_test_utils</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M612.69,-4364.14C596.48,-4382.57 571.62,-4392.54 548.59,-4397.92"/>
+<polygon fill="#000000" stroke="#000000" points="548.04,-4394.46 538.96,-4399.91 549.46,-4401.32 548.04,-4394.46"/>
+</g>
+<!-- module~ftorch_types -->
+<g id="module~~graph~~ModuleGraph_node8" class="node">
+<title>module~ftorch_types</title>
+<g id="a_module~~graph~~ModuleGraph_node8"><a xlink:href="../module/ftorch_types.html" xlink:title="ftorch_types">
+<polygon fill="#337ab7" stroke="#337ab7" points="306.16,-944.27 230.14,-944.27 230.14,-920 306.16,-920 306.16,-944.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-928.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ftorch_types</text>
+</a>
+</g>
+</g>
+<!-- module~ftorch&#45;&gt;module~ftorch_types -->
+<g id="module~~graph~~ModuleGraph_edge7" class="edge">
+<title>module~ftorch&#45;&gt;module~ftorch_types</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M711.04,-1168.74C702.28,-1149.92 682.85,-1114.56 654.33,-1098.14 591.02,-1061.67 556.75,-1111.09 491.05,-1079.14"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M489.05,-1079.14C431.25,-1049.48 461.35,-993.78 407.04,-958.14 380.73,-940.87 345.85,-934.41 317.76,-932.24"/>
+<polygon fill="#000000" stroke="#000000" points="318.28,-928.77 308.09,-931.67 317.86,-935.76 318.28,-928.77"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_node109" class="node">
+<title>iso_fortran_env</title>
+<g id="a_module~~graph~~ModuleGraph_node109"><a xlink:href="http://fortranwiki.org/fortran/show/iso_fortran_env" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="93.27,-2931.27 0,-2931.27 0,-2907 93.27,-2907 93.27,-2931.27"/>
+<text xml:space="preserve" text-anchor="middle" x="46.63" y="-2915.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+</g>
+<!-- module~ftorch_devices&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge8" class="edge">
+<title>module~ftorch_devices&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M223.72,-4368.71C192.59,-4369.35 152.26,-4364.3 129.27,-4338.14 81.25,-4283.49 52.42,-3125.22 48.18,-2943.13"/>
+<polygon fill="#000000" stroke="#000000" points="51.68,-2943.17 47.95,-2933.25 44.68,-2943.33 51.68,-2943.17"/>
+</g>
+<!-- module~ftorch_loss&#45;&gt;module~ftorch_tensor -->
+<g id="module~~graph~~ModuleGraph_edge9" class="edge">
+<title>module~ftorch_loss&#45;&gt;module~ftorch_tensor</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M579.45,-1166.6C568.04,-1168.48 554.97,-1170.63 542.46,-1172.68"/>
+<polygon fill="#000000" stroke="#000000" points="541.97,-1169.22 532.67,-1174.29 543.1,-1176.12 541.97,-1169.22"/>
+</g>
+<!-- module~ftorch_loss&#45;&gt;module~ftorch_types -->
+<g id="module~~graph~~ModuleGraph_edge10" class="edge">
+<title>module~ftorch_loss&#45;&gt;module~ftorch_types</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M587.63,-1148.6C582.72,-1145.94 577.67,-1143.05 573.06,-1140.14 534.65,-1115.88 531.9,-1099 491.05,-1079.14"/>
+</g>
+<!-- module~ftorch_model&#45;&gt;module~ftorch_devices -->
+<g id="module~~graph~~ModuleGraph_edge12" class="edge">
+<title>module~ftorch_model&#45;&gt;module~ftorch_devices</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M489.05,-1388.14C421.72,-1537.44 512.01,-4209.41 407.04,-4335.14 387.18,-4358.92 353.21,-4366.27 323.96,-4367.62"/>
+<polygon fill="#000000" stroke="#000000" points="324.04,-4364.12 314.12,-4367.83 324.19,-4371.12 324.04,-4364.12"/>
+</g>
+<!-- module~ftorch_model&#45;&gt;module~ftorch_tensor -->
+<g id="module~~graph~~ModuleGraph_edge13" class="edge">
+<title>module~ftorch_model&#45;&gt;module~ftorch_tensor</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M587.19,-1228.56C569.68,-1219.92 546.18,-1208.33 526.8,-1198.77"/>
+<polygon fill="#000000" stroke="#000000" points="528.39,-1195.65 517.87,-1194.37 525.29,-1201.93 528.39,-1195.65"/>
+</g>
+<!-- iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_node108" class="node">
+<title>iso_c_binding</title>
+<g id="a_module~~graph~~ModuleGraph_node108"><a xlink:href="http://fortranwiki.org/fortran/show/iso_c_binding" xlink:title="iso_c_binding">
+<polygon fill="#337ab7" stroke="#337ab7" points="88.02,-2175.27 5.25,-2175.27 5.25,-2151 88.02,-2151 88.02,-2175.27"/>
+<text xml:space="preserve" text-anchor="middle" x="46.63" y="-2159.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_c_binding</text>
+</a>
+</g>
+</g>
+<!-- module~ftorch_model&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge11" class="edge">
+<title>module~ftorch_model&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M598.18,-1253.6C571.97,-1277.02 517.06,-1330.46 491.05,-1388.14"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M489.05,-1388.14C472.59,-1424.63 158.34,-1379.61 129.27,-1407.14 74.7,-1458.8 52.62,-2016.61 48.41,-2139.34"/>
+<polygon fill="#000000" stroke="#000000" points="44.91,-2139.07 48.08,-2149.18 51.91,-2139.31 44.91,-2139.07"/>
+</g>
+<!-- module~ftorch_optim&#45;&gt;module~ftorch_tensor -->
+<g id="module~~graph~~ModuleGraph_edge15" class="edge">
+<title>module~ftorch_optim&#45;&gt;module~ftorch_tensor</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M588.08,-1131.68C570.19,-1140.8 545.73,-1153.27 525.84,-1163.4"/>
+<polygon fill="#000000" stroke="#000000" points="524.3,-1160.26 516.98,-1167.92 527.48,-1166.5 524.3,-1160.26"/>
+</g>
+<!-- module~ftorch_optim&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge14" class="edge">
+<title>module~ftorch_optim&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M611.97,-1106.66C605.81,-1005.4 558.68,-318.68 407.04,-197.14 358.88,-158.53 173.81,-154.4 129.27,-197.14 55.63,-267.78 48.34,-1919.93 47.69,-2139.18"/>
+<polygon fill="#000000" stroke="#000000" points="44.19,-2139.03 47.67,-2149.04 51.19,-2139.05 44.19,-2139.03"/>
+</g>
+<!-- module~ftorch_tensor&#45;&gt;module~ftorch_devices -->
+<g id="module~~graph~~ModuleGraph_edge18" class="edge">
+<title>module~ftorch_tensor&#45;&gt;module~ftorch_devices</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M485.05,-1193.6C475.53,-1224.04 451.63,-1304.74 443.04,-1374.14 432.93,-1455.85 459.98,-4275.07 407.04,-4338.14 387.2,-4361.77 353.23,-4368.38 323.97,-4369.03"/>
+<polygon fill="#000000" stroke="#000000" points="324.14,-4365.53 314.13,-4369 324.12,-4372.53 324.14,-4365.53"/>
+</g>
+<!-- module~ftorch_tensor&#45;&gt;module~ftorch_types -->
+<g id="module~~graph~~ModuleGraph_edge19" class="edge">
+<title>module~ftorch_tensor&#45;&gt;module~ftorch_types</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M481.43,-1168.72C471.47,-1152.05 453.98,-1121.25 443.04,-1093.14 420.52,-1035.27 452.55,-1000.38 407.04,-958.14 383.32,-936.11 347.08,-929.95 317.71,-929.11"/>
+<polygon fill="#000000" stroke="#000000" points="317.95,-925.61 307.93,-929.04 317.91,-932.61 317.95,-925.61"/>
+</g>
+<!-- module~ftorch_tensor&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge16" class="edge">
+<title>module~ftorch_tensor&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M481.76,-1168.59C472.16,-1151.76 455.08,-1120.8 443.04,-1093.14 423.85,-1049.06 446.28,-1018.9 407.04,-991.14 356.65,-955.48 174.41,-949.03 129.27,-991.14 42.23,-1072.32 46.05,-1979.89 47.4,-2139.3"/>
+<polygon fill="#000000" stroke="#000000" points="43.89,-2139.09 47.49,-2149.06 50.89,-2139.03 43.89,-2139.09"/>
+</g>
+<!-- module~ftorch_tensor&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge17" class="edge">
+<title>module~ftorch_tensor&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M485.05,-1193.6C475.53,-1224.04 451.63,-1304.74 443.04,-1374.14 438.04,-1414.54 436,-4276.53 407.04,-4305.14 363.13,-4348.51 174.18,-4347.48 129.27,-4305.14 77.59,-4256.41 51.87,-3122.29 48.12,-2942.93"/>
+<polygon fill="#000000" stroke="#000000" points="51.62,-2942.93 47.91,-2933 44.62,-2943.07 51.62,-2942.93"/>
+</g>
+<!-- module~ftorch_test_utils&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge20" class="edge">
+<title>module~ftorch_test_utils&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M449.94,-4416.74C375.83,-4437.89 214.75,-4470.37 129.27,-4385.14 75.98,-4331.99 51.53,-3128.9 48.07,-2943.13"/>
+<polygon fill="#000000" stroke="#000000" points="51.57,-2943.2 47.89,-2933.26 44.57,-2943.33 51.57,-2943.2"/>
+</g>
+<!-- proc~torch_loss_cross_entropy -->
+<g id="module~~graph~~ModuleGraph_node9" class="node">
+<title>proc~torch_loss_cross_entropy</title>
+<g id="a_module~~graph~~ModuleGraph_node9"><a xlink:href="../proc/torch_loss_cross_entropy.html" xlink:title="torch_loss_cross_entropy">
+<polygon fill="#d9534f" stroke="#d9534f" points="339.16,-108.27 197.14,-108.27 197.14,-84 339.16,-84 339.16,-108.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-92.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_loss_cross_entropy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_loss_cross_entropy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge21" class="edge">
+<title>proc~torch_loss_cross_entropy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M196.81,-89.7C171.96,-91.38 146.06,-98.37 129.27,-117.14 58.36,-196.41 48.68,-1916.01 47.73,-2139.31"/>
+<polygon fill="#000000" stroke="#000000" points="44.23,-2139.07 47.69,-2149.09 51.23,-2139.1 44.23,-2139.07"/>
+</g>
+<!-- proc~torch_loss_l1 -->
+<g id="module~~graph~~ModuleGraph_node10" class="node">
+<title>proc~torch_loss_l1</title>
+<g id="a_module~~graph~~ModuleGraph_node10"><a xlink:href="../proc/torch_loss_l1.html" xlink:title="torch_loss_l1">
+<polygon fill="#d9534f" stroke="#d9534f" points="307.66,-66.27 228.64,-66.27 228.64,-42 307.66,-42 307.66,-66.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-50.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_loss_l1</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_loss_l1&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge22" class="edge">
+<title>proc~torch_loss_l1&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M228.26,-48.03C196.65,-45.5 153.47,-48.05 129.27,-75.14 56.9,-156.1 48.49,-1912.74 47.71,-2139.17"/>
+<polygon fill="#000000" stroke="#000000" points="44.21,-2139.08 47.67,-2149.09 51.21,-2139.1 44.21,-2139.08"/>
+</g>
+<!-- proc~torch_loss_mse -->
+<g id="module~~graph~~ModuleGraph_node11" class="node">
+<title>proc~torch_loss_mse</title>
+<g id="a_module~~graph~~ModuleGraph_node11"><a xlink:href="../proc/torch_loss_mse.html" xlink:title="torch_loss_mse">
+<polygon fill="#d9534f" stroke="#d9534f" points="314.04,-24.27 222.27,-24.27 222.27,0 314.04,0 314.04,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-8.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_loss_mse</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_loss_mse&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge23" class="edge">
+<title>proc~torch_loss_mse&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M221.79,-5.59C190.97,-3.94 151.85,-7.85 129.27,-33.14 55.41,-115.84 48.29,-1911.33 47.69,-2139.39"/>
+<polygon fill="#000000" stroke="#000000" points="44.19,-2139.1 47.66,-2149.1 51.19,-2139.11 44.19,-2139.1"/>
+</g>
+<!-- proc~torch_model_delete -->
+<g id="module~~graph~~ModuleGraph_node12" class="node">
+<title>proc~torch_model_delete</title>
+<g id="a_module~~graph~~ModuleGraph_node12"><a xlink:href="../proc/torch_model_delete.html" xlink:title="torch_model_delete">
+<polygon fill="#d9534f" stroke="#d9534f" points="326.41,-1360.27 209.89,-1360.27 209.89,-1336 326.41,-1336 326.41,-1360.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-1344.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_model_delete</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_model_delete&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge24" class="edge">
+<title>proc~torch_model_delete&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M209.56,-1344.09C181.39,-1345.39 149.31,-1352.35 129.27,-1374.14 76.09,-1431.94 52.86,-2013.45 48.43,-2139.23"/>
+<polygon fill="#000000" stroke="#000000" points="44.94,-2138.91 48.1,-2149.02 51.94,-2139.15 44.94,-2138.91"/>
+</g>
+<!-- proc~torch_model_forward -->
+<g id="module~~graph~~ModuleGraph_node13" class="node">
+<title>proc~torch_model_forward</title>
+<g id="a_module~~graph~~ModuleGraph_node13"><a xlink:href="../proc/torch_model_forward.html" xlink:title="torch_model_forward">
+<polygon fill="#d9534f" stroke="#d9534f" points="330.16,-1318.27 206.14,-1318.27 206.14,-1294 330.16,-1294 330.16,-1318.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-1302.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_model_forward</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_model_forward&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge25" class="edge">
+<title>proc~torch_model_forward&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M205.88,-1299.81C178.71,-1300.52 148.59,-1306.75 129.27,-1327.14 71.81,-1387.77 51.81,-2009.53 48.25,-2139.43"/>
+<polygon fill="#000000" stroke="#000000" points="44.75,-2139.12 47.98,-2149.21 51.75,-2139.31 44.75,-2139.12"/>
+</g>
+<!-- proc~torch_model_load -->
+<g id="module~~graph~~ModuleGraph_node14" class="node">
+<title>proc~torch_model_load</title>
+<g id="a_module~~graph~~ModuleGraph_node14"><a xlink:href="../proc/torch_model_load.html" xlink:title="torch_model_load">
+<polygon fill="#d9534f" stroke="#d9534f" points="321.16,-1276.27 215.14,-1276.27 215.14,-1252 321.16,-1252 321.16,-1276.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-1260.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_model_load</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_model_load&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge26" class="edge">
+<title>proc~torch_model_load&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M214.84,-1257.73C185.55,-1257.26 150.7,-1262.41 129.27,-1285.14 68.91,-1349.12 51.13,-2005.92 48.13,-2139.5"/>
+<polygon fill="#000000" stroke="#000000" points="44.63,-2139.17 47.91,-2149.24 51.63,-2139.32 44.63,-2139.17"/>
+</g>
+<!-- proc~torch_model_parameters -->
+<g id="module~~graph~~ModuleGraph_node15" class="node">
+<title>proc~torch_model_parameters</title>
+<g id="a_module~~graph~~ModuleGraph_node15"><a xlink:href="../proc/torch_model_parameters.html" xlink:title="torch_model_parameters">
+<polygon fill="#d9534f" stroke="#d9534f" points="340.66,-1234.27 195.64,-1234.27 195.64,-1210 340.66,-1210 340.66,-1234.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-1218.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_model_parameters</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_model_parameters&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge27" class="edge">
+<title>proc~torch_model_parameters&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M195.49,-1216.27C171.26,-1218.21 146.1,-1225.22 129.27,-1243.14 66.06,-1310.43 50.51,-2001.26 48.03,-2139.23"/>
+<polygon fill="#000000" stroke="#000000" points="44.53,-2138.93 47.86,-2148.99 51.53,-2139.05 44.53,-2138.93"/>
+</g>
+<!-- proc~torch_model_save -->
+<g id="module~~graph~~ModuleGraph_node16" class="node">
+<title>proc~torch_model_save</title>
+<g id="a_module~~graph~~ModuleGraph_node16"><a xlink:href="../proc/torch_model_save.html" xlink:title="torch_model_save">
+<polygon fill="#d9534f" stroke="#d9534f" points="321.91,-1192.27 214.39,-1192.27 214.39,-1168 321.91,-1168 321.91,-1192.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-1176.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_model_save</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_model_save&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge28" class="edge">
+<title>proc~torch_model_save&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M214.09,-1173.66C184.92,-1173.25 150.45,-1178.5 129.27,-1201.14 63.13,-1271.83 49.88,-1998.4 47.93,-2139.48"/>
+<polygon fill="#000000" stroke="#000000" points="44.43,-2139.06 47.8,-2149.1 51.43,-2139.15 44.43,-2139.06"/>
+</g>
+<!-- proc~torch_optim_adam -->
+<g id="module~~graph~~ModuleGraph_node17" class="node">
+<title>proc~torch_optim_adam</title>
+<g id="a_module~~graph~~ModuleGraph_node17"><a xlink:href="../proc/torch_optim_adam.html" xlink:title="torch_optim_Adam">
+<polygon fill="#d9534f" stroke="#d9534f" points="323.41,-2070.27 212.89,-2070.27 212.89,-2046 323.41,-2046 323.41,-2070.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-2054.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_optim_Adam</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_optim_adam&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge29" class="edge">
+<title>proc~torch_optim_adam&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M212.63,-2058.44C186.22,-2060.53 154.78,-2066 129.27,-2079.14 100.96,-2093.71 76.75,-2121.87 62.21,-2141.55"/>
+<polygon fill="#000000" stroke="#000000" points="59.52,-2139.29 56.57,-2149.46 65.22,-2143.35 59.52,-2139.29"/>
+</g>
+<!-- proc~torch_optim_adam&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge30" class="edge">
+<title>proc~torch_optim_adam&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M212.48,-2051.74C183.71,-2051.59 150.17,-2057.07 129.27,-2079.14 71.56,-2140.07 51.76,-2764.79 48.24,-2895.31"/>
+<polygon fill="#000000" stroke="#000000" points="44.74,-2895.07 47.98,-2905.16 51.74,-2895.25 44.74,-2895.07"/>
+</g>
+<!-- proc~torch_optim_adamw -->
+<g id="module~~graph~~ModuleGraph_node18" class="node">
+<title>proc~torch_optim_adamw</title>
+<g id="a_module~~graph~~ModuleGraph_node18"><a xlink:href="../proc/torch_optim_adamw.html" xlink:title="torch_optim_AdamW">
+<polygon fill="#d9534f" stroke="#d9534f" points="328.66,-2028.27 207.64,-2028.27 207.64,-2004 328.66,-2004 328.66,-2028.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-2012.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_optim_AdamW</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_optim_adamw&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge31" class="edge">
+<title>proc~torch_optim_adamw&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M207.32,-2014.6C181.55,-2016.51 152.15,-2022.35 129.27,-2037.14 91.19,-2061.73 67.17,-2111.06 55.69,-2140.17"/>
+<polygon fill="#000000" stroke="#000000" points="52.55,-2138.57 52.3,-2149.16 59.1,-2141.04 52.55,-2138.57"/>
+</g>
+<!-- proc~torch_optim_adamw&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge32" class="edge">
+<title>proc~torch_optim_adamw&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M207.24,-2009.74C179.7,-2010.26 148.87,-2016.35 129.27,-2037.14 98.9,-2069.35 57.1,-2757.46 49.02,-2895.24"/>
+<polygon fill="#000000" stroke="#000000" points="45.54,-2894.8 48.45,-2904.99 52.53,-2895.21 45.54,-2894.8"/>
+</g>
+<!-- proc~torch_optim_sgd -->
+<g id="module~~graph~~ModuleGraph_node19" class="node">
+<title>proc~torch_optim_sgd</title>
+<g id="a_module~~graph~~ModuleGraph_node19"><a xlink:href="../proc/torch_optim_sgd.html" xlink:title="torch_optim_SGD">
+<polygon fill="#d9534f" stroke="#d9534f" points="319.66,-1986.27 216.64,-1986.27 216.64,-1962 319.66,-1962 319.66,-1986.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-1970.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_optim_SGD</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_optim_sgd&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge33" class="edge">
+<title>proc~torch_optim_sgd&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M216.27,-1970.87C188.16,-1971.59 154.03,-1976.9 129.27,-1995.14 80.95,-2030.73 59.83,-2102.66 51.83,-2139.79"/>
+<polygon fill="#000000" stroke="#000000" points="48.43,-2138.97 49.9,-2149.46 55.29,-2140.34 48.43,-2138.97"/>
+</g>
+<!-- proc~torch_optim_sgd&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge34" class="edge">
+<title>proc~torch_optim_sgd&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M216.17,-1967.73C186.58,-1967.05 150.98,-1972.01 129.27,-1995.14 97.44,-2029.04 56.57,-2754.27 48.91,-2895.44"/>
+<polygon fill="#000000" stroke="#000000" points="45.43,-2894.91 48.38,-2905.08 52.42,-2895.28 45.43,-2894.91"/>
+</g>
+<!-- proc~torch_tensor_add -->
+<g id="module~~graph~~ModuleGraph_node20" class="node">
+<title>proc~torch_tensor_add</title>
+<g id="a_module~~graph~~ModuleGraph_node20"><a xlink:href="../proc/torch_tensor_add.html" xlink:title="torch_tensor_add">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="319.66,-1150.27 216.64,-1150.27 216.64,-1126 319.66,-1126 319.66,-1150.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-1134.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_add</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_add&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge35" class="edge">
+<title>proc~torch_tensor_add&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M216.45,-1131.68C186.77,-1130.94 150.98,-1135.85 129.27,-1159.14 60.25,-1233.17 49.3,-1994.41 47.84,-2139.37"/>
+<polygon fill="#000000" stroke="#000000" points="44.34,-2139.22 47.74,-2149.26 51.34,-2139.29 44.34,-2139.22"/>
+</g>
+<!-- proc~torch_tensor_assign -->
+<g id="module~~graph~~ModuleGraph_node21" class="node">
+<title>proc~torch_tensor_assign</title>
+<g id="a_module~~graph~~ModuleGraph_node21"><a xlink:href="../proc/torch_tensor_assign.html" xlink:title="torch_tensor_assign">
+<polygon fill="#d9534f" stroke="#d9534f" points="326.41,-1108.27 209.89,-1108.27 209.89,-1084 326.41,-1084 326.41,-1108.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-1092.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_assign</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_assign&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge36" class="edge">
+<title>proc~torch_tensor_assign&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M209.55,-1089.59C181.37,-1089.76 149.3,-1095.58 129.27,-1117.14 57.36,-1194.52 48.74,-1990.64 47.76,-2139.3"/>
+<polygon fill="#000000" stroke="#000000" points="44.26,-2139.08 47.7,-2149.1 51.26,-2139.12 44.26,-2139.08"/>
+</g>
+<!-- proc~torch_tensor_backward_with_external_gradient -->
+<g id="module~~graph~~ModuleGraph_node22" class="node">
+<title>proc~torch_tensor_backward_with_external_gradient</title>
+<g id="a_module~~graph~~ModuleGraph_node22"><a xlink:href="../proc/torch_tensor_backward_with_external_gradient.html" xlink:title="torch_tensor_backward_with_external_gradient">
+<polygon fill="#d9534f" stroke="#d9534f" points="398.41,-1066.27 137.89,-1066.27 137.89,-1042 398.41,-1042 398.41,-1066.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-1050.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_backward_with_external_gradient</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_backward_with_external_gradient&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge37" class="edge">
+<title>proc~torch_tensor_backward_with_external_gradient&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M138.61,-1066.76C135.28,-1069.25 132.15,-1072.03 129.27,-1075.14 54.37,-1155.97 48.19,-1988.87 47.68,-2139.76"/>
+<polygon fill="#000000" stroke="#000000" points="44.18,-2139.32 47.65,-2149.33 51.18,-2139.33 44.18,-2139.32"/>
+</g>
+<!-- proc~torch_tensor_backward_without_external_gradient -->
+<g id="module~~graph~~ModuleGraph_node23" class="node">
+<title>proc~torch_tensor_backward_without_external_gradient</title>
+<g id="a_module~~graph~~ModuleGraph_node23"><a xlink:href="../proc/torch_tensor_backward_without_external_gradient.html" xlink:title="torch_tensor_backward_without_external_gradient">
+<polygon fill="#d9534f" stroke="#d9534f" points="407.04,-1024.27 129.27,-1024.27 129.27,-1000 407.04,-1000 407.04,-1024.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-1008.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_backward_without_external_gradient</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_backward_without_external_gradient&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge38" class="edge">
+<title>proc~torch_tensor_backward_without_external_gradient&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M138.6,-1024.75C135.27,-1027.24 132.15,-1030.02 129.27,-1033.14 51.53,-1117.27 47.68,-1983.97 47.61,-2139.35"/>
+<polygon fill="#000000" stroke="#000000" points="44.11,-2139.22 47.61,-2149.22 51.11,-2139.22 44.11,-2139.22"/>
+</g>
+<!-- proc~torch_tensor_delete -->
+<g id="module~~graph~~ModuleGraph_node24" class="node">
+<title>proc~torch_tensor_delete</title>
+<g id="a_module~~graph~~ModuleGraph_node24"><a xlink:href="../proc/torch_tensor_delete.html" xlink:title="torch_tensor_delete">
+<polygon fill="#d9534f" stroke="#d9534f" points="326.41,-902.27 209.89,-902.27 209.89,-878 326.41,-878 326.41,-902.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-886.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_delete</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_delete&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge39" class="edge">
+<title>proc~torch_tensor_delete&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M209.44,-883.48C181.23,-883.63 149.16,-889.46 129.27,-911.14 43.07,-1005.09 46.26,-1974.57 47.43,-2139.38"/>
+<polygon fill="#000000" stroke="#000000" points="43.93,-2139.11 47.51,-2149.08 50.93,-2139.06 43.93,-2139.11"/>
+</g>
+<!-- proc~torch_tensor_divide -->
+<g id="module~~graph~~ModuleGraph_node25" class="node">
+<title>proc~torch_tensor_divide</title>
+<g id="a_module~~graph~~ModuleGraph_node25"><a xlink:href="../proc/torch_tensor_divide.html" xlink:title="torch_tensor_divide">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="325.66,-860.27 210.64,-860.27 210.64,-836 325.66,-836 325.66,-860.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-844.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_divide</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_divide&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge40" class="edge">
+<title>proc~torch_tensor_divide&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M210.46,-841.46C182,-841.46 149.38,-847.17 129.27,-869.14 40.2,-966.42 45.8,-1970.35 47.38,-2139.12"/>
+<polygon fill="#000000" stroke="#000000" points="43.88,-2139.1 47.48,-2149.06 50.88,-2139.03 43.88,-2139.1"/>
+</g>
+<!-- proc~torch_tensor_empty -->
+<g id="module~~graph~~ModuleGraph_node26" class="node">
+<title>proc~torch_tensor_empty</title>
+<g id="a_module~~graph~~ModuleGraph_node26"><a xlink:href="../proc/torch_tensor_empty.html" xlink:title="torch_tensor_empty">
+<polygon fill="#d9534f" stroke="#d9534f" points="326.41,-818.27 209.89,-818.27 209.89,-794 326.41,-794 326.41,-818.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-802.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_empty</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_empty&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge41" class="edge">
+<title>proc~torch_tensor_empty&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M209.4,-799.45C181.18,-799.58 149.12,-805.42 129.27,-827.14 83.15,-877.6 52.83,-1964.53 48.24,-2139.47"/>
+<polygon fill="#000000" stroke="#000000" points="44.75,-2139.26 47.99,-2149.34 51.74,-2139.44 44.75,-2139.26"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_1d -->
+<g id="module~~graph~~ModuleGraph_node27" class="node">
+<title>proc~torch_tensor_from_array_int16_1d</title>
+<g id="a_module~~graph~~ModuleGraph_node27"><a xlink:href="../proc/torch_tensor_from_array_int16_1d.html" xlink:title="torch_tensor_from_array_int16_1d">
+<polygon fill="#d9534f" stroke="#d9534f" points="364.29,-1944.27 172.02,-1944.27 172.02,-1920 364.29,-1920 364.29,-1944.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-1928.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_1d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int16_1d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge42" class="edge">
+<title>proc~torch_tensor_from_array_int16_1d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.58,-1933.41C156.26,-1937.19 141.46,-1943.37 129.27,-1953.14 70.53,-2000.21 53.97,-2095.19 49.37,-2139.44"/>
+<polygon fill="#000000" stroke="#000000" points="45.9,-2138.95 48.48,-2149.23 52.87,-2139.58 45.9,-2138.95"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_1d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge43" class="edge">
+<title>proc~torch_tensor_from_array_int16_1d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.84,-1929.93C155.74,-1933.89 140.6,-1941.02 129.27,-1953.14 96,-1988.71 56.14,-2749.98 48.82,-2895.29"/>
+<polygon fill="#000000" stroke="#000000" points="45.33,-2895.05 48.32,-2905.21 52.32,-2895.4 45.33,-2895.05"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_1d_legacy -->
+<g id="module~~graph~~ModuleGraph_node28" class="node">
+<title>proc~torch_tensor_from_array_int16_1d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node28"><a xlink:href="../proc/torch_tensor_from_array_int16_1d_legacy.html" xlink:title="torch_tensor_from_array_int16_1d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="384.54,-1902.27 151.77,-1902.27 151.77,-1878 384.54,-1878 384.54,-1902.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-1886.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_1d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int16_1d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge44" class="edge">
+<title>proc~torch_tensor_from_array_int16_1d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.4,-1897.5C143.41,-1901.02 135.91,-1905.49 129.27,-1911.14 59.81,-1970.16 48.97,-2088.84 47.62,-2139.43"/>
+<polygon fill="#000000" stroke="#000000" points="44.12,-2139.18 47.47,-2149.23 51.12,-2139.28 44.12,-2139.18"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_1d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge45" class="edge">
+<title>proc~torch_tensor_from_array_int16_1d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.45,-1895.08C143.19,-1899.07 135.63,-1904.32 129.27,-1911.14 111.9,-1929.78 58.86,-2744.11 49.17,-2895.16"/>
+<polygon fill="#000000" stroke="#000000" points="45.67,-2894.93 48.53,-2905.13 52.66,-2895.38 45.67,-2894.93"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_2d -->
+<g id="module~~graph~~ModuleGraph_node29" class="node">
+<title>proc~torch_tensor_from_array_int16_2d</title>
+<g id="a_module~~graph~~ModuleGraph_node29"><a xlink:href="../proc/torch_tensor_from_array_int16_2d.html" xlink:title="torch_tensor_from_array_int16_2d">
+<polygon fill="#d9534f" stroke="#d9534f" points="364.29,-1860.27 172.02,-1860.27 172.02,-1836 364.29,-1836 364.29,-1860.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-1844.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_2d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int16_2d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge46" class="edge">
+<title>proc~torch_tensor_from_array_int16_2d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.8,-1848.14C156.18,-1852 141.23,-1858.53 129.27,-1869.14 88.12,-1905.63 60.02,-2076.36 50.87,-2139.55"/>
+<polygon fill="#000000" stroke="#000000" points="47.44,-2138.79 49.5,-2149.18 54.37,-2139.77 47.44,-2138.79"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_2d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge47" class="edge">
+<title>proc~torch_tensor_from_array_int16_2d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.77,-1845.87C155.68,-1849.83 140.56,-1856.98 129.27,-1869.14 111.15,-1888.64 58.41,-2742.09 49.06,-2895.61"/>
+<polygon fill="#000000" stroke="#000000" points="45.58,-2895.16 48.47,-2905.35 52.57,-2895.58 45.58,-2895.16"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_2d_legacy -->
+<g id="module~~graph~~ModuleGraph_node30" class="node">
+<title>proc~torch_tensor_from_array_int16_2d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node30"><a xlink:href="../proc/torch_tensor_from_array_int16_2d_legacy.html" xlink:title="torch_tensor_from_array_int16_2d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="384.54,-1818.27 151.77,-1818.27 151.77,-1794 384.54,-1794 384.54,-1818.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-1802.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_2d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int16_2d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge48" class="edge">
+<title>proc~torch_tensor_from_array_int16_2d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.58,-1812.66C143.45,-1816.34 135.88,-1821.08 129.27,-1827.14 82.61,-1869.9 57.43,-2070.2 50,-2139.48"/>
+<polygon fill="#000000" stroke="#000000" points="46.53,-2139.01 48.98,-2149.32 53.49,-2139.74 46.53,-2139.01"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_2d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge49" class="edge">
+<title>proc~torch_tensor_from_array_int16_2d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.41,-1811.04C143.15,-1815.04 135.61,-1820.3 129.27,-1827.14 110.42,-1847.48 58.07,-2738.65 48.99,-2895.64"/>
+<polygon fill="#000000" stroke="#000000" points="45.52,-2895.05 48.43,-2905.24 52.5,-2895.45 45.52,-2895.05"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_3d -->
+<g id="module~~graph~~ModuleGraph_node31" class="node">
+<title>proc~torch_tensor_from_array_int16_3d</title>
+<g id="a_module~~graph~~ModuleGraph_node31"><a xlink:href="../proc/torch_tensor_from_array_int16_3d.html" xlink:title="torch_tensor_from_array_int16_3d">
+<polygon fill="#d9534f" stroke="#d9534f" points="364.29,-1776.27 172.02,-1776.27 172.02,-1752 364.29,-1752 364.29,-1776.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-1760.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_3d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int16_3d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge50" class="edge">
+<title>proc~torch_tensor_from_array_int16_3d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.63,-1763.49C155.94,-1767.39 141,-1774.1 129.27,-1785.14 77.14,-1834.15 55.22,-2063.63 49.35,-2139.05"/>
+<polygon fill="#000000" stroke="#000000" points="45.86,-2138.78 48.6,-2149.02 52.84,-2139.31 45.86,-2138.78"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_3d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge51" class="edge">
+<title>proc~torch_tensor_from_array_int16_3d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.72,-1761.82C155.63,-1765.78 140.52,-1772.95 129.27,-1785.14 119.48,-1795.73 59.43,-2733.67 49.14,-2895.49"/>
+<polygon fill="#000000" stroke="#000000" points="45.67,-2894.81 48.53,-2905.02 52.66,-2895.26 45.67,-2894.81"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_3d_legacy -->
+<g id="module~~graph~~ModuleGraph_node32" class="node">
+<title>proc~torch_tensor_from_array_int16_3d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node32"><a xlink:href="../proc/torch_tensor_from_array_int16_3d_legacy.html" xlink:title="torch_tensor_from_array_int16_3d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="384.54,-1734.27 151.77,-1734.27 151.77,-1710 384.54,-1710 384.54,-1734.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-1718.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_3d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int16_3d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge52" class="edge">
+<title>proc~torch_tensor_from_array_int16_3d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.6,-1728.17C143.41,-1731.95 135.82,-1736.85 129.27,-1743.14 71.41,-1798.68 53.08,-2059.37 48.76,-2139.59"/>
+<polygon fill="#000000" stroke="#000000" points="45.27,-2139.18 48.26,-2149.34 52.26,-2139.53 45.27,-2139.18"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_3d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge53" class="edge">
+<title>proc~torch_tensor_from_array_int16_3d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.37,-1727.01C143.12,-1731.01 135.59,-1736.28 129.27,-1743.14 119.11,-1754.16 59.12,-2730.86 49.06,-2895.65"/>
+<polygon fill="#000000" stroke="#000000" points="45.59,-2895.14 48.47,-2905.34 52.58,-2895.57 45.59,-2895.14"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_4d -->
+<g id="module~~graph~~ModuleGraph_node33" class="node">
+<title>proc~torch_tensor_from_array_int16_4d</title>
+<g id="a_module~~graph~~ModuleGraph_node33"><a xlink:href="../proc/torch_tensor_from_array_int16_4d.html" xlink:title="torch_tensor_from_array_int16_4d">
+<polygon fill="#d9534f" stroke="#d9534f" points="364.29,-1692.27 172.02,-1692.27 172.02,-1668 364.29,-1668 364.29,-1692.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-1676.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_4d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int16_4d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge54" class="edge">
+<title>proc~torch_tensor_from_array_int16_4d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.64,-1679.04C155.85,-1682.96 140.88,-1689.8 129.27,-1701.14 65.88,-1763.04 51.27,-2053.41 48.32,-2139.21"/>
+<polygon fill="#000000" stroke="#000000" points="44.82,-2138.92 48,-2149.02 51.82,-2139.14 44.82,-2138.92"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_4d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge55" class="edge">
+<title>proc~torch_tensor_from_array_int16_4d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.67,-1677.78C155.58,-1681.74 140.49,-1688.92 129.27,-1701.14 124.01,-1706.86 59.75,-2726.31 49.12,-2895.48"/>
+<polygon fill="#000000" stroke="#000000" points="45.64,-2895.04 48.51,-2905.24 52.63,-2895.47 45.64,-2895.04"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_4d_legacy -->
+<g id="module~~graph~~ModuleGraph_node34" class="node">
+<title>proc~torch_tensor_from_array_int16_4d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node34"><a xlink:href="../proc/torch_tensor_from_array_int16_4d_legacy.html" xlink:title="torch_tensor_from_array_int16_4d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="384.54,-1650.27 151.77,-1650.27 151.77,-1626 384.54,-1626 384.54,-1650.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-1634.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_4d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int16_4d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge56" class="edge">
+<title>proc~torch_tensor_from_array_int16_4d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.38,-1643.95C143.24,-1647.78 135.72,-1652.74 129.27,-1659.14 60.17,-1727.58 49.55,-2049.02 47.93,-2139.43"/>
+<polygon fill="#000000" stroke="#000000" points="44.43,-2139.25 47.77,-2149.3 51.43,-2139.36 44.43,-2139.25"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_4d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge57" class="edge">
+<title>proc~torch_tensor_from_array_int16_4d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.33,-1642.97C143.1,-1646.99 135.57,-1652.26 129.27,-1659.14 126.55,-1662.1 59.97,-2722.43 49.12,-2895.41"/>
+<polygon fill="#000000" stroke="#000000" points="45.64,-2894.99 48.51,-2905.19 52.63,-2895.42 45.64,-2894.99"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_5d -->
+<g id="module~~graph~~ModuleGraph_node35" class="node">
+<title>proc~torch_tensor_from_array_int16_5d</title>
+<g id="a_module~~graph~~ModuleGraph_node35"><a xlink:href="../proc/torch_tensor_from_array_int16_5d.html" xlink:title="torch_tensor_from_array_int16_5d">
+<polygon fill="#d9534f" stroke="#d9534f" points="364.29,-1608.27 172.02,-1608.27 172.02,-1584 364.29,-1584 364.29,-1608.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-1592.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_5d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int16_5d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge58" class="edge">
+<title>proc~torch_tensor_from_array_int16_5d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.75,-1594.7C155.85,-1598.63 140.81,-1605.56 129.27,-1617.14 54.53,-1692.07 47.99,-2044.07 47.6,-2139.32"/>
+<polygon fill="#000000" stroke="#000000" points="44.1,-2139.25 47.58,-2149.26 51.1,-2139.27 44.1,-2139.25"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_5d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge59" class="edge">
+<title>proc~torch_tensor_from_array_int16_5d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.63,-1593.74C155.55,-1597.71 140.47,-1604.9 129.27,-1617.14 128.57,-1617.9 60.09,-2718.88 49.11,-2895.39"/>
+<polygon fill="#000000" stroke="#000000" points="45.63,-2894.97 48.5,-2905.16 52.62,-2895.4 45.63,-2894.97"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_5d_legacy -->
+<g id="module~~graph~~ModuleGraph_node36" class="node">
+<title>proc~torch_tensor_from_array_int16_5d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node36"><a xlink:href="../proc/torch_tensor_from_array_int16_5d_legacy.html" xlink:title="torch_tensor_from_array_int16_5d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="384.54,-1566.27 151.77,-1566.27 151.77,-1542 384.54,-1542 384.54,-1566.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-1550.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_5d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int16_5d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge60" class="edge">
+<title>proc~torch_tensor_from_array_int16_5d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.54,-1559.64C143.32,-1563.52 135.73,-1568.59 129.27,-1575.14 48.91,-1656.57 46.53,-2039.01 47.32,-2139.11"/>
+<polygon fill="#000000" stroke="#000000" points="43.82,-2139.12 47.42,-2149.08 50.82,-2139.05 43.82,-2139.12"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_5d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge61" class="edge">
+<title>proc~torch_tensor_from_array_int16_5d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.29,-1558.94C143.06,-1562.95 135.55,-1568.25 129.27,-1575.14 83.6,-1625.22 97.37,-2116.47 93.27,-2184.14 76.32,-2463.86 54.94,-2803.4 49.14,-2895.27"/>
+<polygon fill="#000000" stroke="#000000" points="45.66,-2894.84 48.53,-2905.04 52.65,-2895.28 45.66,-2894.84"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_1d -->
+<g id="module~~graph~~ModuleGraph_node37" class="node">
+<title>proc~torch_tensor_from_array_int32_1d</title>
+<g id="a_module~~graph~~ModuleGraph_node37"><a xlink:href="../proc/torch_tensor_from_array_int32_1d.html" xlink:title="torch_tensor_from_array_int32_1d">
+<polygon fill="#d9534f" stroke="#d9534f" points="364.29,-1524.27 172.02,-1524.27 172.02,-1500 364.29,-1500 364.29,-1524.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-1508.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_1d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int32_1d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge62" class="edge">
+<title>proc~torch_tensor_from_array_int32_1d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.56,-1510.52C155.69,-1514.47 140.7,-1521.45 129.27,-1533.14 85.92,-1577.46 55.74,-2029.92 49.04,-2139.39"/>
+<polygon fill="#000000" stroke="#000000" points="45.56,-2139.03 48.45,-2149.22 52.54,-2139.45 45.56,-2139.03"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_1d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge63" class="edge">
+<title>proc~torch_tensor_from_array_int32_1d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.55,-1509.67C155.48,-1513.65 140.42,-1520.86 129.27,-1533.14 80.56,-1586.76 97.51,-2111.82 93.27,-2184.14 76.85,-2463.89 55.09,-2803.41 49.18,-2895.27"/>
+<polygon fill="#000000" stroke="#000000" points="45.7,-2894.84 48.55,-2905.04 52.68,-2895.29 45.7,-2894.84"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_1d_legacy -->
+<g id="module~~graph~~ModuleGraph_node38" class="node">
+<title>proc~torch_tensor_from_array_int32_1d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node38"><a xlink:href="../proc/torch_tensor_from_array_int32_1d_legacy.html" xlink:title="torch_tensor_from_array_int32_1d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="384.54,-1482.27 151.77,-1482.27 151.77,-1458 384.54,-1458 384.54,-1482.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-1466.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_1d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int32_1d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge64" class="edge">
+<title>proc~torch_tensor_from_array_int32_1d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.42,-1475.52C143.22,-1479.42 135.68,-1484.53 129.27,-1491.14 83.07,-1538.75 54.86,-2025.16 48.85,-2139.27"/>
+<polygon fill="#000000" stroke="#000000" points="45.35,-2139.08 48.33,-2149.25 52.34,-2139.44 45.35,-2139.08"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_1d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge65" class="edge">
+<title>proc~torch_tensor_from_array_int32_1d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.56,-1474.73C143.22,-1478.78 135.61,-1484.13 129.27,-1491.14 103.4,-1519.71 95.46,-2145.65 93.27,-2184.14 77.32,-2463.92 55.23,-2803.42 49.2,-2895.27"/>
+<polygon fill="#000000" stroke="#000000" points="45.73,-2894.84 48.56,-2905.04 52.71,-2895.3 45.73,-2894.84"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_2d -->
+<g id="module~~graph~~ModuleGraph_node39" class="node">
+<title>proc~torch_tensor_from_array_int32_2d</title>
+<g id="a_module~~graph~~ModuleGraph_node39"><a xlink:href="../proc/torch_tensor_from_array_int32_2d.html" xlink:title="torch_tensor_from_array_int32_2d">
+<polygon fill="#d9534f" stroke="#d9534f" points="364.29,-1440.27 172.02,-1440.27 172.02,-1416 364.29,-1416 364.29,-1440.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-1424.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_2d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int32_2d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge66" class="edge">
+<title>proc~torch_tensor_from_array_int32_2d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.77,-1426.29C155.78,-1430.24 140.69,-1437.28 129.27,-1449.14 80.2,-1500.07 54.01,-2020.88 48.67,-2139.28"/>
+<polygon fill="#000000" stroke="#000000" points="45.18,-2138.92 48.23,-2149.06 52.17,-2139.23 45.18,-2138.92"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_2d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge67" class="edge">
+<title>proc~torch_tensor_from_array_int32_2d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.84,-1425.53C155.64,-1429.49 140.47,-1436.73 129.27,-1449.14 101.88,-1479.48 95.54,-2143.32 93.27,-2184.14 77.73,-2463.94 55.35,-2803.43 49.23,-2895.27"/>
+<polygon fill="#000000" stroke="#000000" points="45.75,-2894.83 48.58,-2905.05 52.74,-2895.3 45.75,-2894.83"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_2d_legacy -->
+<g id="module~~graph~~ModuleGraph_node40" class="node">
+<title>proc~torch_tensor_from_array_int32_2d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node40"><a xlink:href="../proc/torch_tensor_from_array_int32_2d_legacy.html" xlink:title="torch_tensor_from_array_int32_2d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="384.54,-4296.27 151.77,-4296.27 151.77,-4272 384.54,-4272 384.54,-4296.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-4280.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_2d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int32_2d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge68" class="edge">
+<title>proc~torch_tensor_from_array_int32_2d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.36,-4279.71C143.06,-4275.63 135.52,-4270.22 129.27,-4263.14 104.17,-4234.69 94.95,-2936.03 93.27,-2898.14 80.89,-2618.17 56.26,-2278.8 49.43,-2186.99"/>
+<polygon fill="#000000" stroke="#000000" points="52.93,-2186.93 48.7,-2177.22 45.95,-2187.45 52.93,-2186.93"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_2d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge69" class="edge">
+<title>proc~torch_tensor_from_array_int32_2d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.3,-4279.32C143.07,-4275.31 135.56,-4270.02 129.27,-4263.14 82.89,-4212.36 52.79,-3118.93 48.24,-2942.95"/>
+<polygon fill="#000000" stroke="#000000" points="51.74,-2942.91 47.98,-2933 44.74,-2943.09 51.74,-2942.91"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_3d -->
+<g id="module~~graph~~ModuleGraph_node41" class="node">
+<title>proc~torch_tensor_from_array_int32_3d</title>
+<g id="a_module~~graph~~ModuleGraph_node41"><a xlink:href="../proc/torch_tensor_from_array_int32_3d.html" xlink:title="torch_tensor_from_array_int32_3d">
+<polygon fill="#d9534f" stroke="#d9534f" points="364.29,-4254.27 172.02,-4254.27 172.02,-4230 364.29,-4230 364.29,-4254.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-4238.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_3d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int32_3d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge70" class="edge">
+<title>proc~torch_tensor_from_array_int32_3d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.63,-4244.94C155.44,-4240.96 140.33,-4233.66 129.27,-4221.14 104.93,-4193.58 94.91,-2934.86 93.27,-2898.14 80.77,-2618.18 56.22,-2278.8 49.42,-2186.99"/>
+<polygon fill="#000000" stroke="#000000" points="52.92,-2186.93 48.69,-2177.22 45.94,-2187.45 52.92,-2186.93"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_3d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge71" class="edge">
+<title>proc~torch_tensor_from_array_int32_3d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.63,-4244.53C155.55,-4240.56 140.47,-4233.37 129.27,-4221.14 84.35,-4172.06 53.11,-3115.94 48.29,-2942.99"/>
+<polygon fill="#000000" stroke="#000000" points="51.79,-2942.92 48.01,-2933.02 44.79,-2943.11 51.79,-2942.92"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_3d_legacy -->
+<g id="module~~graph~~ModuleGraph_node42" class="node">
+<title>proc~torch_tensor_from_array_int32_3d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node42"><a xlink:href="../proc/torch_tensor_from_array_int32_3d_legacy.html" xlink:title="torch_tensor_from_array_int32_3d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="384.54,-4212.27 151.77,-4212.27 151.77,-4188 384.54,-4188 384.54,-4212.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-4196.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_3d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int32_3d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge72" class="edge">
+<title>proc~torch_tensor_from_array_int32_3d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.38,-4195.7C143.07,-4191.62 135.52,-4186.21 129.27,-4179.14 82.12,-4125.79 96.48,-2969.26 93.27,-2898.14 80.65,-2618.18 56.19,-2278.8 49.41,-2186.99"/>
+<polygon fill="#000000" stroke="#000000" points="52.92,-2186.93 48.69,-2177.22 45.94,-2187.45 52.92,-2186.93"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_3d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge73" class="edge">
+<title>proc~torch_tensor_from_array_int32_3d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.33,-4195.3C143.1,-4191.28 135.57,-4186.01 129.27,-4179.14 42.54,-4084.56 46.17,-3108.9 47.42,-2943.04"/>
+<polygon fill="#000000" stroke="#000000" points="50.92,-2943.3 47.5,-2933.27 43.92,-2943.24 50.92,-2943.3"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_4d -->
+<g id="module~~graph~~ModuleGraph_node43" class="node">
+<title>proc~torch_tensor_from_array_int32_4d</title>
+<g id="a_module~~graph~~ModuleGraph_node43"><a xlink:href="../proc/torch_tensor_from_array_int32_4d.html" xlink:title="torch_tensor_from_array_int32_4d">
+<polygon fill="#d9534f" stroke="#d9534f" points="364.29,-4170.27 172.02,-4170.27 172.02,-4146 364.29,-4146 364.29,-4170.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-4154.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_4d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int32_4d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge74" class="edge">
+<title>proc~torch_tensor_from_array_int32_4d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.64,-4160.92C155.46,-4156.94 140.34,-4149.65 129.27,-4137.14 83.64,-4085.56 96.4,-2966.93 93.27,-2898.14 80.52,-2618.19 56.15,-2278.8 49.4,-2186.99"/>
+<polygon fill="#000000" stroke="#000000" points="52.91,-2186.93 48.68,-2177.22 45.93,-2187.45 52.91,-2186.93"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_4d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge75" class="edge">
+<title>proc~torch_tensor_from_array_int32_4d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.67,-4160.49C155.58,-4156.53 140.49,-4149.35 129.27,-4137.14 45.4,-4045.89 46.64,-3104.55 47.48,-2942.75"/>
+<polygon fill="#000000" stroke="#000000" points="50.98,-2943.25 47.53,-2933.23 43.98,-2943.21 50.98,-2943.25"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_4d_legacy -->
+<g id="module~~graph~~ModuleGraph_node44" class="node">
+<title>proc~torch_tensor_from_array_int32_4d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node44"><a xlink:href="../proc/torch_tensor_from_array_int32_4d_legacy.html" xlink:title="torch_tensor_from_array_int32_4d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="384.54,-4128.27 151.77,-4128.27 151.77,-4104 384.54,-4104 384.54,-4128.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-4112.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_4d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int32_4d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge76" class="edge">
+<title>proc~torch_tensor_from_array_int32_4d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.39,-4111.69C143.09,-4107.61 135.53,-4102.2 129.27,-4095.14 85.16,-4045.33 96.33,-2964.59 93.27,-2898.14 80.37,-2618.2 56.11,-2278.8 49.39,-2186.99"/>
+<polygon fill="#000000" stroke="#000000" points="52.9,-2186.94 48.68,-2177.22 45.92,-2187.45 52.9,-2186.94"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_4d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge77" class="edge">
+<title>proc~torch_tensor_from_array_int32_4d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.37,-4111.26C143.12,-4107.26 135.59,-4101.99 129.27,-4095.14 48.34,-4007.3 47.13,-3101.88 47.54,-2942.9"/>
+<polygon fill="#000000" stroke="#000000" points="51.04,-2943.18 47.57,-2933.17 44.04,-2943.16 51.04,-2943.18"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_5d -->
+<g id="module~~graph~~ModuleGraph_node45" class="node">
+<title>proc~torch_tensor_from_array_int32_5d</title>
+<g id="a_module~~graph~~ModuleGraph_node45"><a xlink:href="../proc/torch_tensor_from_array_int32_5d.html" xlink:title="torch_tensor_from_array_int32_5d">
+<polygon fill="#d9534f" stroke="#d9534f" points="364.29,-4086.27 172.02,-4086.27 172.02,-4062 364.29,-4062 364.29,-4086.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-4070.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_5d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int32_5d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge78" class="edge">
+<title>proc~torch_tensor_from_array_int32_5d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.66,-4076.9C155.48,-4072.92 140.35,-4065.64 129.27,-4053.14 86.68,-4005.1 96.26,-2962.26 93.27,-2898.14 80.22,-2618.2 56.06,-2278.81 49.38,-2186.99"/>
+<polygon fill="#000000" stroke="#000000" points="52.89,-2186.94 48.67,-2177.22 45.91,-2187.45 52.89,-2186.94"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_5d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge79" class="edge">
+<title>proc~torch_tensor_from_array_int32_5d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.72,-4076.45C155.63,-4072.49 140.52,-4065.32 129.27,-4053.14 51.27,-3968.69 47.63,-3098.94 47.6,-2943"/>
+<polygon fill="#000000" stroke="#000000" points="51.1,-2943.09 47.61,-2933.09 44.1,-2943.09 51.1,-2943.09"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_5d_legacy -->
+<g id="module~~graph~~ModuleGraph_node46" class="node">
+<title>proc~torch_tensor_from_array_int32_5d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node46"><a xlink:href="../proc/torch_tensor_from_array_int32_5d_legacy.html" xlink:title="torch_tensor_from_array_int32_5d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="384.54,-4044.27 151.77,-4044.27 151.77,-4020 384.54,-4020 384.54,-4044.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-4028.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_5d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int32_5d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge80" class="edge">
+<title>proc~torch_tensor_from_array_int32_5d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.41,-4027.67C143.1,-4023.6 135.54,-4018.2 129.27,-4011.14 88.2,-3964.87 96.19,-2959.93 93.27,-2898.14 80.06,-2618.21 56.01,-2278.81 49.37,-2186.99"/>
+<polygon fill="#000000" stroke="#000000" points="52.88,-2186.94 48.67,-2177.22 45.9,-2187.45 52.88,-2186.94"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_5d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge81" class="edge">
+<title>proc~torch_tensor_from_array_int32_5d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.41,-4027.23C143.15,-4023.23 135.61,-4017.97 129.27,-4011.14 54.11,-3929.99 48.14,-3094.04 47.67,-2942.59"/>
+<polygon fill="#000000" stroke="#000000" points="51.17,-2942.98 47.65,-2932.99 44.17,-2943 51.17,-2942.98"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_1d -->
+<g id="module~~graph~~ModuleGraph_node47" class="node">
+<title>proc~torch_tensor_from_array_int64_1d</title>
+<g id="a_module~~graph~~ModuleGraph_node47"><a xlink:href="../proc/torch_tensor_from_array_int64_1d.html" xlink:title="torch_tensor_from_array_int64_1d">
+<polygon fill="#d9534f" stroke="#d9534f" points="364.29,-4002.27 172.02,-4002.27 172.02,-3978 364.29,-3978 364.29,-4002.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-3986.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_1d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int64_1d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge82" class="edge">
+<title>proc~torch_tensor_from_array_int64_1d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.69,-3992.88C155.5,-3988.9 140.37,-3981.62 129.27,-3969.14 89.72,-3924.64 96.11,-2957.6 93.27,-2898.14 79.88,-2618.22 55.96,-2278.81 49.36,-2186.99"/>
+<polygon fill="#000000" stroke="#000000" points="52.87,-2186.94 48.66,-2177.22 45.89,-2187.45 52.87,-2186.94"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_1d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge83" class="edge">
+<title>proc~torch_tensor_from_array_int64_1d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.77,-3992.4C155.68,-3988.44 140.56,-3981.29 129.27,-3969.14 57.09,-3891.45 48.69,-3092.29 47.75,-2943.06"/>
+<polygon fill="#000000" stroke="#000000" points="51.25,-2943.2 47.69,-2933.22 44.25,-2943.24 51.25,-2943.2"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_1d_legacy -->
+<g id="module~~graph~~ModuleGraph_node48" class="node">
+<title>proc~torch_tensor_from_array_int64_1d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node48"><a xlink:href="../proc/torch_tensor_from_array_int64_1d_legacy.html" xlink:title="torch_tensor_from_array_int64_1d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="384.54,-3960.27 151.77,-3960.27 151.77,-3936 384.54,-3936 384.54,-3960.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-3944.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_1d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int64_1d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge84" class="edge">
+<title>proc~torch_tensor_from_array_int64_1d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.43,-3943.65C143.11,-3939.58 135.55,-3934.19 129.27,-3927.14 91.24,-3884.41 96.04,-2955.27 93.27,-2898.14 79.69,-2618.23 55.91,-2278.81 49.35,-2186.99"/>
+<polygon fill="#000000" stroke="#000000" points="52.86,-2186.94 48.65,-2177.22 45.88,-2187.45 52.86,-2186.94"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_1d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge85" class="edge">
+<title>proc~torch_tensor_from_array_int64_1d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.45,-3943.19C143.19,-3939.2 135.63,-3933.95 129.27,-3927.14 59.99,-3852.8 49.25,-3088.53 47.83,-2943"/>
+<polygon fill="#000000" stroke="#000000" points="51.33,-2943.03 47.74,-2933.06 44.33,-2943.09 51.33,-2943.03"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_2d -->
+<g id="module~~graph~~ModuleGraph_node49" class="node">
+<title>proc~torch_tensor_from_array_int64_2d</title>
+<g id="a_module~~graph~~ModuleGraph_node49"><a xlink:href="../proc/torch_tensor_from_array_int64_2d.html" xlink:title="torch_tensor_from_array_int64_2d">
+<polygon fill="#d9534f" stroke="#d9534f" points="364.29,-3918.27 172.02,-3918.27 172.02,-3894 364.29,-3894 364.29,-3918.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-3902.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_2d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int64_2d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge86" class="edge">
+<title>proc~torch_tensor_from_array_int64_2d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.72,-3908.85C155.53,-3904.88 140.39,-3897.61 129.27,-3885.14 92.76,-3844.18 95.97,-2952.94 93.27,-2898.14 79.48,-2618.24 55.85,-2278.82 49.34,-2186.99"/>
+<polygon fill="#000000" stroke="#000000" points="52.84,-2186.95 48.64,-2177.22 45.86,-2187.44 52.84,-2186.95"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_2d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge87" class="edge">
+<title>proc~torch_tensor_from_array_int64_2d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.84,-3908.34C155.74,-3904.38 140.6,-3897.25 129.27,-3885.14 62.87,-3814.14 49.83,-3084.56 47.92,-2942.89"/>
+<polygon fill="#000000" stroke="#000000" points="51.42,-2943.17 47.79,-2933.22 44.42,-2943.26 51.42,-2943.17"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_2d_legacy -->
+<g id="module~~graph~~ModuleGraph_node50" class="node">
+<title>proc~torch_tensor_from_array_int64_2d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node50"><a xlink:href="../proc/torch_tensor_from_array_int64_2d_legacy.html" xlink:title="torch_tensor_from_array_int64_2d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="384.54,-3876.27 151.77,-3876.27 151.77,-3852 384.54,-3852 384.54,-3876.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-3860.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_2d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int64_2d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge88" class="edge">
+<title>proc~torch_tensor_from_array_int64_2d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.45,-3859.63C143.13,-3855.56 135.56,-3850.18 129.27,-3843.14 94.28,-3803.95 95.9,-2950.61 93.27,-2898.14 79.25,-2618.25 55.78,-2278.82 49.32,-2186.99"/>
+<polygon fill="#000000" stroke="#000000" points="52.83,-2186.95 48.64,-2177.22 45.85,-2187.44 52.83,-2186.95"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_2d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge89" class="edge">
+<title>proc~torch_tensor_from_array_int64_2d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.51,-3859.13C143.23,-3855.16 135.65,-3849.93 129.27,-3843.14 65.74,-3775.47 50.43,-3080.25 48.01,-2942.7"/>
+<polygon fill="#000000" stroke="#000000" points="51.52,-2942.94 47.85,-2933 44.52,-2943.06 51.52,-2942.94"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_3d -->
+<g id="module~~graph~~ModuleGraph_node51" class="node">
+<title>proc~torch_tensor_from_array_int64_3d</title>
+<g id="a_module~~graph~~ModuleGraph_node51"><a xlink:href="../proc/torch_tensor_from_array_int64_3d.html" xlink:title="torch_tensor_from_array_int64_3d">
+<polygon fill="#d9534f" stroke="#d9534f" points="364.29,-3834.27 172.02,-3834.27 172.02,-3810 364.29,-3810 364.29,-3834.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-3818.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_3d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int64_3d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge90" class="edge">
+<title>proc~torch_tensor_from_array_int64_3d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.75,-3824.82C155.56,-3820.85 140.41,-3813.59 129.27,-3801.14 95.8,-3763.71 95.83,-2948.28 93.27,-2898.14 79,-2618.26 55.71,-2278.82 49.31,-2186.99"/>
+<polygon fill="#000000" stroke="#000000" points="52.82,-2186.95 48.63,-2177.22 45.83,-2187.44 52.82,-2186.95"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_3d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge91" class="edge">
+<title>proc~torch_tensor_from_array_int64_3d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.56,-3824.18C155.59,-3820.21 140.57,-3813.12 129.27,-3801.14 68.66,-3736.84 51.08,-3077.07 48.12,-2942.88"/>
+<polygon fill="#000000" stroke="#000000" points="51.62,-2943 47.91,-2933.08 44.62,-2943.15 51.62,-2943"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_3d_legacy -->
+<g id="module~~graph~~ModuleGraph_node52" class="node">
+<title>proc~torch_tensor_from_array_int64_3d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node52"><a xlink:href="../proc/torch_tensor_from_array_int64_3d_legacy.html" xlink:title="torch_tensor_from_array_int64_3d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="384.54,-3792.27 151.77,-3792.27 151.77,-3768 384.54,-3768 384.54,-3792.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-3776.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_3d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int64_3d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge92" class="edge">
+<title>proc~torch_tensor_from_array_int64_3d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.48,-3775.61C143.16,-3771.54 135.57,-3766.17 129.27,-3759.14 97.32,-3723.48 95.75,-2945.95 93.27,-2898.14 78.73,-2618.28 55.63,-2278.83 49.29,-2186.99"/>
+<polygon fill="#000000" stroke="#000000" points="52.8,-2186.96 48.62,-2177.22 45.82,-2187.44 52.8,-2186.96"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_3d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge93" class="edge">
+<title>proc~torch_tensor_from_array_int64_3d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.57,-3775.07C143.28,-3771.11 135.68,-3765.9 129.27,-3759.14 71.56,-3698.2 51.76,-3073.48 48.24,-2942.96"/>
+<polygon fill="#000000" stroke="#000000" points="51.74,-2943.02 47.98,-2933.11 44.74,-2943.2 51.74,-2943.02"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_4d -->
+<g id="module~~graph~~ModuleGraph_node53" class="node">
+<title>proc~torch_tensor_from_array_int64_4d</title>
+<g id="a_module~~graph~~ModuleGraph_node53"><a xlink:href="../proc/torch_tensor_from_array_int64_4d.html" xlink:title="torch_tensor_from_array_int64_4d">
+<polygon fill="#d9534f" stroke="#d9534f" points="364.29,-3750.27 172.02,-3750.27 172.02,-3726 364.29,-3726 364.29,-3750.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-3734.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_4d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int64_4d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge94" class="edge">
+<title>proc~torch_tensor_from_array_int64_4d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.79,-3740.79C155.6,-3736.82 140.43,-3729.57 129.27,-3717.14 98.84,-3683.25 95.68,-2943.62 93.27,-2898.14 78.43,-2618.29 55.55,-2278.83 49.27,-2187"/>
+<polygon fill="#000000" stroke="#000000" points="52.78,-2186.96 48.6,-2177.22 45.8,-2187.44 52.78,-2186.96"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_4d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge95" class="edge">
+<title>proc~torch_tensor_from_array_int64_4d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.66,-3740.09C155.67,-3736.13 140.62,-3729.06 129.27,-3717.14 74.44,-3659.54 52.46,-3069.48 48.36,-2942.94"/>
+<polygon fill="#000000" stroke="#000000" points="51.87,-2942.98 48.05,-2933.1 44.87,-2943.21 51.87,-2942.98"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_4d_legacy -->
+<g id="module~~graph~~ModuleGraph_node54" class="node">
+<title>proc~torch_tensor_from_array_int64_4d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node54"><a xlink:href="../proc/torch_tensor_from_array_int64_4d_legacy.html" xlink:title="torch_tensor_from_array_int64_4d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="384.54,-3708.27 151.77,-3708.27 151.77,-3684 384.54,-3684 384.54,-3708.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-3692.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_4d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int64_4d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge96" class="edge">
+<title>proc~torch_tensor_from_array_int64_4d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.52,-3691.58C143.18,-3687.52 135.59,-3682.15 129.27,-3675.14 100.36,-3643.02 95.61,-2941.28 93.27,-2898.14 78.1,-2618.31 55.45,-2278.84 49.25,-2187"/>
+<polygon fill="#000000" stroke="#000000" points="52.76,-2186.96 48.59,-2177.22 45.78,-2187.44 52.76,-2186.96"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_4d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge97" class="edge">
+<title>proc~torch_tensor_from_array_int64_4d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.33,-3690.85C143.15,-3686.92 135.63,-3681.78 129.27,-3675.14 77.3,-3620.85 53.2,-3065.08 48.5,-2942.83"/>
+<polygon fill="#000000" stroke="#000000" points="52.01,-2942.9 48.13,-2933.04 45.01,-2943.16 52.01,-2942.9"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_5d -->
+<g id="module~~graph~~ModuleGraph_node55" class="node">
+<title>proc~torch_tensor_from_array_int64_5d</title>
+<g id="a_module~~graph~~ModuleGraph_node55"><a xlink:href="../proc/torch_tensor_from_array_int64_5d.html" xlink:title="torch_tensor_from_array_int64_5d">
+<polygon fill="#d9534f" stroke="#d9534f" points="364.29,-3666.27 172.02,-3666.27 172.02,-3642 364.29,-3642 364.29,-3666.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-3650.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_5d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int64_5d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge98" class="edge">
+<title>proc~torch_tensor_from_array_int64_5d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.84,-3656.74C155.64,-3652.78 140.47,-3645.54 129.27,-3633.14 101.88,-3602.79 95.54,-2938.95 93.27,-2898.14 77.73,-2618.33 55.35,-2278.84 49.23,-2187"/>
+<polygon fill="#000000" stroke="#000000" points="52.74,-2186.97 48.58,-2177.22 45.75,-2187.44 52.74,-2186.97"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_5d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge99" class="edge">
+<title>proc~torch_tensor_from_array_int64_5d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.77,-3655.98C155.78,-3652.03 140.69,-3644.99 129.27,-3633.14 80.2,-3582.2 54.01,-3061.39 48.67,-2942.99"/>
+<polygon fill="#000000" stroke="#000000" points="52.17,-2943.04 48.23,-2933.21 45.18,-2943.35 52.17,-2943.04"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_5d_legacy -->
+<g id="module~~graph~~ModuleGraph_node56" class="node">
+<title>proc~torch_tensor_from_array_int64_5d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node56"><a xlink:href="../proc/torch_tensor_from_array_int64_5d_legacy.html" xlink:title="torch_tensor_from_array_int64_5d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="384.54,-3624.27 151.77,-3624.27 151.77,-3600 384.54,-3600 384.54,-3624.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-3608.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_5d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int64_5d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge100" class="edge">
+<title>proc~torch_tensor_from_array_int64_5d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.56,-3607.54C143.22,-3603.49 135.61,-3598.14 129.27,-3591.14 103.4,-3562.56 95.46,-2936.62 93.27,-2898.14 77.32,-2618.35 55.23,-2278.85 49.2,-2187"/>
+<polygon fill="#000000" stroke="#000000" points="52.71,-2186.97 48.56,-2177.23 45.73,-2187.43 52.71,-2186.97"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_5d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge101" class="edge">
+<title>proc~torch_tensor_from_array_int64_5d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M151.42,-3606.75C143.22,-3602.85 135.68,-3597.74 129.27,-3591.14 83.07,-3543.52 54.86,-3057.11 48.85,-2943"/>
+<polygon fill="#000000" stroke="#000000" points="52.34,-2942.83 48.33,-2933.02 45.35,-2943.19 52.34,-2942.83"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_1d -->
+<g id="module~~graph~~ModuleGraph_node57" class="node">
+<title>proc~torch_tensor_from_array_int8_1d</title>
+<g id="a_module~~graph~~ModuleGraph_node57"><a xlink:href="../proc/torch_tensor_from_array_int8_1d.html" xlink:title="torch_tensor_from_array_int8_1d">
+<polygon fill="#d9534f" stroke="#d9534f" points="360.91,-3582.27 175.39,-3582.27 175.39,-3558 360.91,-3558 360.91,-3582.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-3566.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_1d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int8_1d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge102" class="edge">
+<title>proc~torch_tensor_from_array_int8_1d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M175.09,-3573.42C157.7,-3569.65 141.24,-3562.31 129.27,-3549.14 80.56,-3495.51 97.51,-2970.45 93.27,-2898.14 76.85,-2618.38 55.09,-2278.86 49.18,-2187"/>
+<polygon fill="#000000" stroke="#000000" points="52.68,-2186.98 48.55,-2177.23 45.7,-2187.43 52.68,-2186.98"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_1d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge103" class="edge">
+<title>proc~torch_tensor_from_array_int8_1d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M175.1,-3572.58C157.93,-3568.81 141.54,-3561.69 129.27,-3549.14 85.92,-3504.81 55.74,-3052.35 49.04,-2942.88"/>
+<polygon fill="#000000" stroke="#000000" points="52.54,-2942.82 48.45,-2933.05 45.56,-2943.24 52.54,-2942.82"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_1d_legacy -->
+<g id="module~~graph~~ModuleGraph_node58" class="node">
+<title>proc~torch_tensor_from_array_int8_1d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node58"><a xlink:href="../proc/torch_tensor_from_array_int8_1d_legacy.html" xlink:title="torch_tensor_from_array_int8_1d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="381.16,-3540.27 155.14,-3540.27 155.14,-3516 381.16,-3516 381.16,-3540.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-3524.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_1d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int8_1d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge104" class="edge">
+<title>proc~torch_tensor_from_array_int8_1d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M154.86,-3524.98C145.23,-3520.79 136.45,-3515.01 129.27,-3507.14 83.6,-3457.05 97.37,-2965.8 93.27,-2898.14 76.32,-2618.41 54.94,-2278.87 49.14,-2187"/>
+<polygon fill="#000000" stroke="#000000" points="52.65,-2186.99 48.53,-2177.23 45.66,-2187.43 52.65,-2186.99"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_1d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge105" class="edge">
+<title>proc~torch_tensor_from_array_int8_1d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M154.82,-3524.1C145.33,-3520.06 136.58,-3514.55 129.27,-3507.14 48.91,-3425.7 46.53,-3043.26 47.32,-2943.16"/>
+<polygon fill="#000000" stroke="#000000" points="50.82,-2943.22 47.42,-2933.19 43.82,-2943.15 50.82,-2943.22"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_2d -->
+<g id="module~~graph~~ModuleGraph_node59" class="node">
+<title>proc~torch_tensor_from_array_int8_2d</title>
+<g id="a_module~~graph~~ModuleGraph_node59"><a xlink:href="../proc/torch_tensor_from_array_int8_2d.html" xlink:title="torch_tensor_from_array_int8_2d">
+<polygon fill="#d9534f" stroke="#d9534f" points="360.91,-3498.27 175.39,-3498.27 175.39,-3474 360.91,-3474 360.91,-3498.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-3482.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_2d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int8_2d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge106" class="edge">
+<title>proc~torch_tensor_from_array_int8_2d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M175.16,-3489.35C157.77,-3485.59 141.29,-3478.26 129.27,-3465.14 128.57,-3464.37 60.09,-2363.39 49.11,-2186.88"/>
+<polygon fill="#000000" stroke="#000000" points="52.62,-2186.87 48.5,-2177.11 45.63,-2187.3 52.62,-2186.87"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_2d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge107" class="edge">
+<title>proc~torch_tensor_from_array_int8_2d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M174.94,-3488.32C157.87,-3484.54 141.58,-3477.48 129.27,-3465.14 54.53,-3390.2 47.99,-3038.2 47.6,-2942.95"/>
+<polygon fill="#000000" stroke="#000000" points="51.1,-2943 47.58,-2933.01 44.1,-2943.02 51.1,-2943"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_2d_legacy -->
+<g id="module~~graph~~ModuleGraph_node60" class="node">
+<title>proc~torch_tensor_from_array_int8_2d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node60"><a xlink:href="../proc/torch_tensor_from_array_int8_2d_legacy.html" xlink:title="torch_tensor_from_array_int8_2d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="381.16,-3456.27 155.14,-3456.27 155.14,-3432 381.16,-3432 381.16,-3456.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-3440.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_2d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int8_2d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge108" class="edge">
+<title>proc~torch_tensor_from_array_int8_2d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M154.91,-3440.94C145.27,-3436.76 136.47,-3430.99 129.27,-3423.14 126.55,-3420.17 59.97,-2359.84 49.12,-2186.86"/>
+<polygon fill="#000000" stroke="#000000" points="52.63,-2186.85 48.51,-2177.08 45.64,-2187.28 52.63,-2186.85"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_2d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge109" class="edge">
+<title>proc~torch_tensor_from_array_int8_2d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M154.66,-3439.79C145.27,-3435.79 136.58,-3430.38 129.27,-3423.14 60.17,-3354.69 49.55,-3033.25 47.93,-2942.84"/>
+<polygon fill="#000000" stroke="#000000" points="51.43,-2942.91 47.77,-2932.97 44.43,-2943.02 51.43,-2942.91"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_3d -->
+<g id="module~~graph~~ModuleGraph_node61" class="node">
+<title>proc~torch_tensor_from_array_int8_3d</title>
+<g id="a_module~~graph~~ModuleGraph_node61"><a xlink:href="../proc/torch_tensor_from_array_int8_3d.html" xlink:title="torch_tensor_from_array_int8_3d">
+<polygon fill="#d9534f" stroke="#d9534f" points="360.91,-3414.27 175.39,-3414.27 175.39,-3390 360.91,-3390 360.91,-3414.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-3398.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_3d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int8_3d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge110" class="edge">
+<title>proc~torch_tensor_from_array_int8_3d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M175.2,-3405.31C157.81,-3401.55 141.31,-3394.24 129.27,-3381.14 124.01,-3375.41 59.75,-2355.96 49.12,-2186.79"/>
+<polygon fill="#000000" stroke="#000000" points="52.63,-2186.8 48.51,-2177.03 45.64,-2187.23 52.63,-2186.8"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_3d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge111" class="edge">
+<title>proc~torch_tensor_from_array_int8_3d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M175.19,-3404.06C158.11,-3400.31 141.74,-3393.32 129.27,-3381.14 65.88,-3319.23 51.27,-3028.86 48.32,-2943.06"/>
+<polygon fill="#000000" stroke="#000000" points="51.82,-2943.13 48,-2933.25 44.82,-2943.35 51.82,-2943.13"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_3d_legacy -->
+<g id="module~~graph~~ModuleGraph_node62" class="node">
+<title>proc~torch_tensor_from_array_int8_3d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node62"><a xlink:href="../proc/torch_tensor_from_array_int8_3d_legacy.html" xlink:title="torch_tensor_from_array_int8_3d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="381.16,-3372.27 155.14,-3372.27 155.14,-3348 381.16,-3348 381.16,-3372.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-3356.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_3d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int8_3d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge112" class="edge">
+<title>proc~torch_tensor_from_array_int8_3d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M154.94,-3356.9C145.3,-3352.73 136.49,-3346.97 129.27,-3339.14 119.11,-3328.11 59.12,-2351.41 49.06,-2186.62"/>
+<polygon fill="#000000" stroke="#000000" points="52.58,-2186.7 48.47,-2176.93 45.59,-2187.13 52.58,-2186.7"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_3d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge113" class="edge">
+<title>proc~torch_tensor_from_array_int8_3d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M154.9,-3355.55C145.45,-3351.6 136.69,-3346.26 129.27,-3339.14 71.41,-3283.59 53.08,-3022.9 48.76,-2942.68"/>
+<polygon fill="#000000" stroke="#000000" points="52.26,-2942.74 48.26,-2932.93 45.27,-2943.09 52.26,-2942.74"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_4d -->
+<g id="module~~graph~~ModuleGraph_node63" class="node">
+<title>proc~torch_tensor_from_array_int8_4d</title>
+<g id="a_module~~graph~~ModuleGraph_node63"><a xlink:href="../proc/torch_tensor_from_array_int8_4d.html" xlink:title="torch_tensor_from_array_int8_4d">
+<polygon fill="#d9534f" stroke="#d9534f" points="360.91,-3330.27 175.39,-3330.27 175.39,-3306 360.91,-3306 360.91,-3330.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-3314.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_4d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int8_4d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge114" class="edge">
+<title>proc~torch_tensor_from_array_int8_4d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M174.9,-3321.19C157.63,-3317.41 141.26,-3310.12 129.27,-3297.14 119.48,-3286.54 59.43,-2348.6 49.14,-2186.78"/>
+<polygon fill="#000000" stroke="#000000" points="52.66,-2187.01 48.53,-2177.25 45.67,-2187.46 52.66,-2187.01"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_4d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge115" class="edge">
+<title>proc~torch_tensor_from_array_int8_4d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M175.18,-3319.61C158.21,-3315.87 141.88,-3308.99 129.27,-3297.14 77.14,-3248.12 55.22,-3018.64 49.35,-2943.22"/>
+<polygon fill="#000000" stroke="#000000" points="52.84,-2942.96 48.6,-2933.25 45.86,-2943.49 52.84,-2942.96"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_4d_legacy -->
+<g id="module~~graph~~ModuleGraph_node64" class="node">
+<title>proc~torch_tensor_from_array_int8_4d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node64"><a xlink:href="../proc/torch_tensor_from_array_int8_4d_legacy.html" xlink:title="torch_tensor_from_array_int8_4d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="381.16,-3288.27 155.14,-3288.27 155.14,-3264 381.16,-3264 381.16,-3288.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-3272.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_4d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int8_4d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge116" class="edge">
+<title>proc~torch_tensor_from_array_int8_4d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M154.66,-3272.72C145.13,-3268.57 136.43,-3262.86 129.27,-3255.14 110.42,-3234.79 58.07,-2343.62 48.99,-2186.63"/>
+<polygon fill="#000000" stroke="#000000" points="52.5,-2186.82 48.43,-2177.03 45.52,-2187.22 52.5,-2186.82"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_4d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge117" class="edge">
+<title>proc~torch_tensor_from_array_int8_4d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M154.9,-3271.05C145.52,-3267.19 136.77,-3262.01 129.27,-3255.14 82.61,-3212.37 57.43,-3012.07 50,-2942.79"/>
+<polygon fill="#000000" stroke="#000000" points="53.49,-2942.53 48.98,-2932.95 46.53,-2943.26 53.49,-2942.53"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_5d -->
+<g id="module~~graph~~ModuleGraph_node65" class="node">
+<title>proc~torch_tensor_from_array_int8_5d</title>
+<g id="a_module~~graph~~ModuleGraph_node65"><a xlink:href="../proc/torch_tensor_from_array_int8_5d.html" xlink:title="torch_tensor_from_array_int8_5d">
+<polygon fill="#d9534f" stroke="#d9534f" points="360.91,-3246.27 175.39,-3246.27 175.39,-3222 360.91,-3222 360.91,-3246.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-3230.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_5d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int8_5d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge118" class="edge">
+<title>proc~torch_tensor_from_array_int8_5d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M174.96,-3237.14C157.68,-3233.36 141.3,-3226.09 129.27,-3213.14 111.15,-3193.63 58.41,-2340.18 49.06,-2186.66"/>
+<polygon fill="#000000" stroke="#000000" points="52.57,-2186.69 48.47,-2176.92 45.58,-2187.11 52.57,-2186.69"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_5d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge119" class="edge">
+<title>proc~torch_tensor_from_array_int8_5d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M175,-3234.88C158.24,-3231.14 142.04,-3224.46 129.27,-3213.14 88.12,-3176.64 60.02,-3005.91 50.87,-2942.72"/>
+<polygon fill="#000000" stroke="#000000" points="54.37,-2942.5 49.5,-2933.09 47.44,-2943.48 54.37,-2942.5"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_5d_legacy -->
+<g id="module~~graph~~ModuleGraph_node66" class="node">
+<title>proc~torch_tensor_from_array_int8_5d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node66"><a xlink:href="../proc/torch_tensor_from_array_int8_5d_legacy.html" xlink:title="torch_tensor_from_array_int8_5d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="381.16,-3204.27 155.14,-3204.27 155.14,-3180 381.16,-3180 381.16,-3204.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-3188.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_5d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int8_5d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge120" class="edge">
+<title>proc~torch_tensor_from_array_int8_5d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M154.71,-3188.68C145.17,-3184.53 136.45,-3178.84 129.27,-3171.14 111.9,-3152.49 58.86,-2338.16 49.17,-2187.11"/>
+<polygon fill="#000000" stroke="#000000" points="52.66,-2186.89 48.53,-2177.14 45.67,-2187.34 52.66,-2186.89"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_5d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge121" class="edge">
+<title>proc~torch_tensor_from_array_int8_5d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M154.76,-3186.18C145.51,-3182.47 136.84,-3177.56 129.27,-3171.14 59.81,-3112.11 48.97,-2993.43 47.62,-2942.84"/>
+<polygon fill="#000000" stroke="#000000" points="51.12,-2942.99 47.47,-2933.04 44.12,-2943.09 51.12,-2942.99"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_1d -->
+<g id="module~~graph~~ModuleGraph_node67" class="node">
+<title>proc~torch_tensor_from_array_real32_1d</title>
+<g id="a_module~~graph~~ModuleGraph_node67"><a xlink:href="../proc/torch_tensor_from_array_real32_1d.html" xlink:title="torch_tensor_from_array_real32_1d">
+<polygon fill="#d9534f" stroke="#d9534f" points="367.66,-3162.27 168.64,-3162.27 168.64,-3138 367.66,-3138 367.66,-3162.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-3146.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_1d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real32_1d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge122" class="edge">
+<title>proc~torch_tensor_from_array_real32_1d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M168.33,-3151.42C153.55,-3147.32 139.77,-3140.36 129.27,-3129.14 96,-3093.56 56.14,-2332.29 48.82,-2186.98"/>
+<polygon fill="#000000" stroke="#000000" points="52.32,-2186.87 48.32,-2177.06 45.33,-2187.22 52.32,-2186.87"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_1d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge123" class="edge">
+<title>proc~torch_tensor_from_array_real32_1d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M168.38,-3148.03C154.2,-3144.2 140.61,-3138.22 129.27,-3129.14 70.53,-3082.06 53.97,-2987.08 49.37,-2942.83"/>
+<polygon fill="#000000" stroke="#000000" points="52.87,-2942.69 48.48,-2933.04 45.9,-2943.32 52.87,-2942.69"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_1d_legacy -->
+<g id="module~~graph~~ModuleGraph_node68" class="node">
+<title>proc~torch_tensor_from_array_real32_1d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node68"><a xlink:href="../proc/torch_tensor_from_array_real32_1d_legacy.html" xlink:title="torch_tensor_from_array_real32_1d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="387.91,-3120.27 148.39,-3120.27 148.39,-3096 387.91,-3096 387.91,-3120.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-3104.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_1d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real32_1d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge124" class="edge">
+<title>proc~torch_tensor_from_array_real32_1d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M148,-3101.35C141.09,-3097.63 134.74,-3092.96 129.27,-3087.14 97.44,-3053.23 56.57,-2328 48.91,-2186.83"/>
+<polygon fill="#000000" stroke="#000000" points="52.42,-2186.99 48.38,-2177.19 45.43,-2187.36 52.42,-2186.99"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_1d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge125" class="edge">
+<title>proc~torch_tensor_from_array_real32_1d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M148.18,-3098C141.49,-3095.03 135.12,-3091.44 129.27,-3087.14 80.95,-3051.54 59.83,-2979.61 51.83,-2942.48"/>
+<polygon fill="#000000" stroke="#000000" points="55.29,-2941.93 49.9,-2932.81 48.43,-2943.3 55.29,-2941.93"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_2d -->
+<g id="module~~graph~~ModuleGraph_node69" class="node">
+<title>proc~torch_tensor_from_array_real32_2d</title>
+<g id="a_module~~graph~~ModuleGraph_node69"><a xlink:href="../proc/torch_tensor_from_array_real32_2d.html" xlink:title="torch_tensor_from_array_real32_2d">
+<polygon fill="#d9534f" stroke="#d9534f" points="367.66,-3078.27 168.64,-3078.27 168.64,-3054 367.66,-3054 367.66,-3078.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-3062.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_2d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real32_2d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge126" class="edge">
+<title>proc~torch_tensor_from_array_real32_2d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M168.4,-3067.35C153.62,-3063.25 139.82,-3056.32 129.27,-3045.14 98.9,-3012.92 57.1,-2324.81 49.02,-2187.03"/>
+<polygon fill="#000000" stroke="#000000" points="52.53,-2187.06 48.45,-2177.28 45.54,-2187.47 52.53,-2187.06"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_2d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge127" class="edge">
+<title>proc~torch_tensor_from_array_real32_2d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M168.47,-3061.56C154.6,-3058 141.07,-3052.76 129.27,-3045.14 91.19,-3020.54 67.17,-2971.21 55.69,-2942.1"/>
+<polygon fill="#000000" stroke="#000000" points="59.1,-2941.23 52.3,-2933.11 52.55,-2943.7 59.1,-2941.23"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_2d_legacy -->
+<g id="module~~graph~~ModuleGraph_node70" class="node">
+<title>proc~torch_tensor_from_array_real32_2d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node70"><a xlink:href="../proc/torch_tensor_from_array_real32_2d_legacy.html" xlink:title="torch_tensor_from_array_real32_2d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="387.91,-3036.27 148.39,-3036.27 148.39,-3012 387.91,-3012 387.91,-3036.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-3020.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_2d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real32_2d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge128" class="edge">
+<title>proc~torch_tensor_from_array_real32_2d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M148.06,-3017.3C141.13,-3013.59 134.76,-3008.94 129.27,-3003.14 71.56,-2942.2 51.76,-2317.48 48.24,-2186.96"/>
+<polygon fill="#000000" stroke="#000000" points="51.74,-2187.02 47.98,-2177.11 44.74,-2187.2 51.74,-2187.02"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_2d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge129" class="edge">
+<title>proc~torch_tensor_from_array_real32_2d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M149.26,-3011.59C142.34,-3009.2 135.62,-3006.4 129.27,-3003.14 100.96,-2988.56 76.75,-2960.4 62.21,-2940.72"/>
+<polygon fill="#000000" stroke="#000000" points="65.22,-2938.92 56.57,-2932.81 59.52,-2942.98 65.22,-2938.92"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_3d -->
+<g id="module~~graph~~ModuleGraph_node71" class="node">
+<title>proc~torch_tensor_from_array_real32_3d</title>
+<g id="a_module~~graph~~ModuleGraph_node71"><a xlink:href="../proc/torch_tensor_from_array_real32_3d.html" xlink:title="torch_tensor_from_array_real32_3d">
+<polygon fill="#d9534f" stroke="#d9534f" points="367.66,-2994.27 168.64,-2994.27 168.64,-2970 367.66,-2970 367.66,-2994.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-2978.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_3d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real32_3d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge130" class="edge">
+<title>proc~torch_tensor_from_array_real32_3d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M168.15,-2983.16C153.48,-2979.07 139.79,-2972.18 129.27,-2961.14 74.44,-2903.54 52.46,-2313.48 48.36,-2186.94"/>
+<polygon fill="#000000" stroke="#000000" points="51.87,-2186.98 48.05,-2177.1 44.87,-2187.21 51.87,-2186.98"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_3d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge131" class="edge">
+<title>proc~torch_tensor_from_array_real32_3d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M168.32,-2971.07C155.04,-2968.43 141.71,-2965.16 129.27,-2961.14 111.28,-2955.31 92.44,-2945.87 77.39,-2937.41"/>
+<polygon fill="#000000" stroke="#000000" points="79.36,-2934.5 68.95,-2932.52 75.85,-2940.56 79.36,-2934.5"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_3d_legacy -->
+<g id="module~~graph~~ModuleGraph_node72" class="node">
+<title>proc~torch_tensor_from_array_real32_3d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node72"><a xlink:href="../proc/torch_tensor_from_array_real32_3d_legacy.html" xlink:title="torch_tensor_from_array_real32_3d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="387.91,-2952.27 148.39,-2952.27 148.39,-2928 387.91,-2928 387.91,-2952.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-2936.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_3d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real32_3d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge132" class="edge">
+<title>proc~torch_tensor_from_array_real32_3d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M148.13,-2933.23C141.19,-2929.54 134.8,-2924.91 129.27,-2919.14 77.3,-2864.85 53.2,-2309.08 48.5,-2186.83"/>
+<polygon fill="#000000" stroke="#000000" points="52.01,-2186.9 48.13,-2177.04 45.01,-2187.16 52.01,-2186.9"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_3d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge133" class="edge">
+<title>proc~torch_tensor_from_array_real32_3d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M148.08,-2928.74C133.11,-2927.31 118.38,-2925.9 105,-2924.62"/>
+<polygon fill="#000000" stroke="#000000" points="105.41,-2921.15 95.13,-2923.68 104.75,-2928.11 105.41,-2921.15"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_4d -->
+<g id="module~~graph~~ModuleGraph_node73" class="node">
+<title>proc~torch_tensor_from_array_real32_4d</title>
+<g id="a_module~~graph~~ModuleGraph_node73"><a xlink:href="../proc/torch_tensor_from_array_real32_4d.html" xlink:title="torch_tensor_from_array_real32_4d">
+<polygon fill="#d9534f" stroke="#d9534f" points="367.66,-2910.27 168.64,-2910.27 168.64,-2886 367.66,-2886 367.66,-2910.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-2894.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_4d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real32_4d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge134" class="edge">
+<title>proc~torch_tensor_from_array_real32_4d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M168.26,-2899.06C153.58,-2894.97 139.85,-2888.12 129.27,-2877.14 80.2,-2826.2 54.01,-2305.39 48.67,-2186.99"/>
+<polygon fill="#000000" stroke="#000000" points="52.17,-2187.04 48.23,-2177.21 45.18,-2187.35 52.17,-2187.04"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_4d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge135" class="edge">
+<title>proc~torch_tensor_from_array_real32_4d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M168.31,-2907.59C146.63,-2909.66 124.37,-2911.79 104.97,-2913.65"/>
+<polygon fill="#000000" stroke="#000000" points="104.73,-2910.16 95.1,-2914.59 105.39,-2917.13 104.73,-2910.16"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_4d_legacy -->
+<g id="module~~graph~~ModuleGraph_node74" class="node">
+<title>proc~torch_tensor_from_array_real32_4d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node74"><a xlink:href="../proc/torch_tensor_from_array_real32_4d_legacy.html" xlink:title="torch_tensor_from_array_real32_4d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="387.91,-2868.27 148.39,-2868.27 148.39,-2844 387.91,-2844 387.91,-2868.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-2852.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_4d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real32_4d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge136" class="edge">
+<title>proc~torch_tensor_from_array_real32_4d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M147.9,-2848.98C141.06,-2845.34 134.75,-2840.78 129.27,-2835.14 83.07,-2787.52 54.86,-2301.11 48.85,-2187"/>
+<polygon fill="#000000" stroke="#000000" points="52.34,-2186.83 48.33,-2177.02 45.35,-2187.19 52.34,-2186.83"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_4d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge137" class="edge">
+<title>proc~torch_tensor_from_array_real32_4d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M160.94,-2868.73C150.13,-2871.08 139.41,-2873.85 129.27,-2877.14 111.28,-2882.96 92.44,-2892.4 77.39,-2900.86"/>
+<polygon fill="#000000" stroke="#000000" points="75.85,-2897.71 68.95,-2905.75 79.36,-2903.77 75.85,-2897.71"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_5d -->
+<g id="module~~graph~~ModuleGraph_node75" class="node">
+<title>proc~torch_tensor_from_array_real32_5d</title>
+<g id="a_module~~graph~~ModuleGraph_node75"><a xlink:href="../proc/torch_tensor_from_array_real32_5d.html" xlink:title="torch_tensor_from_array_real32_5d">
+<polygon fill="#d9534f" stroke="#d9534f" points="367.66,-2826.27 168.64,-2826.27 168.64,-2802 367.66,-2802 367.66,-2826.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-2810.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_5d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real32_5d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge138" class="edge">
+<title>proc~torch_tensor_from_array_real32_5d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M168.4,-2814.92C153.7,-2810.85 139.94,-2804.04 129.27,-2793.14 85.92,-2748.81 55.74,-2296.35 49.04,-2186.88"/>
+<polygon fill="#000000" stroke="#000000" points="52.54,-2186.82 48.45,-2177.05 45.56,-2187.24 52.54,-2186.82"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_5d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge139" class="edge">
+<title>proc~torch_tensor_from_array_real32_5d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M168.25,-2821.2C154.71,-2824.43 141.33,-2828.93 129.27,-2835.14 100.96,-2849.71 76.75,-2877.87 62.21,-2897.55"/>
+<polygon fill="#000000" stroke="#000000" points="59.52,-2895.29 56.57,-2905.46 65.22,-2899.35 59.52,-2895.29"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_5d_legacy -->
+<g id="module~~graph~~ModuleGraph_node76" class="node">
+<title>proc~torch_tensor_from_array_real32_5d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node76"><a xlink:href="../proc/torch_tensor_from_array_real32_5d_legacy.html" xlink:title="torch_tensor_from_array_real32_5d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="387.91,-2784.27 148.39,-2784.27 148.39,-2760 387.91,-2760 387.91,-2784.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-2768.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_5d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real32_5d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge140" class="edge">
+<title>proc~torch_tensor_from_array_real32_5d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M148.01,-2764.87C141.14,-2761.25 134.8,-2756.74 129.27,-2751.14 48.91,-2669.7 46.53,-2287.26 47.32,-2187.16"/>
+<polygon fill="#000000" stroke="#000000" points="50.82,-2187.22 47.42,-2177.19 43.82,-2187.15 50.82,-2187.22"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_5d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge141" class="edge">
+<title>proc~torch_tensor_from_array_real32_5d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M148.09,-2783.4C141.5,-2786.11 135.17,-2789.32 129.27,-2793.14 91.19,-2817.73 67.17,-2867.06 55.69,-2896.17"/>
+<polygon fill="#000000" stroke="#000000" points="52.55,-2894.57 52.3,-2905.16 59.1,-2897.04 52.55,-2894.57"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_1d -->
+<g id="module~~graph~~ModuleGraph_node77" class="node">
+<title>proc~torch_tensor_from_array_real64_1d</title>
+<g id="a_module~~graph~~ModuleGraph_node77"><a xlink:href="../proc/torch_tensor_from_array_real64_1d.html" xlink:title="torch_tensor_from_array_real64_1d">
+<polygon fill="#d9534f" stroke="#d9534f" points="367.66,-2742.27 168.64,-2742.27 168.64,-2718 367.66,-2718 367.66,-2742.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-2726.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_1d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real64_1d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge142" class="edge">
+<title>proc~torch_tensor_from_array_real64_1d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M168.23,-2730.65C153.64,-2726.59 139.96,-2719.85 129.27,-2709.14 54.53,-2634.2 47.99,-2282.2 47.6,-2186.95"/>
+<polygon fill="#000000" stroke="#000000" points="51.1,-2187 47.58,-2177.01 44.1,-2187.02 51.1,-2187"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_1d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge143" class="edge">
+<title>proc~torch_tensor_from_array_real64_1d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M168.3,-2733.25C154.3,-2736.98 140.77,-2742.66 129.27,-2751.14 80.95,-2786.73 59.83,-2858.66 51.83,-2895.79"/>
+<polygon fill="#000000" stroke="#000000" points="48.43,-2894.97 49.9,-2905.46 55.29,-2896.34 48.43,-2894.97"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_1d_legacy -->
+<g id="module~~graph~~ModuleGraph_node78" class="node">
+<title>proc~torch_tensor_from_array_real64_1d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node78"><a xlink:href="../proc/torch_tensor_from_array_real64_1d_legacy.html" xlink:title="torch_tensor_from_array_real64_1d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="387.91,-2700.27 148.39,-2700.27 148.39,-2676 387.91,-2676 387.91,-2700.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-2684.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_1d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real64_1d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge144" class="edge">
+<title>proc~torch_tensor_from_array_real64_1d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M148.16,-2680.73C141.25,-2677.14 134.86,-2672.67 129.27,-2667.14 60.17,-2598.69 49.55,-2277.25 47.93,-2186.84"/>
+<polygon fill="#000000" stroke="#000000" points="51.43,-2186.91 47.77,-2176.97 44.43,-2187.02 51.43,-2186.91"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_1d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge145" class="edge">
+<title>proc~torch_tensor_from_array_real64_1d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M148.09,-2697.56C141.38,-2700.7 135.03,-2704.52 129.27,-2709.14 70.53,-2756.21 53.97,-2851.19 49.37,-2895.44"/>
+<polygon fill="#000000" stroke="#000000" points="45.9,-2894.95 48.48,-2905.23 52.87,-2895.58 45.9,-2894.95"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_2d -->
+<g id="module~~graph~~ModuleGraph_node79" class="node">
+<title>proc~torch_tensor_from_array_real64_2d</title>
+<g id="a_module~~graph~~ModuleGraph_node79"><a xlink:href="../proc/torch_tensor_from_array_real64_2d.html" xlink:title="torch_tensor_from_array_real64_2d">
+<polygon fill="#d9534f" stroke="#d9534f" points="367.66,-2658.27 168.64,-2658.27 168.64,-2634 367.66,-2634 367.66,-2658.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-2642.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_2d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real64_2d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge146" class="edge">
+<title>proc~torch_tensor_from_array_real64_2d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M168.47,-2646.4C153.86,-2642.37 140.1,-2635.71 129.27,-2625.14 65.88,-2563.23 51.27,-2272.86 48.32,-2187.06"/>
+<polygon fill="#000000" stroke="#000000" points="51.82,-2187.13 48,-2177.25 44.82,-2187.35 51.82,-2187.13"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_2d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge147" class="edge">
+<title>proc~torch_tensor_from_array_real64_2d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M168.27,-2647.57C154.02,-2651.47 140.43,-2657.65 129.27,-2667.14 59.81,-2726.16 48.97,-2844.84 47.62,-2895.43"/>
+<polygon fill="#000000" stroke="#000000" points="44.12,-2895.18 47.47,-2905.23 51.12,-2895.28 44.12,-2895.18"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_2d_legacy -->
+<g id="module~~graph~~ModuleGraph_node80" class="node">
+<title>proc~torch_tensor_from_array_real64_2d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node80"><a xlink:href="../proc/torch_tensor_from_array_real64_2d_legacy.html" xlink:title="torch_tensor_from_array_real64_2d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="387.91,-2616.27 148.39,-2616.27 148.39,-2592 387.91,-2592 387.91,-2616.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-2600.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_2d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real64_2d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge148" class="edge">
+<title>proc~torch_tensor_from_array_real64_2d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M148.03,-2596.36C141.21,-2592.85 134.86,-2588.5 129.27,-2583.14 71.41,-2527.59 53.08,-2266.9 48.76,-2186.68"/>
+<polygon fill="#000000" stroke="#000000" points="52.26,-2186.74 48.26,-2176.93 45.27,-2187.09 52.26,-2186.74"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_2d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge149" class="edge">
+<title>proc~torch_tensor_from_array_real64_2d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M148.18,-2612.58C141.37,-2615.94 134.98,-2620.07 129.27,-2625.14 88.12,-2661.63 60.02,-2832.36 50.87,-2895.55"/>
+<polygon fill="#000000" stroke="#000000" points="47.44,-2894.79 49.5,-2905.18 54.37,-2895.77 47.44,-2894.79"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_3d -->
+<g id="module~~graph~~ModuleGraph_node81" class="node">
+<title>proc~torch_tensor_from_array_real64_3d</title>
+<g id="a_module~~graph~~ModuleGraph_node81"><a xlink:href="../proc/torch_tensor_from_array_real64_3d.html" xlink:title="torch_tensor_from_array_real64_3d">
+<polygon fill="#d9534f" stroke="#d9534f" points="367.66,-2574.27 168.64,-2574.27 168.64,-2550 367.66,-2550 367.66,-2574.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-2558.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_3d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real64_3d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge150" class="edge">
+<title>proc~torch_tensor_from_array_real64_3d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M168.46,-2561.95C153.93,-2557.95 140.21,-2551.42 129.27,-2541.14 77.14,-2492.12 55.22,-2262.64 49.35,-2187.22"/>
+<polygon fill="#000000" stroke="#000000" points="52.84,-2186.96 48.6,-2177.25 45.86,-2187.49 52.84,-2186.96"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_3d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge151" class="edge">
+<title>proc~torch_tensor_from_array_real64_3d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M168.33,-2562.66C153.91,-2566.63 140.25,-2573.07 129.27,-2583.14 82.61,-2625.9 57.43,-2826.2 50,-2895.48"/>
+<polygon fill="#000000" stroke="#000000" points="46.53,-2895.01 48.98,-2905.32 53.49,-2895.74 46.53,-2895.01"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_3d_legacy -->
+<g id="module~~graph~~ModuleGraph_node82" class="node">
+<title>proc~torch_tensor_from_array_real64_3d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node82"><a xlink:href="../proc/torch_tensor_from_array_real64_3d_legacy.html" xlink:title="torch_tensor_from_array_real64_3d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="387.91,-2532.27 148.39,-2532.27 148.39,-2508 387.91,-2508 387.91,-2532.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-2516.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_3d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real64_3d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge152" class="edge">
+<title>proc~torch_tensor_from_array_real64_3d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M147.99,-2511.9C141.22,-2508.49 134.89,-2504.29 129.27,-2499.14 82.61,-2456.37 57.43,-2256.07 50,-2186.79"/>
+<polygon fill="#000000" stroke="#000000" points="53.49,-2186.53 48.98,-2176.95 46.53,-2187.26 53.49,-2186.53"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_3d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge153" class="edge">
+<title>proc~torch_tensor_from_array_real64_3d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M148.16,-2528.04C141.3,-2531.52 134.92,-2535.83 129.27,-2541.14 77.14,-2590.15 55.22,-2819.63 49.35,-2895.05"/>
+<polygon fill="#000000" stroke="#000000" points="45.86,-2894.78 48.6,-2905.02 52.84,-2895.31 45.86,-2894.78"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_4d -->
+<g id="module~~graph~~ModuleGraph_node83" class="node">
+<title>proc~torch_tensor_from_array_real64_4d</title>
+<g id="a_module~~graph~~ModuleGraph_node83"><a xlink:href="../proc/torch_tensor_from_array_real64_4d.html" xlink:title="torch_tensor_from_array_real64_4d">
+<polygon fill="#d9534f" stroke="#d9534f" points="367.66,-2490.27 168.64,-2490.27 168.64,-2466 367.66,-2466 367.66,-2490.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-2474.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_4d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real64_4d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge154" class="edge">
+<title>proc~torch_tensor_from_array_real64_4d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M168.26,-2477.2C153.93,-2473.26 140.32,-2466.94 129.27,-2457.14 88.12,-2420.64 60.02,-2249.91 50.87,-2186.72"/>
+<polygon fill="#000000" stroke="#000000" points="54.37,-2186.5 49.5,-2177.09 47.44,-2187.48 54.37,-2186.5"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_4d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge155" class="edge">
+<title>proc~torch_tensor_from_array_real64_4d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M168.27,-2478.12C153.77,-2482.15 140.1,-2488.74 129.27,-2499.14 71.41,-2554.68 53.08,-2815.37 48.76,-2895.59"/>
+<polygon fill="#000000" stroke="#000000" points="45.27,-2895.18 48.26,-2905.34 52.26,-2895.53 45.27,-2895.18"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_4d_legacy -->
+<g id="module~~graph~~ModuleGraph_node84" class="node">
+<title>proc~torch_tensor_from_array_real64_4d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node84"><a xlink:href="../proc/torch_tensor_from_array_real64_4d_legacy.html" xlink:title="torch_tensor_from_array_real64_4d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="387.91,-2448.27 148.39,-2448.27 148.39,-2424 387.91,-2424 387.91,-2448.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-2432.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_4d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real64_4d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge156" class="edge">
+<title>proc~torch_tensor_from_array_real64_4d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M148.1,-2427.25C141.35,-2423.99 134.99,-2420 129.27,-2415.14 59.81,-2356.11 48.97,-2237.43 47.62,-2186.84"/>
+<polygon fill="#000000" stroke="#000000" points="51.12,-2186.99 47.47,-2177.04 44.12,-2187.09 51.12,-2186.99"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_4d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge157" class="edge">
+<title>proc~torch_tensor_from_array_real64_4d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M147.93,-2443.8C141.13,-2447.33 134.81,-2451.72 129.27,-2457.14 65.88,-2519.04 51.27,-2809.41 48.32,-2895.21"/>
+<polygon fill="#000000" stroke="#000000" points="44.82,-2894.92 48,-2905.02 51.82,-2895.14 44.82,-2894.92"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_5d -->
+<g id="module~~graph~~ModuleGraph_node85" class="node">
+<title>proc~torch_tensor_from_array_real64_5d</title>
+<g id="a_module~~graph~~ModuleGraph_node85"><a xlink:href="../proc/torch_tensor_from_array_real64_5d.html" xlink:title="torch_tensor_from_array_real64_5d">
+<polygon fill="#d9534f" stroke="#d9534f" points="367.66,-2406.27 168.64,-2406.27 168.64,-2382 367.66,-2382 367.66,-2406.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-2390.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_5d</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real64_5d&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge158" class="edge">
+<title>proc~torch_tensor_from_array_real64_5d&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M168.38,-2392.03C154.2,-2388.2 140.61,-2382.22 129.27,-2373.14 70.53,-2326.06 53.97,-2231.08 49.37,-2186.83"/>
+<polygon fill="#000000" stroke="#000000" points="52.87,-2186.69 48.48,-2177.04 45.9,-2187.32 52.87,-2186.69"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_5d&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge159" class="edge">
+<title>proc~torch_tensor_from_array_real64_5d&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M168.34,-2393.74C153.74,-2397.78 140.02,-2404.48 129.27,-2415.14 60.17,-2483.58 49.55,-2805.02 47.93,-2895.43"/>
+<polygon fill="#000000" stroke="#000000" points="44.43,-2895.25 47.77,-2905.3 51.43,-2895.36 44.43,-2895.25"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_5d_legacy -->
+<g id="module~~graph~~ModuleGraph_node86" class="node">
+<title>proc~torch_tensor_from_array_real64_5d_legacy</title>
+<g id="a_module~~graph~~ModuleGraph_node86"><a xlink:href="../proc/torch_tensor_from_array_real64_5d_legacy.html" xlink:title="torch_tensor_from_array_real64_5d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="387.91,-2364.27 148.39,-2364.27 148.39,-2340 387.91,-2340 387.91,-2364.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-2348.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_5d_legacy</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_real64_5d_legacy&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge160" class="edge">
+<title>proc~torch_tensor_from_array_real64_5d_legacy&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M148.18,-2342C141.49,-2339.03 135.12,-2335.44 129.27,-2331.14 80.95,-2295.54 59.83,-2223.61 51.83,-2186.48"/>
+<polygon fill="#000000" stroke="#000000" points="55.29,-2185.93 49.9,-2176.81 48.43,-2187.3 55.29,-2185.93"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_5d_legacy&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge161" class="edge">
+<title>proc~torch_tensor_from_array_real64_5d_legacy&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M148.08,-2359.46C141.2,-2363.07 134.83,-2367.56 129.27,-2373.14 54.53,-2448.07 47.99,-2800.07 47.6,-2895.32"/>
+<polygon fill="#000000" stroke="#000000" points="44.1,-2895.25 47.58,-2905.26 51.1,-2895.27 44.1,-2895.25"/>
+</g>
+<!-- proc~torch_tensor_from_blob -->
+<g id="module~~graph~~ModuleGraph_node87" class="node">
+<title>proc~torch_tensor_from_blob</title>
+<g id="a_module~~graph~~ModuleGraph_node87"><a xlink:href="../proc/torch_tensor_from_blob.html" xlink:title="torch_tensor_from_blob">
+<polygon fill="#d9534f" stroke="#d9534f" points="336.16,-776.27 200.14,-776.27 200.14,-752 336.16,-752 336.16,-776.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-760.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_blob</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_blob&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge162" class="edge">
+<title>proc~torch_tensor_from_blob&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M199.86,-757.7C174.19,-759.06 146.89,-765.81 129.27,-785.14 81.69,-837.31 52.52,-1961.74 48.19,-2139.55"/>
+<polygon fill="#000000" stroke="#000000" points="44.7,-2139.29 47.96,-2149.37 51.7,-2139.46 44.7,-2139.29"/>
+</g>
+<!-- proc~torch_tensor_get_device_index -->
+<g id="module~~graph~~ModuleGraph_node88" class="node">
+<title>proc~torch_tensor_get_device_index</title>
+<g id="a_module~~graph~~ModuleGraph_node88"><a xlink:href="../proc/torch_tensor_get_device_index.html" xlink:title="torch_tensor%torch_tensor_get_device_index">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="393.16,-734.27 143.14,-734.27 143.14,-710 393.16,-710 393.16,-734.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-718.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor%torch_tensor_get_device_index</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_get_device_index&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge163" class="edge">
+<title>proc~torch_tensor_get_device_index&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M142.91,-731.64C137.94,-734.86 133.35,-738.66 129.27,-743.14 80.26,-796.96 52.27,-1956.77 48.16,-2139.1"/>
+<polygon fill="#000000" stroke="#000000" points="44.67,-2138.93 47.94,-2149 51.66,-2139.08 44.67,-2138.93"/>
+</g>
+<!-- proc~torch_tensor_get_device_type -->
+<g id="module~~graph~~ModuleGraph_node89" class="node">
+<title>proc~torch_tensor_get_device_type</title>
+<g id="a_module~~graph~~ModuleGraph_node89"><a xlink:href="../proc/torch_tensor_get_device_type.html" xlink:title="torch_tensor%torch_tensor_get_device_type">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="390.54,-692.27 145.77,-692.27 145.77,-668 390.54,-668 390.54,-692.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-676.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor%torch_tensor_get_device_type</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_get_device_type&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge164" class="edge">
+<title>proc~torch_tensor_get_device_type&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M145.32,-688.13C139.42,-691.65 133.99,-695.94 129.27,-701.14 78.79,-756.68 51.96,-1954.34 48.12,-2139.25"/>
+<polygon fill="#000000" stroke="#000000" points="44.62,-2138.99 47.92,-2149.06 51.62,-2139.14 44.62,-2138.99"/>
+</g>
+<!-- proc~torch_tensor_get_dtype -->
+<g id="module~~graph~~ModuleGraph_node90" class="node">
+<title>proc~torch_tensor_get_dtype</title>
+<g id="a_module~~graph~~ModuleGraph_node90"><a xlink:href="../proc/torch_tensor_get_dtype.html" xlink:title="torch_tensor%torch_tensor_get_dtype">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="373.66,-650.27 162.64,-650.27 162.64,-626 373.66,-626 373.66,-650.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-634.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor%torch_tensor_get_dtype</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_get_dtype&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge165" class="edge">
+<title>proc~torch_tensor_get_dtype&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M162.18,-638.4C149.69,-642.68 138.22,-649.27 129.27,-659.14 77.33,-716.37 51.7,-1950.9 48.08,-2139.15"/>
+<polygon fill="#000000" stroke="#000000" points="44.58,-2139.08 47.89,-2149.15 51.58,-2139.21 44.58,-2139.08"/>
+</g>
+<!-- proc~torch_tensor_get_shape -->
+<g id="module~~graph~~ModuleGraph_node91" class="node">
+<title>proc~torch_tensor_get_shape</title>
+<g id="a_module~~graph~~ModuleGraph_node91"><a xlink:href="../proc/torch_tensor_get_shape.html" xlink:title="torch_tensor%torch_tensor_get_shape">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="374.79,-608.27 161.52,-608.27 161.52,-584 374.79,-584 374.79,-608.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-592.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor%torch_tensor_get_shape</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_get_shape&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge166" class="edge">
+<title>proc~torch_tensor_get_shape&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M161.15,-596.75C149.05,-601.03 137.97,-607.54 129.27,-617.14 75.85,-676.09 51.41,-1948.87 48.04,-2139.37"/>
+<polygon fill="#000000" stroke="#000000" points="44.54,-2139.18 47.87,-2149.24 51.54,-2139.31 44.54,-2139.18"/>
+</g>
+<!-- proc~torch_tensor_get_stride -->
+<g id="module~~graph~~ModuleGraph_node92" class="node">
+<title>proc~torch_tensor_get_stride</title>
+<g id="a_module~~graph~~ModuleGraph_node92"><a xlink:href="../proc/torch_tensor_get_stride.html" xlink:title="torch_tensor%torch_tensor_get_stride">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="373.66,-566.27 162.64,-566.27 162.64,-542 373.66,-542 373.66,-566.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-550.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor%torch_tensor_get_stride</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_get_stride&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge167" class="edge">
+<title>proc~torch_tensor_get_stride&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M162.15,-554.38C149.67,-558.66 138.21,-565.26 129.27,-575.14 74.36,-635.82 51.12,-1947.06 48,-2139.61"/>
+<polygon fill="#000000" stroke="#000000" points="44.51,-2139.3 47.85,-2149.36 51.51,-2139.41 44.51,-2139.3"/>
+</g>
+<!-- proc~torch_tensor_mean -->
+<g id="module~~graph~~ModuleGraph_node93" class="node">
+<title>proc~torch_tensor_mean</title>
+<g id="a_module~~graph~~ModuleGraph_node93"><a xlink:href="../proc/torch_tensor_mean.html" xlink:title="torch_tensor_mean">
+<polygon fill="#d9534f" stroke="#d9534f" points="324.91,-524.27 211.39,-524.27 211.39,-500 324.91,-500 324.91,-524.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-508.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_mean</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_mean&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge168" class="edge">
+<title>proc~torch_tensor_mean&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M211.04,-505.36C182.38,-505.23 149.4,-510.86 129.27,-533.14 72.92,-595.49 50.9,-1942.7 47.98,-2139.29"/>
+<polygon fill="#000000" stroke="#000000" points="44.48,-2138.98 47.83,-2149.03 51.48,-2139.08 44.48,-2138.98"/>
+</g>
+<!-- proc~torch_tensor_multiply -->
+<g id="module~~graph~~ModuleGraph_node94" class="node">
+<title>proc~torch_tensor_multiply</title>
+<g id="a_module~~graph~~ModuleGraph_node94"><a xlink:href="../proc/torch_tensor_multiply.html" xlink:title="torch_tensor_multiply">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="330.91,-482.27 205.39,-482.27 205.39,-458 330.91,-458 330.91,-482.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-466.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_multiply</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_multiply&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge169" class="edge">
+<title>proc~torch_tensor_multiply&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M205.08,-463.41C177.91,-464.07 148.01,-470.37 129.27,-491.14 71.45,-555.19 50.65,-1939.87 47.95,-2139.29"/>
+<polygon fill="#000000" stroke="#000000" points="44.45,-2139.13 47.81,-2149.17 51.45,-2139.22 44.45,-2139.13"/>
+</g>
+<!-- proc~torch_tensor_negative -->
+<g id="module~~graph~~ModuleGraph_node95" class="node">
+<title>proc~torch_tensor_negative</title>
+<g id="a_module~~graph~~ModuleGraph_node95"><a xlink:href="../proc/torch_tensor_negative.html" xlink:title="torch_tensor_negative">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="332.79,-440.27 203.52,-440.27 203.52,-416 332.79,-416 332.79,-440.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-424.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_negative</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_negative&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge170" class="edge">
+<title>proc~torch_tensor_negative&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M203.3,-421.45C176.6,-422.34 147.59,-428.81 129.27,-449.14 69.95,-514.93 50.38,-1938.61 47.91,-2139.62"/>
+<polygon fill="#000000" stroke="#000000" points="44.42,-2139.29 47.79,-2149.33 51.42,-2139.37 44.42,-2139.29"/>
+</g>
+<!-- proc~torch_tensor_ones -->
+<g id="module~~graph~~ModuleGraph_node96" class="node">
+<title>proc~torch_tensor_ones</title>
+<g id="a_module~~graph~~ModuleGraph_node96"><a xlink:href="../proc/torch_tensor_ones.html" xlink:title="torch_tensor_ones">
+<polygon fill="#d9534f" stroke="#d9534f" points="322.29,-398.27 214.02,-398.27 214.02,-374 322.29,-374 322.29,-398.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-382.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_ones</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_ones&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge171" class="edge">
+<title>proc~torch_tensor_ones&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M213.77,-379.36C184.48,-378.85 150.01,-384.1 129.27,-407.14 68.54,-474.58 50.18,-1933.12 47.89,-2139.05"/>
+<polygon fill="#000000" stroke="#000000" points="44.39,-2138.99 47.78,-2149.03 51.39,-2139.07 44.39,-2138.99"/>
+</g>
+<!-- proc~torch_tensor_power_int16 -->
+<g id="module~~graph~~ModuleGraph_node97" class="node">
+<title>proc~torch_tensor_power_int16</title>
+<g id="a_module~~graph~~ModuleGraph_node97"><a xlink:href="../proc/torch_tensor_power_int16.html" xlink:title="torch_tensor_power_int16">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="342.16,-2322.27 194.14,-2322.27 194.14,-2298 342.16,-2298 342.16,-2322.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-2306.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_power_int16</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_power_int16&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge172" class="edge">
+<title>proc~torch_tensor_power_int16&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M193.65,-2310.3C171.56,-2307.47 148.19,-2301.35 129.27,-2289.14 91.19,-2264.54 67.17,-2215.21 55.69,-2186.1"/>
+<polygon fill="#000000" stroke="#000000" points="59.1,-2185.23 52.3,-2177.11 52.55,-2187.7 59.1,-2185.23"/>
+</g>
+<!-- proc~torch_tensor_power_int16&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge173" class="edge">
+<title>proc~torch_tensor_power_int16&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M193.83,-2304.92C170.3,-2307.14 146.02,-2314.16 129.27,-2331.14 48.91,-2412.57 46.53,-2795.01 47.32,-2895.11"/>
+<polygon fill="#000000" stroke="#000000" points="43.82,-2895.12 47.42,-2905.08 50.82,-2895.05 43.82,-2895.12"/>
+</g>
+<!-- proc~torch_tensor_power_int32 -->
+<g id="module~~graph~~ModuleGraph_node98" class="node">
+<title>proc~torch_tensor_power_int32</title>
+<g id="a_module~~graph~~ModuleGraph_node98"><a xlink:href="../proc/torch_tensor_power_int32.html" xlink:title="torch_tensor_power_int32">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="342.16,-2280.27 194.14,-2280.27 194.14,-2256 342.16,-2256 342.16,-2280.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-2264.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_power_int32</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_power_int32&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge174" class="edge">
+<title>proc~torch_tensor_power_int32&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M193.92,-2265.83C172.2,-2262.85 148.97,-2257.28 129.27,-2247.14 100.96,-2232.56 76.75,-2204.4 62.21,-2184.72"/>
+<polygon fill="#000000" stroke="#000000" points="65.22,-2182.92 56.57,-2176.81 59.52,-2186.98 65.22,-2182.92"/>
+</g>
+<!-- proc~torch_tensor_power_int32&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge175" class="edge">
+<title>proc~torch_tensor_power_int32&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M193.74,-2262.84C170.2,-2265.04 145.95,-2272.08 129.27,-2289.14 85.92,-2333.46 55.74,-2785.92 49.04,-2895.39"/>
+<polygon fill="#000000" stroke="#000000" points="45.56,-2895.03 48.45,-2905.22 52.54,-2895.45 45.56,-2895.03"/>
+</g>
+<!-- proc~torch_tensor_power_int64 -->
+<g id="module~~graph~~ModuleGraph_node99" class="node">
+<title>proc~torch_tensor_power_int64</title>
+<g id="a_module~~graph~~ModuleGraph_node99"><a xlink:href="../proc/torch_tensor_power_int64.html" xlink:title="torch_tensor_power_int64">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="342.16,-2238.27 194.14,-2238.27 194.14,-2214 342.16,-2214 342.16,-2238.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-2222.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_power_int64</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_power_int64&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge176" class="edge">
+<title>proc~torch_tensor_power_int64&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M193.85,-2219.46C172.69,-2216.33 149.77,-2211.77 129.27,-2205.14 111.28,-2199.31 92.44,-2189.87 77.39,-2181.41"/>
+<polygon fill="#000000" stroke="#000000" points="79.36,-2178.5 68.95,-2176.52 75.85,-2184.56 79.36,-2178.5"/>
+</g>
+<!-- proc~torch_tensor_power_int64&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge177" class="edge">
+<title>proc~torch_tensor_power_int64&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M193.66,-2220.76C170.12,-2222.96 145.88,-2230.02 129.27,-2247.14 83.07,-2294.75 54.86,-2781.16 48.85,-2895.27"/>
+<polygon fill="#000000" stroke="#000000" points="45.35,-2895.08 48.33,-2905.25 52.34,-2895.44 45.35,-2895.08"/>
+</g>
+<!-- proc~torch_tensor_power_int8 -->
+<g id="module~~graph~~ModuleGraph_node100" class="node">
+<title>proc~torch_tensor_power_int8</title>
+<g id="a_module~~graph~~ModuleGraph_node100"><a xlink:href="../proc/torch_tensor_power_int8.html" xlink:title="torch_tensor_power_int8">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="338.79,-2196.27 197.52,-2196.27 197.52,-2172 338.79,-2172 338.79,-2196.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-2180.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_power_int8</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_power_int8&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge178" class="edge">
+<title>proc~torch_tensor_power_int8&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M197.09,-2177.43C165.41,-2174.4 128.63,-2170.88 99.49,-2168.1"/>
+<polygon fill="#000000" stroke="#000000" points="100.11,-2164.64 89.82,-2167.17 99.44,-2171.61 100.11,-2164.64"/>
+</g>
+<!-- proc~torch_tensor_power_int8&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge179" class="edge">
+<title>proc~torch_tensor_power_int8&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M197.17,-2178.4C172.52,-2180.2 146.66,-2187.09 129.27,-2205.14 80.2,-2256.07 54.01,-2776.88 48.67,-2895.28"/>
+<polygon fill="#000000" stroke="#000000" points="45.18,-2894.92 48.23,-2905.06 52.17,-2895.23 45.18,-2894.92"/>
+</g>
+<!-- proc~torch_tensor_power_real32 -->
+<g id="module~~graph~~ModuleGraph_node101" class="node">
+<title>proc~torch_tensor_power_real32</title>
+<g id="a_module~~graph~~ModuleGraph_node101"><a xlink:href="../proc/torch_tensor_power_real32.html" xlink:title="torch_tensor_power_real32">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="345.54,-2154.27 190.77,-2154.27 190.77,-2130 345.54,-2130 345.54,-2154.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-2138.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_power_real32</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_power_real32&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge180" class="edge">
+<title>proc~torch_tensor_power_real32&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.38,-2149.48C160.3,-2152.36 126.58,-2155.58 99.47,-2158.18"/>
+<polygon fill="#000000" stroke="#000000" points="99.42,-2154.67 89.8,-2159.1 100.08,-2161.63 99.42,-2154.67"/>
+</g>
+<!-- proc~torch_tensor_power_real32&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge181" class="edge">
+<title>proc~torch_tensor_power_real32&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.3,-2136.97C167.78,-2139.49 145.01,-2146.69 129.27,-2163.14 77.3,-2217.42 53.2,-2773.19 48.5,-2895.44"/>
+<polygon fill="#000000" stroke="#000000" points="45.01,-2895.11 48.13,-2905.23 52.01,-2895.37 45.01,-2895.11"/>
+</g>
+<!-- proc~torch_tensor_power_real64 -->
+<g id="module~~graph~~ModuleGraph_node102" class="node">
+<title>proc~torch_tensor_power_real64</title>
+<g id="a_module~~graph~~ModuleGraph_node102"><a xlink:href="../proc/torch_tensor_power_real64.html" xlink:title="torch_tensor_power_real64">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="345.54,-2112.27 190.77,-2112.27 190.77,-2088 345.54,-2088 345.54,-2112.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-2096.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_power_real64</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_power_real64&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge182" class="edge">
+<title>proc~torch_tensor_power_real64&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.27,-2107.35C170.12,-2110.45 148.62,-2114.87 129.27,-2121.14 111.28,-2126.96 92.44,-2136.4 77.39,-2144.86"/>
+<polygon fill="#000000" stroke="#000000" points="75.85,-2141.71 68.95,-2149.75 79.36,-2147.77 75.85,-2141.71"/>
+</g>
+<!-- proc~torch_tensor_power_real64&#45;&gt;iso_fortran_env -->
+<g id="module~~graph~~ModuleGraph_edge183" class="edge">
+<title>proc~torch_tensor_power_real64&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.6,-2094.87C167.97,-2097.36 145.05,-2104.56 129.27,-2121.14 74.44,-2178.73 52.46,-2768.79 48.36,-2895.33"/>
+<polygon fill="#000000" stroke="#000000" points="44.87,-2895.06 48.05,-2905.17 51.87,-2895.29 44.87,-2895.06"/>
+</g>
+<!-- proc~torch_tensor_subtract -->
+<g id="module~~graph~~ModuleGraph_node103" class="node">
+<title>proc~torch_tensor_subtract</title>
+<g id="a_module~~graph~~ModuleGraph_node103"><a xlink:href="../proc/torch_tensor_subtract.html" xlink:title="torch_tensor_subtract">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="331.29,-356.27 205.02,-356.27 205.02,-332 331.29,-332 331.29,-356.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-340.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_subtract</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_subtract&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge184" class="edge">
+<title>proc~torch_tensor_subtract&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M204.69,-337.39C177.61,-338.09 147.89,-344.43 129.27,-365.14 67.03,-434.33 49.93,-1932.19 47.86,-2139.43"/>
+<polygon fill="#000000" stroke="#000000" points="44.36,-2139.18 47.76,-2149.21 51.36,-2139.25 44.36,-2139.18"/>
+</g>
+<!-- proc~torch_tensor_sum -->
+<g id="module~~graph~~ModuleGraph_node104" class="node">
+<title>proc~torch_tensor_sum</title>
+<g id="a_module~~graph~~ModuleGraph_node104"><a xlink:href="../proc/torch_tensor_sum.html" xlink:title="torch_tensor_sum">
+<polygon fill="#d9534f" stroke="#d9534f" points="320.79,-314.27 215.52,-314.27 215.52,-290 320.79,-290 320.79,-314.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-298.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_sum</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_sum&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge185" class="edge">
+<title>proc~torch_tensor_sum&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M215.12,-295.37C185.54,-294.67 150.31,-299.72 129.27,-323.14 65.56,-394.05 49.7,-1929.95 47.83,-2139.53"/>
+<polygon fill="#000000" stroke="#000000" points="44.34,-2139.38 47.75,-2149.41 51.33,-2139.44 44.34,-2139.38"/>
+</g>
+<!-- proc~torch_tensor_to -->
+<g id="module~~graph~~ModuleGraph_node105" class="node">
+<title>proc~torch_tensor_to</title>
+<g id="a_module~~graph~~ModuleGraph_node105"><a xlink:href="../proc/torch_tensor_to.html" xlink:title="torch_tensor_to">
+<polygon fill="#d9534f" stroke="#d9534f" points="314.79,-272.27 221.52,-272.27 221.52,-248 314.79,-248 314.79,-272.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-256.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_to</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_to&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge186" class="edge">
+<title>proc~torch_tensor_to&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M221.17,-253.59C190.47,-252.05 151.75,-256.09 129.27,-281.14 64.11,-353.73 49.49,-1926.19 47.81,-2139.31"/>
+<polygon fill="#000000" stroke="#000000" points="44.31,-2139.1 47.74,-2149.13 51.31,-2139.16 44.31,-2139.1"/>
+</g>
+<!-- proc~torch_tensor_zero -->
+<g id="module~~graph~~ModuleGraph_node106" class="node">
+<title>proc~torch_tensor_zero</title>
+<g id="a_module~~graph~~ModuleGraph_node106"><a xlink:href="../proc/torch_tensor_zero.html" xlink:title="torch_tensor%torch_tensor_zero">
+<polygon fill="#d9534f" stroke="#d9534f" points="358.66,-230.27 177.64,-230.27 177.64,-206 358.66,-206 358.66,-230.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-214.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor%torch_tensor_zero</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_zero&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge187" class="edge">
+<title>proc~torch_tensor_zero&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M177.45,-214.22C159.15,-217.82 141.72,-225.25 129.27,-239.14 62.62,-313.45 49.28,-1924.21 47.79,-2139.44"/>
+<polygon fill="#000000" stroke="#000000" points="44.29,-2139.32 47.72,-2149.35 51.29,-2139.37 44.29,-2139.32"/>
+</g>
+<!-- proc~torch_tensor_zeros -->
+<g id="module~~graph~~ModuleGraph_node107" class="node">
+<title>proc~torch_tensor_zeros</title>
+<g id="a_module~~graph~~ModuleGraph_node107"><a xlink:href="../proc/torch_tensor_zeros.html" xlink:title="torch_tensor_zeros">
+<polygon fill="#d9534f" stroke="#d9534f" points="323.41,-150.27 212.89,-150.27 212.89,-126 323.41,-126 323.41,-150.27"/>
+<text xml:space="preserve" text-anchor="middle" x="268.15" y="-134.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_zeros</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_zeros&#45;&gt;iso_c_binding -->
+<g id="module~~graph~~ModuleGraph_edge188" class="edge">
+<title>proc~torch_tensor_zeros&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M212.47,-133.46C183.32,-134.2 149.42,-140.82 129.27,-164.14 61.39,-242.69 49.1,-1918.45 47.77,-2139.21"/>
+<polygon fill="#000000" stroke="#000000" points="44.27,-2139.11 47.71,-2149.13 51.27,-2139.15 44.27,-2139.11"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#ModuleGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="ModuleGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 14.1.2 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="511pt" height="32pt"
+ viewBox="0.00 0.00 511.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28.27)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 506.88,-28.27 506.88,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24.27 0,-24.27 0,0 54,0 54,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="27" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="144.13,-24.27 71.87,-24.27 71.87,0 144.13,0 144.13,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="108" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="231.63,-24.27 162.37,-24.27 162.37,0 231.63,0 231.63,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="197" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="306.26,-24.27 249.74,-24.27 249.74,0 306.26,0 306.26,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="278" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="381.26,-24.27 324.74,-24.27 324.74,0 381.26,0 381.26,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="353" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="502.88,-24.27 399.12,-24.27 399.12,0 502.88,0 502.88,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="451" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              FTorch
+ was developed by ICCS Cambridge<br>              &copy; 2026 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

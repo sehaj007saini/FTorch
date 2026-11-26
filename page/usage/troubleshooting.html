@@ -1,0 +1,561 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="FTorch - A library for coupling (Py)Torch machine learning models to Fortran codes.Written in modern Fortran (2008) with source code available on GitHub it has been used in multiple scientific projects.The associated JOSS paper can read here.">
+    <meta name="author" content="ICCS Cambridge" >
+    <link rel="icon" href="../../favicon.png">
+
+    <title>Troubleshooting &ndash; FTorch</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../../css/brands.min.css" rel="stylesheet">
+    <link href="../../css/regular.min.css" rel="stylesheet">
+    <link href="../../css/solid.min.css" rel="stylesheet">
+    <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../../css/local.css" rel="stylesheet">
+    <link href="../../css/pygments.css" rel="stylesheet">
+      <link href="../../css/user.css" rel="stylesheet">
+    <script src="../../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../../index.html">FTorch </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../index.html">User Guide</a></li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../../lists/types.html">Derived Types</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>Troubleshooting</h1>
+    <div class="container p-2 mb-4 bg-light border rounded-3">
+      <div class="row align-items-center justify-content-between">
+        <div class="col">
+          <ul class="list-inline" style="margin-bottom:0px; display:inline">
+              <li class="list-inline-item" id="author"><i class="fa fa-pencil"></i> Jack Atkinson</li>
+              <li class="list-inline-item" id="date"><i class="fa fa-calendar-o"></i> Last Updated: September 2026</li>
+          </ul>
+        </div>
+        <div class="col">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../index.html'>User Guide</a></li>
+                <li class="breadcrumb-item"><a href='index.html'>Usage</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Troubleshooting</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col-3">
+        <div class="card card-body bg-light" id="sidebar-toc">
+          <ul class="nav flex-column align-items">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">User Guide</a>
+            </li>
+          </ul>
+          <hr>
+          <nav class="nav nav-pills flex-column">
+              <a class="nav-link" href="../installation/index.html">Installation</a>
+                <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="../installation/general.html">Installation and Build</a>
+              <a class="nav-link" href="../installation/systems.html">System-Specific Guidance</a>
+              <a class="nav-link" href="../installation/gpu.html">GPU Support</a>
+              <a class="nav-link" href="../installation/hpc.html">HPC Support</a>
+
+                </nav>
+              <a class="nav-link" href="index.html">Usage</a>
+                <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="generic_example.html">Generic Example</a>
+              <a class="nav-link" href="worked_examples.html">Worked Examples</a>
+              <a class="nav-link" href="tensor.html">Tensor API</a>
+              <a class="nav-link" href="optimizers.html">Optimizers API</a>
+              <a class="nav-link" href="api_equivalents.html">API Equivalents</a>
+              <a class="nav-link" href="transposing.html">When to transpose data</a>
+              <a class="nav-link" href="batching.html">Batching</a>
+              <a class="nav-link" href="offline.html">Offline training</a>
+              <a class="nav-link" href="online.html">Online training</a>
+              <a class="nav-link active disabled" href="troubleshooting.html">Troubleshooting</a>
+
+                </nav>
+              <a class="nav-link" href="../community/index.html">Community</a>
+                <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="../community/news_archive.html">News archive</a>
+              <a class="nav-link" href="../community/presentations.html">Presentations</a>
+              <a class="nav-link" href="../community/case_studies.html">FTorch Case Studies</a>
+              <a class="nav-link" href="../community/changelog.html">FTorch Changelog</a>
+
+                </nav>
+              <a class="nav-link" href="../developer/index.html">Developer Guide</a>
+                <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="../developer/developer.html">Developer Guide</a>
+              <a class="nav-link" href="../developer/testing.html">FTorch test suite</a>
+              <a class="nav-link" href="../developer/release_checklist.html">Release Checklist</a>
+
+                </nav>
+              <a class="nav-link" href="../LICENSE.html">FTorch License</a>
+          </nav>
+        </div>
+      </div>
+
+    <div class="col-9" id='text'>
+      <h2 id="faq">FAQ</h2>
+<p>If you are experiencing problems building or using FTorch please see below for guidance on common problems or queries.</p>
+<ul>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#common-errors">Common Errors</a><ul>
+<li><a href="#no-specific-subroutine-using-temporaries">No specific subroutine</a></li>
+<li><a href="#segmentation-faults">Segmentation faults</a></li>
+<li><a href="#unit-test-segfaults-with-flang">Unit test segfaults with flang</a></li>
+<li><a href="#compiler-specific-issues">Compiler-specific issues</a></li>
+</ul>
+</li>
+<li><a href="#common-warnings">Common warnings</a></li>
+<li><a href="#migrating-from-v1-to-v2">Migrating from v1 to v2</a></li>
+</ul>
+<h3 id="usage">Usage</h3>
+<h5 id="why-are-inputsoutputs-tofrom-torch-models-arrays">Why are inputs/outputs to/from torch models arrays?</h5>
+<p>The reason input and output tensors to/from
+<a href="../../proc/torch_model_forward.html">torch_model_forward</a> are contained in arrays
+is because it is possible to pass multiple input tensors to the <code>forward()</code>
+method of a torch net, and it is possible for the net to return multiple output
+tensors.</p>
+<p>The nature of Fortran means that it is not possible to set an arbitrary number
+of inputs to the <a href="../../proc/torch_model_forward.html">torch_model_forward</a>
+subroutine, so instead we use a single array of input tensors which <em>can</em> have
+an arbitrary length. Similarly, a single array of output tensors is used.</p>
+<p>Note that this does not refer to batching data.
+This should be done in the same way as in Torch; by extending the dimensionality of
+the input tensors.</p>
+<h5 id="do-i-need-to-set-torchinference_mode-torchno_grad-or-torcheval-somewhere-like-in-pytorch">Do I need to set <code>torch.inference_mode()</code>, <code>torch.no_grad()</code>, or <code>torch.eval()</code> somewhere like in PyTorch?</h5>
+<p>By default we disable gradient calculations for tensors and models and place models in
+evaluation mode for efficiency.
+These can be adjusted using the <code>requires_grad</code> and <code>is_training</code> optional arguments
+in the Fortran interface. See the <a href="../../lists/procedures.html">API procedures documentation</a>
+for <a href="../../interface/torch_tensor_from_array.html">torch_tensor_from_array</a> and
+<a href="../../proc/torch_model_load.html">torch_model_load</a> etc. for details.</p>
+<h3 id="common-errors">Common Errors</h3>
+<h4 id="no-specific-subroutine-using-temporaries">No specific subroutine: using temporaries</h4>
+<p>FTorch makes heavy use of Fortran <code>interfaces</code> to <code>module procedure</code>s to achieve
+<a href="https://fortran-lang.org/learn/oop_features_in_fortran/object_based_programming_techniques/">overloading of subroutines</a>
+such that for users do not need to call a different subroutine for each rank or type
+of tensor.</p>
+<p>If you make a call to a subroutine that fails to match anything in the interface
+you will face a compile-time error of the form:</p>
+<div class="codehilite"><pre><span></span><code>    42 |   call torch_tensor_from_array(tensor, in_data, torch_kCPU, permute_dims=tensor_permute)
+       |                                                                            1
+Error: There is no specific subroutine for the generic 'torch_tensor_from_array' at (1)
+</code></pre></div>
+
+<p>The first thing to do in this instance is to inspect the interface you are trying to
+call, and instead attempt to call the specific procedure (rank and dtype) you expect to use.
+This can often provide more instructive error messages about what you are doing
+incorrectly.</p>
+<p>Such errors can also occur if you pass a temporary array where the procedure expects
+to receive a Fortran array with the <code>target</code> property. For example:</p>
+<div class="codehilite"><pre><span></span><code>   34 |   call torch_tensor_from_array(a, [1.0_wp], torch_kCPU, requires_grad=.true.)
+      |                                                                             1
+Error: There is no specific subroutine for the generic ‘torch_tensor_from_array’ at (1)
+</code></pre></div>
+
+<p>That is, the second argument should be a Fortran array with the <code>target</code>
+property, not the temporary array <code>[1.0_wp]</code>. This kind of thing was possible in
+FTorch at v1.0 but has since been removed because it is erroneous. Similarly
+for expressions involving <code>torch_tensor</code>s, e.g., products such as</p>
+<div class="codehilite"><pre><span></span><code>   34 |   call torch_tensor_from_array(a, 1.0*in_data1, torch_kCPU, requires_grad=.true.)
+      |                                                                                 1
+Error: There is no specific subroutine for the generic ‘torch_tensor_from_array’ at (1)
+</code></pre></div>
+
+<p>and slices such as</p>
+<div class="codehilite"><pre><span></span><code>    36 |   call torch_tensor_from_array(a, in_data1(1,:), torch_kCPU, requires_grad=.true.)
+       |                                                                                  1
+Error: There is no specific subroutine for the generic 'torch_tensor_from_array' at (1)
+</code></pre></div>
+
+<div class="alert alert-info">
+<p class="alert-title h4">Note</p>
+<p>If you recently upgraded FTorch and your call used <code>layout</code> as the third argument,
+see the <a href="#no-specific-subroutine-deprecated-torch_tensor_from_array-signature">Deprecated signature</a>
+section below.</p>
+</div>
+<h4 id="no-specific-subroutine-integer-kinds-used-by-ftorch">No specific subroutine: Integer kinds used by FTorch</h4>
+<p>Another possible cause of compile-time errors is passing integers of the wrong
+kind. FTorch uses explicit integer kinds from the <code>iso_fortran_env</code> intrinsic module:</p>
+<ul>
+<li>Tensor shapes and strides (e.g., the <code>tensor_shape</code> and <code>tensor_strides</code>
+  arguments of the tensor constructors, and the return values of
+  <a href="../../proc/torch_tensor_get_shape.html">torch_tensor_get_shape</a> and
+  <a href="../../proc/torch_tensor_get_stride.html">torch_tensor_get_stride</a>) use 64-bit
+  integers (<code>int64</code>).</li>
+<li>Tensor ranks, dimension counts (<code>ndims</code>), <code>device_index</code>, and <code>permute_dims</code>
+  use 32-bit integers (<code>int32</code>). As this is the default integer kind on all
+  supported platforms, plain integer literals and default integer variables can
+  be used for these arguments.</li>
+</ul>
+<p>For example, passing a default kind integer array as <code>tensor_shape</code> will raise:</p>
+<div class="codehilite"><pre><span></span><code><span class="w">   </span><span class="nt">5</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="nt">call</span><span class="w"> </span><span class="nt">torch_tensor_ones</span><span class="o">(</span><span class="nt">a</span><span class="o">,</span><span class="w"> </span><span class="nt">2</span><span class="o">,</span><span class="w"> </span><span class="cp">[</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="cp">]</span><span class="o">,</span><span class="w"> </span><span class="nt">torch_kFloat32</span><span class="o">,</span><span class="w"> </span><span class="nt">torch_kCPU</span><span class="o">)</span>
+<span class="w">     </span><span class="o">|</span><span class="w">                                                                    </span><span class="nt">1</span>
+<span class="nt">Error</span><span class="o">:</span><span class="w"> </span><span class="nt">Type</span><span class="w"> </span><span class="nt">mismatch</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nt">argument</span><span class="w"> </span><span class="s1">'tensor_shape'</span><span class="w"> </span><span class="nt">at</span><span class="w"> </span><span class="o">(</span><span class="nt">1</span><span class="o">);</span><span class="w"> </span><span class="nt">passed</span><span class="w"> </span><span class="nt">INTEGER</span><span class="o">(</span><span class="nt">4</span><span class="o">)</span><span class="w"> </span><span class="nt">to</span><span class="w"> </span><span class="nt">INTEGER</span><span class="o">(</span><span class="nt">8</span><span class="o">)</span>
+</code></pre></div>
+
+<p>To fix this, declare shape arrays using <code>int64</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">int64</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">int64</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">tensor_shape</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">]</span>
+</code></pre></div>
+
+<p>Conversely, <code>permute_dims</code> expects a default (32-bit) integer array, so passing
+an <code>int64</code> array will raise the 'no specific subroutine' error described above:</p>
+<div class="codehilite"><pre><span></span><code>   8 |   call torch_tensor_from_array(b, in_data, torch_kCPU, permute_dims=perm)
+     |                                                                         1
+Error: There is no specific subroutine for the generic 'torch_tensor_from_array' at (1)
+</code></pre></div>
+
+<p>Use a default integer array for <code>permute_dims</code>, e.g., <code>permute_dims=[2, 1]</code>.</p>
+<div class="alert alert-info">
+<p class="alert-title h4">Note</p>
+<p>If you recently upgraded FTorch and your call used <code>layout</code> as the third argument,
+see the <a href="#no-specific-subroutine-deprecated-torch_tensor_from_array-signature">Deprecated signature</a>
+section below.</p>
+</div>
+<h4 id="no-specific-subroutine-deprecated-torch_tensor_from_array-signature">No specific subroutine: Deprecated <code>torch_tensor_from_array</code> signature</h4>
+<p>The update of FTorch to v2.0 brought in a breaking API change to
+<a href="../../interface/torch_tensor_from_array.html">torch_tensor_from_array</a>.
+If you see this error after upgrading FTorch:</p>
+<div class="codehilite"><pre><span></span><code>Error: There is no specific subroutine for the generic 'torch_tensor_from_array' at (1)
+</code></pre></div>
+
+<p>and you are passing <code>layout</code> as the third argument after <code>data</code>, the interface
+has changed.
+The <code>layout</code> argument has been deprecated and superseded by <code>permute_dims</code>,
+which appears after <code>device_type</code>, and is optional. The old layout signature and
+functionality has been moved to a separate interface
+<a href="../../interface/torch_tensor_from_array_legacy.html">torch_tensor_from_array_legacy</a>, which
+is deprecated and will be removed in a future version.</p>
+<div class="alert alert-info">
+<p class="alert-title h4">Note</p>
+<p>If the error is for a different reason (e.g., passing a temporary array, expression,
+or slice as an argument, or mismatching integer kinds), see the sections above.</p>
+</div>
+<p>The recommended fix is to update your calls to the new signature in one of the following ways:</p>
+<p>If your Fortran and Torch arrays used the default layout indexing (<code>[1, 2, ..., n]</code>)
+you can omit <code>layout</code> and <code>permute_dims</code> entirely:</p>
+<div class="codehilite"><pre><span></span><code><span class="c">! Old</span>
+<span class="k">call </span><span class="n">torch_tensor_from_array</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span><span class="w"> </span><span class="k">data</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">n</span><span class="p">],</span><span class="w"> </span><span class="n">torch_kCPU</span><span class="p">)</span>
+
+<span class="c">! New</span>
+<span class="k">call </span><span class="n">torch_tensor_from_array</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span><span class="w"> </span><span class="k">data</span><span class="p">,</span><span class="w"> </span><span class="n">torch_kCPU</span><span class="p">)</span>
+</code></pre></div>
+
+<p>If you were doing a transpose of a square tensor update your call to use <code>permute_dims</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="c">! Old</span>
+<span class="k">call </span><span class="n">torch_tensor_from_array</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span><span class="w"> </span><span class="k">data</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">torch_kCPU</span><span class="p">)</span>
+
+<span class="c">! New</span>
+<span class="k">call </span><span class="n">torch_tensor_from_array</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span><span class="w"> </span><span class="k">data</span><span class="p">,</span><span class="w"> </span><span class="n">torch_kCPU</span><span class="p">,</span><span class="w"> </span><span class="n">permute_dims</span><span class="o">=</span><span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="mi">1</span><span class="p">])</span>
+</code></pre></div>
+
+<p>If you rely on unintended behaviour of <code>layout</code> then the old call is still available
+through <a href="../../interface/torch_tensor_from_array_legacy.html">torch_tensor_from_array_legacy</a>, but
+note that this will be removed completely in the future:</p>
+<div class="codehilite"><pre><span></span><code><span class="c">! Old</span>
+<span class="k">call </span><span class="n">torch_tensor_from_array</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span><span class="w"> </span><span class="k">data</span><span class="p">,</span><span class="w"> </span><span class="n">tensor_layout</span><span class="p">,</span><span class="w"> </span><span class="n">torch_kCPU</span><span class="p">)</span>
+
+<span class="c">! New</span>
+<span class="k">call </span><span class="n">torch_tensor_from_array_legacy</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span><span class="w"> </span><span class="k">data</span><span class="p">,</span><span class="w"> </span><span class="n">tensor_layout</span><span class="p">,</span><span class="w"> </span><span class="n">torch_kCPU</span><span class="p">)</span>
+</code></pre></div>
+
+<p>If you need deeper control over exactly how you want the data to appear in Torch
+(the shape and strides) and know what you are doing with memory and array layouts,
+you can use <a href="../../proc/torch_tensor_from_blob.html">torch_tensor_from_blob</a>.</p>
+<h4 id="segmentation-faults">Segmentation faults</h4>
+<h5 id="missing-import-for-overloaded-assignment-operator">Missing import for overloaded assignment operator</h5>
+<p>Whenever you execute code involving
+<a href="../../type/torch_tensor.html">torch_tensor</a>s on each side of an equals sign,
+the overloaded assignment operator should be triggered. As such, if you aren't
+using the bare <code>use ftorch</code> import then you should ensure you specify
+<code>use ftorch, only: assignment(=)</code> (as well as any other module members you
+require). See the <a href="tensor.html">tensor documentation</a> for more details.</p>
+<h5 id="unit-test-segfaults-with-flang">Unit test segfaults with flang</h5>
+<p>If FTorch unit tests segfault when built with <code>flang</code>, a common cause is an
+older <code>pFUnit</code> version which then exposes a bug in <code>flang</code>.</p>
+<p>The solution is to use <code>pFUnit v4.18.2</code> or newer, then reconfigure and rebuild FTorch (and its unit
+tests), e.g., specifying to <code>cmake</code> an explicit path to the newer <code>pFUnit</code> (e.g.
+<code>-DCMAKE_INSTALL_PREFIX="path/pfunit-4.18.2</code>).</p>
+<h4 id="compiler-specific-issues">Compiler-specific issues</h4>
+<h5 id="intel-compiler">Intel compiler</h5>
+<p>When building FTorch with the LLVM-based or legacy Intel compilers - <code>ifx</code> or
+<code>ifort</code>, respectively - there are two gotchas to be aware of:</p>
+<ol>
+<li>
+<p><strong>Include <code>-fpscomp logicals</code> in the Fortran flags.</strong>
+   This ensures the Fortran logicals are compatible with those used by PyTorch.
+   To achieve this when building FTorch with CMake, pass
+   <code>-DCMAKE_Fortran_FLAGS="-fpscomp logicals"</code>.</p>
+</li>
+<li>
+<p><strong>Include <code>-D_ALLOW_COMPILER_AND_STL_VERSION_MISMATCH</code> in the C++ flags.</strong>
+   This suppresses warnings related to mismatched compiler versions between the
+   Intel compilers and those used to build LibTorch. To achieve this when
+   building FTorch with CMake, pass
+   <code>-DCMAKE_CXX_FLAGS="-D_ALLOW_COMPILER_AND_STL_VERSION_MISMATCH"</code>.</p>
+</li>
+</ol>
+<h5 id="nvidia-compiler">NVIDIA compiler</h5>
+<p>When building FTorch with the NVIDIA compiler suite (a.k.a. NVHPC) - <code>nvc</code>,
+<code>nvc++</code>, and <code>nvfortran</code> - there are several gotchas to be aware of:</p>
+<ol>
+<li>
+<p><strong>Include <code>-Mdetail</code> in the Fortran flags.</strong>
+   This is required to handle pointers to contiguous arrays in the way that
+   FTorch does. To achieve this when building FTorch with CMake, pass
+   <code>-DCMAKE_Fortran_FLAGS="-Mdetail"</code>.</p>
+</li>
+<li>
+<p><strong>Use version 26.1 or newer.</strong>
+   This was the version in which the <code>-Mdetail</code> flag was introduced. Without
+   this, the current version of FTorch will not compile under <code>nvfortran</code>.</p>
+</li>
+<li>
+<p><strong>Include <code>-D__rdtsc=__builtin_ia32_rdtsc</code> in the C++ flags.</strong>
+   This is required due to a quirk of how the <code>nvc++</code> compiler presents itself
+   and how this is interpreted by PyTorch in
+   <a href="https://github.com/pytorch/pytorch/blob/main/c10/util/ApproximateClock.h">https://github.com/pytorch/pytorch/blob/main/c10/util/ApproximateClock.h</a>.
+   To achieve this when building FTorch with CMake, pass
+   <code>-DCMAKE_CXX_FLAGS="-D__rdtsc=__builtin_ia32_rdtsc"</code>.</p>
+</li>
+<li>
+<p><strong>Disable FTorch's unit tests.</strong>
+   The Nvidia compiler is currently incompatible with pFUnit, which is used for
+   FTorch's unit test suite. To achieve this when building FTorch with CMake,
+   either disable the unit tests but keep the integration tests enabled with
+   <code>-DFTORCH_BUILD_UNIT_TESTS=FALSE -DFTORCH_BUILD_INTEGRATION_TESTS=TRUE</code> or
+   disable all tests with <code>-DCMAKE_BUILD_TESTS=FALSE</code>.</p>
+</li>
+</ol>
+<h5 id="flang-compiler">Flang compiler</h5>
+<p>When building FTorch with the <code>flang</code> compiler from the LLVM project, there is
+one gotcha to be aware of:</p>
+<ol>
+<li><strong>Use pFUnit version 4.18.2 or newer when building unit tests.</strong>
+   See section on
+   <a href="#unit-test-segfaults-with-flang">unit test segfaults with flang</a> for
+   details.</li>
+</ol>
+<h5 id="lfortran-compiler">LFortran compiler</h5>
+<p>When building FTorch with the LFortran compiler, there are two gotchas to be
+aware of:</p>
+<ol>
+<li>
+<p><strong>Use a commit from 3rd November 2026 or later</strong>
+   This will allow you to pick up the fix for
+   <a href="https://github.com/lfortran/lfortran/issues/16568">https://github.com/lfortran/lfortran/issues/16568</a>
+   in
+   <a href="https://github.com/lfortran/lfortran/commit/86ae6cc18f1ba304030f3b2922c40426ecf56b8c">86ae6cc</a>.</p>
+</li>
+<li>
+<p><strong>Disable FTorch's unit tests.</strong>
+   Attempting to build pFUnit with LFortran currently gives an error:
+   <code>'Unrecognized Fortran compiler.  Please use ifort, gfortran, NAG, PGI, or XL.'</code>
+   This stops you from building FTorch's unit tests because they require pFUnit
+   and it is not possible to link unit tests compiled with LFortran to a pFUnit
+   installation built with a different compiler. To disable the unit tests when
+   building FTorch with CMake, either disable the unit tests but keep the
+   integration tests enabled with
+   <code>-DFTORCH_BUILD_UNIT_TESTS=FALSE -DFTORCH_BUILD_INTEGRATION_TESTS=TRUE</code> or
+   disable all tests with <code>-DCMAKE_BUILD_TESTS=FALSE</code>.</p>
+</li>
+</ol>
+<h3 id="common-warnings">Common warnings</h3>
+<h4 id="structure-constructor-finalizer-with-fortran-2008">Structure constructor finalizer with Fortran 2008</h4>
+<p>If you are building FTorch with gfortran and are specifying the Fortran 2008
+standard (e.g., with the compiler flag <code>-std=f2008</code> or by default) then you may
+get compiler warnings of the form:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">Warning</span><span class="p">:</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">structure</span><span class="w"> </span><span class="n">constructor</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">finalized</span><span class="o">.</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">feature</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">removed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">f08</span><span class="o">/</span><span class="mf">0011.</span><span class="w"> </span><span class="n">Use</span><span class="w"> </span><span class="o">-</span><span class="n">std</span><span class="o">=</span><span class="n">f2018</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="o">-</span><span class="n">std</span><span class="o">=</span><span class="n">gnu</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">eliminate</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">finalization</span><span class="o">.</span>
+</code></pre></div>
+
+<p>These warn that the structure finalizer of the
+<a href="../../type/torch_tensor.html">torch_tensor</a> derived type is triggered when a tensor
+goes out of scope, despite the fact that this feature was removed from the 2008
+standard. That is, the <a href="../../proc/torch_tensor_delete.html">torch_tensor_delete</a>
+subroutine is called so that the associated memory is automatically freed.
+Firstly, this is the behaviour that we want so we should not be too concerned.
+Secondly, structure finalizers are not used anywhere in FTorch, so we believe
+this warning to be errorneous. Use of the structure constructor for the
+<code>torch_tensor</code> type would be something like</p>
+<div class="codehilite"><pre><span></span><code><span class="k">program</span>
+<span class="k">  use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="nb">iso_c_binding</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="nb">c_null_ptr</span>
+<span class="nb">  </span><span class="k">use </span><span class="n">ftorch</span>
+<span class="w">  </span><span class="k">implicit none</span>
+<span class="k">  type</span><span class="p">(</span><span class="n">torch_tensor</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">tensor</span>
+
+<span class="w">  </span><span class="n">tensor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">torch_tensor</span><span class="p">(</span><span class="nb">c_null_ptr</span><span class="p">)</span>
+<span class="k">end program</span>
+</code></pre></div>
+
+<p>While this code would compile successfully, the warning mentioned above would be
+raised.</p>
+<div class="alert alert-warning">
+<p class="alert-title h4">Warning</p>
+<p>The code snippet above is <strong>not</strong> the intended way to create a tensor. The
+intended way is to use the provided API procedures such as
+<a href="../../interface/torch_tensor_from_array.html">torch_tensor_from_array</a> or
+<a href="../../proc/torch_tensor_ones.html">torch_tensor_ones</a>. The code snippet above is
+only intended to illustrate the use of the structure constructor and the
+associated warning.</p>
+</div>
+<p>See the <a href="tensor.html#deallocation">tensor documentation</a> for more
+details on the memory management of tensors and the use of the finalizer. For
+technical details on <code>f08/0011</code>, we refer to
+<a href="https://wg5-fortran.org/N2001-N2050/N2006.txt">https://wg5-fortran.org/N2001-N2050/N2006.txt</a>.</p>
+<h2 id="migrating-from-v1-to-v2">Migrating from v1 to v2</h2>
+<p>FTorch v2.0 introduced a small number of breaking changes to the Fortran API.
+If you are upgrading an existing codebase from FTorch v1.x you may need to make
+the following updates.</p>
+<h4 id="renamed-torch_tensor-type-bound-methods">Renamed <code>torch_tensor</code> type-bound methods</h4>
+<p>The type-bound methods of the
+<a href="../../type/torch_tensor.html">torch_tensor</a> type were renamed to match the
+Torch API, dropping the <code>get_</code> prefix:</p>
+<table>
+<thead>
+<tr>
+<th>Old (v1)</th>
+<th>New (v2)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tensor%get_rank()</code></td>
+<td><code>tensor%rank()</code></td>
+</tr>
+<tr>
+<td><code>tensor%get_shape()</code></td>
+<td><code>tensor%shape()</code></td>
+</tr>
+<tr>
+<td><code>tensor%get_stride()</code></td>
+<td><code>tensor%stride()</code></td>
+</tr>
+<tr>
+<td><code>tensor%get_dtype()</code></td>
+<td><code>tensor%dtype()</code></td>
+</tr>
+<tr>
+<td><code>tensor%get_device_type()</code></td>
+<td><code>tensor%device_type()</code></td>
+</tr>
+<tr>
+<td><code>tensor%get_device_index()</code></td>
+<td><code>tensor%device_index()</code></td>
+</tr>
+</tbody>
+</table>
+<p>Note that only the type-bound (i.e., <code>%</code>) method names changed. The standalone
+procedures such as
+<a href="../../proc/torch_tensor_get_rank.html">torch_tensor_get_rank</a> and
+<a href="../../proc/torch_tensor_get_shape.html">torch_tensor_get_shape</a> retain their
+original names and are unaffected.</p>
+<p>If you see compile errors reporting that a tensor has no type-bound procedure
+named, e.g., <code>get_rank</code> after upgrading, apply the rename above.</p>
+<h4 id="layout-argument-of-torch_tensor_from_array-replaced-by-permute_dims"><code>layout</code> argument of <code>torch_tensor_from_array</code> replaced by <code>permute_dims</code></h4>
+<p>The positional <code>layout</code> argument of
+<a href="../../interface/torch_tensor_from_array.html">torch_tensor_from_array</a> has been replaced
+by an optional <code>permute_dims</code> keyword argument with semantics matching
+<code>torch.permute()</code>. In many cases the <code>layout</code> argument can simply be dropped. See the
+<a href="#no-specific-subroutine-deprecated-torch_tensor_from_array-signature">detailed migration guidance</a>
+above for solutions covering various cases.</p>
+<p>The old <code>layout</code> signature remains available via the deprecated
+<a href="../../interface/torch_tensor_from_array_legacy.html">torch_tensor_from_array_legacy</a>, which can
+be imported from the <code>ftorch</code> module and will be removed in a future release.</p>
+<h4 id="integer-kinds">Integer kinds</h4>
+<p>FTorch now uses explicit Fortran integer kinds from <code>iso_fortran_env</code> rather
+than C types. Tensor shapes and strides use 64-bit integers (<code>int64</code>), whilst
+dimension counts, <code>device_index</code>, and <code>permute_dims</code> use default (32-bit)
+integers. See the
+<a href="#no-specific-subroutine-integer-kinds-used-by-ftorch">integer kinds guidance</a>
+above for details and common error messages.</p>
+<h4 id="build-requirements">Build requirements</h4>
+<p>FTorch now requires a C++ compiler with full C++20 support, as required by
+recent PyTorch versions. As a result, gfortran versions 9 and 10 are no longer
+supported; please use GCC 11 or newer. See the
+<a href="../installation/general.html">installation documentation</a> for details.</p>
+    </div>
+  </div>
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              FTorch
+ was developed by ICCS Cambridge<br>              &copy; 2026 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

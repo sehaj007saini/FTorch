@@ -1,0 +1,355 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="FTorch - A library for coupling (Py)Torch machine learning models to Fortran codes.Written in modern Fortran (2008) with source code available on GitHub it has been used in multiple scientific projects.The associated JOSS paper can read here.">
+    <meta name="author" content="ICCS Cambridge" >
+    <link rel="icon" href="../../favicon.png">
+
+    <title>When to transpose data &ndash; FTorch</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../../css/brands.min.css" rel="stylesheet">
+    <link href="../../css/regular.min.css" rel="stylesheet">
+    <link href="../../css/solid.min.css" rel="stylesheet">
+    <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../../css/local.css" rel="stylesheet">
+    <link href="../../css/pygments.css" rel="stylesheet">
+      <link href="../../css/user.css" rel="stylesheet">
+    <script src="../../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../../index.html">FTorch </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../index.html">User Guide</a></li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../../lists/types.html">Derived Types</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>When to transpose data</h1>
+    <div class="container p-2 mb-4 bg-light border rounded-3">
+      <div class="row align-items-center justify-content-between">
+        <div class="col">
+          <ul class="list-inline" style="margin-bottom:0px; display:inline">
+              <li class="list-inline-item" id="author"><i class="fa fa-pencil"></i> Jack Atkinson</li>
+              <li class="list-inline-item" id="date"><i class="fa fa-calendar-o"></i> Last Updated: August 2026</li>
+          </ul>
+        </div>
+        <div class="col">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../index.html'>User Guide</a></li>
+                <li class="breadcrumb-item"><a href='index.html'>Usage</a></li>
+              <li class="breadcrumb-item active" aria-current="page">When to transpose data</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col-3">
+        <div class="card card-body bg-light" id="sidebar-toc">
+          <ul class="nav flex-column align-items">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">User Guide</a>
+            </li>
+          </ul>
+          <hr>
+          <nav class="nav nav-pills flex-column">
+              <a class="nav-link" href="../installation/index.html">Installation</a>
+                <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="../installation/general.html">Installation and Build</a>
+              <a class="nav-link" href="../installation/systems.html">System-Specific Guidance</a>
+              <a class="nav-link" href="../installation/gpu.html">GPU Support</a>
+              <a class="nav-link" href="../installation/hpc.html">HPC Support</a>
+
+                </nav>
+              <a class="nav-link" href="index.html">Usage</a>
+                <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="generic_example.html">Generic Example</a>
+              <a class="nav-link" href="worked_examples.html">Worked Examples</a>
+              <a class="nav-link" href="tensor.html">Tensor API</a>
+              <a class="nav-link" href="optimizers.html">Optimizers API</a>
+              <a class="nav-link" href="api_equivalents.html">API Equivalents</a>
+              <a class="nav-link active disabled" href="transposing.html">When to transpose data</a>
+              <a class="nav-link" href="batching.html">Batching</a>
+              <a class="nav-link" href="offline.html">Offline training</a>
+              <a class="nav-link" href="online.html">Online training</a>
+              <a class="nav-link" href="troubleshooting.html">Troubleshooting</a>
+
+                </nav>
+              <a class="nav-link" href="../community/index.html">Community</a>
+                <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="../community/news_archive.html">News archive</a>
+              <a class="nav-link" href="../community/presentations.html">Presentations</a>
+              <a class="nav-link" href="../community/case_studies.html">FTorch Case Studies</a>
+              <a class="nav-link" href="../community/changelog.html">FTorch Changelog</a>
+
+                </nav>
+              <a class="nav-link" href="../developer/index.html">Developer Guide</a>
+                <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="../developer/developer.html">Developer Guide</a>
+              <a class="nav-link" href="../developer/testing.html">FTorch test suite</a>
+              <a class="nav-link" href="../developer/release_checklist.html">Release Checklist</a>
+
+                </nav>
+              <a class="nav-link" href="../LICENSE.html">FTorch License</a>
+          </nav>
+        </div>
+      </div>
+
+    <div class="col-9" id='text'>
+      <h2 id="when-to-transpose-data">When to transpose data</h2>
+<p>Transposition of data between Fortran and C can lead to a lot of unnecessary confusion.
+The FTorch library looks after this for you with the
+<a href="../../interface/torch_tensor_from_array.html">torch_tensor_from_array</a> function which
+allows you to index a tensor in Torch in <strong>exactly the same way</strong> as you would in Fortran.</p>
+<p>If you wish to do something different to this then there are more complex functions
+available and we describe here how and when to use them.
+However, to be clear, we recommend sticking with the default behaviour unless you have
+good reason not to. The defaults are likely to be efficient, are the least bug prone,
+and cover the majority of user cases.</p>
+<h3 id="introduction-row-vs-column-major">Introduction - row- vs. column-major</h3>
+<p>Astute users will note that Fortran is a
+<a href="https://en.wikipedia.org/wiki/Row-_and_column-major_order">column-major</a>
+language whilst C, C++, and Python are 
+<a href="https://en.wikipedia.org/wiki/Row-_and_column-major_order">row-major</a>.</p>
+<p>This means that the matrix/tensor in Fortran
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22}
+\end{pmatrix}
+=
+\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+</script>
+will appear in
+<a href="https://en.wikipedia.org/wiki/Memory_management_(operating_systems)">contiguous memory</a>
+on the computer as 
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+a_{11} & a_{21} & a_{12} & a_{22}
+\end{pmatrix}
+=
+\begin{pmatrix}
+a & c & b & d
+\end{pmatrix}
+</script>
+with the order of elements decided by moving down the columns before progressing in the
+row dimension.<br>
+In contrast, the same matrix/tensor defined in a row-major language will appear in
+contiguous memory as
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+a_{11} & a_{12} & a_{21} & a_{22}
+\end{pmatrix}
+=
+\begin{pmatrix}
+a & b & c & d
+\end{pmatrix}
+</script>
+reading along each row before progressing down the column dimension.</p>
+<h3 id="why-does-this-matter">Why does this matter?</h3>
+<p>This matters for FTorch because a key feature is no-copy memory transfer between Fortran
+and Torch.
+To do this the Fortran data that will be used in Torch is stored in memory and a
+<a href="https://en.wikipedia.org/wiki/Pointer_(computer_programming)">pointer</a> to the first
+element, <script type="math/tex">a</script> provided to Torch.</p>
+<p>Now, if Torch were to take this block of memory and na&iuml;vely interpret it as a
+2x2 matrix it would be read in as
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+a & c \\
+b & d
+\end{pmatrix}
+</script>
+which is the <a href="https://en.wikipedia.org/wiki/Transpose">transpose</a> of the
+matrix we had in Fortran; likely not what we were expecting!</p>
+<p>This means we need to be careful when passing data to make sure that what we read in
+to our Torch net is correct as we expect.</p>
+<p>FTorch handles this by constructing all tensors associated with Fortran data using
+column-major strides. This means that data can be transferred without any copying or
+rearranging, and indexed in exactly the same way in both Fortran and Torch - the most
+predictable behaviour, with the fewest opportunities for bugs.</p>
+<h3 id="when-might-you-want-the-transpose">When might you want the transpose?</h3>
+<p>The price of FTorch matching the indexing is that tensor data is strided (non-contiguous)
+from Torch's row-major perspective.
+This has the potential to increase cache-misses when accessing the data.
+Torch handles strided tensors well, and this penalty is often smaller than the cost
+of rearranging the data, so the default behaviour in FTorch is the best choice for most users.</p>
+<p>Sometimes you may genuinely want row-major (contiguous) data in Torch however.
+For example if profiling shows data access to be a bottleneck, or to interoperate
+with nets that expect it.</p>
+<p>The only way to achieve this (without copying or re-arranging memory) is for Torch to
+interpret the data as the transpose of the Fortran array:
+the memory <script type="math/tex">a, c, b, d</script> read contiguously in row-major order is
+<script type="math/tex; mode=display">
+A^T =
+\begin{pmatrix}
+a & c \\
+b & d
+\end{pmatrix}
+</script>
+The options below describe the ways to do this and their associated costs.</p>
+<h3 id="what-are-the-options">What are the options?</h3>
+<h4 id="1-transpose-in-fortran-before-passing">1) Transpose in Fortran before passing</h4>
+<p>The most direct way to control the memory layout is to rearrange the data
+in Fortran before passing it to Torch.</p>
+<p>For rank-2 arrays this can be done using the intrinsic
+<a href="https://gcc.gnu.org/onlinedocs/gcc-12.1.0/gfortran/TRANSPOSE.html"><code>transpose()</code></a>
+function.</p>
+<p>For higher ranks use the
+<a href="https://gcc.gnu.org/onlinedocs/gfortran/RESHAPE.html">'reshape()'</a> intrinsic to swap
+the order of the indices.
+For example, if we had a 3x4x5 array <script type="math/tex">A</script> we would call</p>
+<div class="codehilite"><pre><span></span><code>A_to_torch = reshape(A, shape=[5, 4, 3], order=[3, 2, 1])
+</code></pre></div>
+
+<p>Passing the result with <code>permute_dims=[n, ..., 1]</code> (see option 2 below) then gives
+a Torch tensor that is indexed exactly like the original Fortran array <em>and</em> is
+contiguous row-major in memory - the best of both worlds.</p>
+<p>However, transposition copies all of the data which for large arrays is expensive.
+Doing this will likely cost more than the cache-misses incurred by FTorch's default
+strided access.
+This also requires permuting and transposing to get the same conceptual indexing result
+as the default behaviour, increasing the potential for bugs.</p>
+<h4 id="2-use-permute_dims-to-pass-the-transpose">2) Use <code>permute_dims</code> to pass the transpose</h4>
+<p>Alternatively, we could design our net so that its input is the transpose of our
+Fortran data
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+a & c \\
+b & d
+\end{pmatrix}
+</script>
+Reading the shared memory contiguously with Torch's row-major strides then gives the net
+what it expects with no data copying required.</p>
+<p>The practical way to achieve this is to use the optional <code>permute_dims</code> argument of
+<a href="../../interface/torch_tensor_from_array.html">torch_tensor_from_array</a>.
+This takes an array specifying a permutation of the dimensions and matches the
+semantics of PyTorch's
+<a href="https://docs.pytorch.org/docs/stable/generated/torch.permute.html"><code>torch.permute()</code></a>
+with element <code>i</code> indicating which dimension of the Fortran array becomes dimension <code>i</code> of
+the Torch tensor.
+FTorch permutes the shape and strides of the tensor accordingly, so passing
+<code>permute_dims=[n, ..., 1]</code> exposes the data contiguously as the transpose of the Fortran array.</p>
+<p>i.e. if the Fortran array <code>A</code>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+</script>
+is passed as <code>torch_tensor_from_array(tensor, A, torch_device, permute_dims=[2, 1])</code>
+the resulting tensor will be indexed by Torch as
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+a & c \\
+b & d
+\end{pmatrix}
+</script>
+with contiguous strides <code>[2, 1]</code>.</p>
+<p>Torch code therefore needs to work with the transposed indexing compared to Fortran.
+This requires foresight to design code with the expectation of coupling, and indexing
+differently between your Fortran and Torch code can be a source of bugs, so beware.</p>
+<div class="alert alert-info">
+<p class="alert-title h4">Note</p>
+<p>Permutations beyond axis-reversal, e.g. a cyclic <code>[3, 1, 2]</code>, are also possible.
+These produce tensors that are neither row- nor column-major strided, but can be
+useful for remapping data between conventions - for example moving a channel
+dimension from first to last position.</p>
+</div>
+<div class="alert alert-info">
+<p class="alert-title h4">Note</p>
+<p>For a detailed exercise demonstrating <code>permute_dims</code> and its effect on shape, strides,
+and memory layout, see the
+<a href="https://github.com/Cambridge-ICCS/FTorch/tree/main/examples/12_Permutation">tensor permutation worked example</a>.</p>
+</div>
+<h3 id="advanced-use-with-torch_tensor_from_blob">Advanced use with <code>torch_tensor_from_blob</code></h3>
+<p>For more advanced options for manipulating and controlling data access when passing
+between Fortran and Torch see the more powerful but more complex
+<a href="../../proc/torch_tensor_from_blob.html">torch_tensor_from_blob</a> subroutine which allows
+users to directly specify the shape and strides with which to construct tensors.</p>
+    </div>
+  </div>
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              FTorch
+ was developed by ICCS Cambridge<br>              &copy; 2026 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

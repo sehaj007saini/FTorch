@@ -1,0 +1,799 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="FTorch - A library for coupling (Py)Torch machine learning models to Fortran codes.Written in modern Fortran (2008) with source code available on GitHub it has been used in multiple scientific projects.The associated JOSS paper can read here.">
+    <meta name="author" content="ICCS Cambridge" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>torch_tensor_get_dtype &ndash; FTorch</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+      <link href="../css/user.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">FTorch </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../page/index.html">User Guide</a></li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>torch_tensor_get_dtype
+      <small>Function</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a></li>
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.5% of total for procedures.">18 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/ftorch_tensor.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/ftorch_tensor.f90.html'>ftorch_tensor.f90</a></li>
+                <li class="breadcrumb-item"><a href='../module/ftorch_tensor.html'>ftorch_tensor</a></li>
+            <li class="breadcrumb-item active" aria-current="page">torch_tensor_get_dtype</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/torch_tensor_get_dtype.html#src">torch_tensor_get_dtype</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>public  function torch_tensor_get_dtype(self) result(dtype)  
+</h2>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='http://fortranwiki.org/fortran/show/iso_c_binding'>iso_c_binding</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 14.1.2 (0)
+ -->
+<!-- Title: proc~~torch_tensor_get_dtype~~UsesGraph Pages: 1 -->
+<svg id="proctorch_tensor_get_dtypeUsesGraph" width="338pt" height="32pt"
+ viewBox="0.00 0.00 338.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~torch_tensor_get_dtype~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28.27)">
+<title>proc~~torch_tensor_get_dtype~~UsesGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 333.79,-28.27 333.79,4 -4,4"/>
+<!-- proc~torch_tensor_get_dtype -->
+<g id="proc~~torch_tensor_get_dtype~~UsesGraph_node1" class="node">
+<title>proc~torch_tensor_get_dtype</title>
+<polygon fill="none" stroke="black" points="329.79,-24.27 118.77,-24.27 118.77,0 329.79,0 329.79,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="224.28" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">torch_tensor%torch_tensor_get_dtype</text>
+</g>
+<!-- iso_c_binding -->
+<g id="proc~~torch_tensor_get_dtype~~UsesGraph_node2" class="node">
+<title>iso_c_binding</title>
+<g id="a_proc~~torch_tensor_get_dtype~~UsesGraph_node2"><a xlink:href="http://fortranwiki.org/fortran/show/iso_c_binding" xlink:title="iso_c_binding">
+<polygon fill="#337ab7" stroke="#337ab7" points="82.77,-24.27 0,-24.27 0,0 82.77,0 82.77,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="41.38" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_c_binding</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_get_dtype&#45;&gt;iso_c_binding -->
+<g id="proc~~torch_tensor_get_dtype~~UsesGraph_edge1" class="edge">
+<title>proc~torch_tensor_get_dtype&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M118.31,-12.13C110.13,-12.13 102.11,-12.13 94.53,-12.13"/>
+<polygon fill="#000000" stroke="#000000" points="94.54,-8.64 84.54,-12.14 94.54,-15.64 94.54,-8.64"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 14.1.2 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="511pt" height="32pt"
+ viewBox="0.00 0.00 511.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28.27)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 506.88,-28.27 506.88,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24.27 0,-24.27 0,0 54,0 54,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="27" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="144.13,-24.27 71.87,-24.27 71.87,0 144.13,0 144.13,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="108" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="231.63,-24.27 162.37,-24.27 162.37,0 231.63,0 231.63,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="197" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="306.26,-24.27 249.74,-24.27 249.74,0 306.26,0 306.26,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="278" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="381.26,-24.27 324.74,-24.27 324.74,0 381.26,0 381.26,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="353" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="502.88,-24.27 399.12,-24.27 399.12,0 502.88,0 502.88,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="451" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+
+    <p>Returns the data type of a tensor.</p>
+
+    <h3>Type Bound</h3>
+    <p><a href='../type/torch_tensor.html'>torch_tensor</a></p>
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~7"></span>
+              class(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                <p>Tensor to get the data type of</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+      <h3>Return Value
+        <small>
+          <span class="anchor" id="variable-dtype~67"></span>
+          integer(kind=c_int)
+        </small>
+      </h3>
+      <p>Data type of tensor</p>
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Called by</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 14.1.2 (0)
+ -->
+<!-- Title: proc~~torch_tensor_get_dtype~~CalledByGraph Pages: 1 -->
+<svg id="proctorch_tensor_get_dtypeCalledByGraph" width="538pt" height="494pt"
+ viewBox="0.00 0.00 538.00 494.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 490.27)">
+<title>proc~~torch_tensor_get_dtype~~CalledByGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-490.27 534.31,-490.27 534.31,4 -4,4"/>
+<!-- proc~torch_tensor_get_dtype -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_node1" class="node">
+<title>proc~torch_tensor_get_dtype</title>
+<polygon fill="none" stroke="black" points="530.31,-255.27 319.29,-255.27 319.29,-231 530.31,-231 530.31,-255.27"/>
+<text xml:space="preserve" text-anchor="middle" x="424.8" y="-239.53" font-family="Helvetica,sans-Serif" font-size="10.50">torch_tensor%torch_tensor_get_dtype</text>
+</g>
+<!-- proc~torch_tensor_add -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_node2" class="node">
+<title>proc~torch_tensor_add</title>
+<g id="a_proc~~torch_tensor_get_dtype~~CalledByGraph_node2"><a xlink:href="../proc/torch_tensor_add.html" xlink:title="torch_tensor_add">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="257.42,-486.27 154.4,-486.27 154.4,-462 257.42,-462 257.42,-486.27"/>
+<text xml:space="preserve" text-anchor="middle" x="205.91" y="-470.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_add</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_add&#45;&gt;proc~torch_tensor_get_dtype -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_edge1" class="edge">
+<title>proc~torch_tensor_add&#45;&gt;proc~torch_tensor_get_dtype</title>
+<path fill="none" stroke="#000000" d="M257.71,-465.64C266.76,-462.65 275.7,-458.6 283.29,-453.13 351.9,-403.67 396.87,-309.58 414.89,-266.15"/>
+<polygon fill="#000000" stroke="#000000" points="418.1,-267.55 418.59,-256.96 411.61,-264.93 418.1,-267.55"/>
+</g>
+<!-- proc~torch_tensor_assign -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_node3" class="node">
+<title>proc~torch_tensor_assign</title>
+<g id="a_proc~~torch_tensor_get_dtype~~CalledByGraph_node3"><a xlink:href="../proc/torch_tensor_assign.html" xlink:title="torch_tensor_assign">
+<polygon fill="#d9534f" stroke="#d9534f" points="264.17,-444.27 147.65,-444.27 147.65,-420 264.17,-420 264.17,-444.27"/>
+<text xml:space="preserve" text-anchor="middle" x="205.91" y="-428.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_assign</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_assign&#45;&gt;proc~torch_tensor_get_dtype -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_edge2" class="edge">
+<title>proc~torch_tensor_assign&#45;&gt;proc~torch_tensor_get_dtype</title>
+<path fill="none" stroke="#000000" d="M264.45,-420.45C271.07,-417.92 277.51,-414.85 283.29,-411.13 342.97,-372.77 390.29,-301.09 411.57,-265.03"/>
+<polygon fill="#000000" stroke="#000000" points="414.37,-267.18 416.34,-256.77 408.31,-263.68 414.37,-267.18"/>
+</g>
+<!-- proc~torch_tensor_divide -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_node4" class="node">
+<title>proc~torch_tensor_divide</title>
+<g id="a_proc~~torch_tensor_get_dtype~~CalledByGraph_node4"><a xlink:href="../proc/torch_tensor_divide.html" xlink:title="torch_tensor_divide">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="263.42,-402.27 148.4,-402.27 148.4,-378 263.42,-378 263.42,-402.27"/>
+<text xml:space="preserve" text-anchor="middle" x="205.91" y="-386.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_divide</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_divide&#45;&gt;proc~torch_tensor_get_dtype -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_edge3" class="edge">
+<title>proc~torch_tensor_divide&#45;&gt;proc~torch_tensor_get_dtype</title>
+<path fill="none" stroke="#000000" d="M263.56,-377.77C270.4,-375.35 277.13,-372.5 283.29,-369.13 333.93,-341.49 381.39,-292.26 406.08,-264.22"/>
+<polygon fill="#000000" stroke="#000000" points="408.66,-266.58 412.56,-256.73 403.37,-262 408.66,-266.58"/>
+</g>
+<!-- proc~torch_tensor_multiply -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_node5" class="node">
+<title>proc~torch_tensor_multiply</title>
+<g id="a_proc~~torch_tensor_get_dtype~~CalledByGraph_node5"><a xlink:href="../proc/torch_tensor_multiply.html" xlink:title="torch_tensor_multiply">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="268.67,-360.27 143.15,-360.27 143.15,-336 268.67,-336 268.67,-360.27"/>
+<text xml:space="preserve" text-anchor="middle" x="205.91" y="-344.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_multiply</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_multiply&#45;&gt;proc~torch_tensor_get_dtype -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_edge4" class="edge">
+<title>proc~torch_tensor_multiply&#45;&gt;proc~torch_tensor_get_dtype</title>
+<path fill="none" stroke="#000000" d="M260.14,-335.5C268.02,-333.06 275.95,-330.27 283.29,-327.13 325.19,-309.24 369.72,-280.82 397.15,-262.07"/>
+<polygon fill="#000000" stroke="#000000" points="398.96,-265.07 405.2,-256.5 394.98,-259.31 398.96,-265.07"/>
+</g>
+<!-- proc~torch_tensor_negative -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_node6" class="node">
+<title>proc~torch_tensor_negative</title>
+<g id="a_proc~~torch_tensor_get_dtype~~CalledByGraph_node6"><a xlink:href="../proc/torch_tensor_negative.html" xlink:title="torch_tensor_negative">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="270.54,-318.27 141.27,-318.27 141.27,-294 270.54,-294 270.54,-318.27"/>
+<text xml:space="preserve" text-anchor="middle" x="205.91" y="-302.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_negative</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_negative&#45;&gt;proc~torch_tensor_get_dtype -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_edge5" class="edge">
+<title>proc~torch_tensor_negative&#45;&gt;proc~torch_tensor_get_dtype</title>
+<path fill="none" stroke="#000000" d="M253.4,-293.53C263.28,-290.8 273.64,-287.9 283.29,-285.13 312.63,-276.72 345.3,-266.98 371.75,-258.99"/>
+<polygon fill="#000000" stroke="#000000" points="372.67,-262.37 381.23,-256.13 370.64,-255.67 372.67,-262.37"/>
+</g>
+<!-- proc~torch_tensor_power_int16 -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_node7" class="node">
+<title>proc~torch_tensor_power_int16</title>
+<g id="a_proc~~torch_tensor_get_dtype~~CalledByGraph_node7"><a xlink:href="../proc/torch_tensor_power_int16.html" xlink:title="torch_tensor_power_int16">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="279.92,-234.27 131.9,-234.27 131.9,-210 279.92,-210 279.92,-234.27"/>
+<text xml:space="preserve" text-anchor="middle" x="205.91" y="-218.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_power_int16</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_power_int16&#45;&gt;proc~torch_tensor_get_dtype -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_edge6" class="edge">
+<title>proc~torch_tensor_power_int16&#45;&gt;proc~torch_tensor_get_dtype</title>
+<path fill="none" stroke="#000000" d="M280.34,-229.24C289.16,-230.1 298.33,-230.99 307.58,-231.88"/>
+<polygon fill="#000000" stroke="#000000" points="307.08,-235.35 317.37,-232.83 307.75,-228.38 307.08,-235.35"/>
+</g>
+<!-- proc~torch_tensor_power_int32 -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_node8" class="node">
+<title>proc~torch_tensor_power_int32</title>
+<g id="a_proc~~torch_tensor_get_dtype~~CalledByGraph_node8"><a xlink:href="../proc/torch_tensor_power_int32.html" xlink:title="torch_tensor_power_int32">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="279.92,-192.27 131.9,-192.27 131.9,-168 279.92,-168 279.92,-192.27"/>
+<text xml:space="preserve" text-anchor="middle" x="205.91" y="-176.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_power_int32</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_power_int32&#45;&gt;proc~torch_tensor_get_dtype -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_edge7" class="edge">
+<title>proc~torch_tensor_power_int32&#45;&gt;proc~torch_tensor_get_dtype</title>
+<path fill="none" stroke="#000000" d="M253.4,-192.74C263.28,-195.47 273.64,-198.37 283.29,-201.13 312.63,-209.55 345.3,-219.29 371.75,-227.28"/>
+<polygon fill="#000000" stroke="#000000" points="370.64,-230.6 381.23,-230.14 372.67,-223.9 370.64,-230.6"/>
+</g>
+<!-- proc~torch_tensor_power_int64 -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_node9" class="node">
+<title>proc~torch_tensor_power_int64</title>
+<g id="a_proc~~torch_tensor_get_dtype~~CalledByGraph_node9"><a xlink:href="../proc/torch_tensor_power_int64.html" xlink:title="torch_tensor_power_int64">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="279.92,-150.27 131.9,-150.27 131.9,-126 279.92,-126 279.92,-150.27"/>
+<text xml:space="preserve" text-anchor="middle" x="205.91" y="-134.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_power_int64</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_power_int64&#45;&gt;proc~torch_tensor_get_dtype -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_edge8" class="edge">
+<title>proc~torch_tensor_power_int64&#45;&gt;proc~torch_tensor_get_dtype</title>
+<path fill="none" stroke="#000000" d="M260.14,-150.77C268.02,-153.21 275.95,-156 283.29,-159.13 325.19,-177.03 369.72,-205.45 397.15,-224.2"/>
+<polygon fill="#000000" stroke="#000000" points="394.98,-226.96 405.2,-229.77 398.96,-221.2 394.98,-226.96"/>
+</g>
+<!-- proc~torch_tensor_power_int8 -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_node10" class="node">
+<title>proc~torch_tensor_power_int8</title>
+<g id="a_proc~~torch_tensor_get_dtype~~CalledByGraph_node10"><a xlink:href="../proc/torch_tensor_power_int8.html" xlink:title="torch_tensor_power_int8">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="276.54,-108.27 135.27,-108.27 135.27,-84 276.54,-84 276.54,-108.27"/>
+<text xml:space="preserve" text-anchor="middle" x="205.91" y="-92.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_power_int8</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_power_int8&#45;&gt;proc~torch_tensor_get_dtype -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_edge9" class="edge">
+<title>proc~torch_tensor_power_int8&#45;&gt;proc~torch_tensor_get_dtype</title>
+<path fill="none" stroke="#000000" d="M263.96,-108.64C270.66,-111.03 277.25,-113.84 283.29,-117.14 333.93,-144.78 381.39,-194.01 406.08,-222.05"/>
+<polygon fill="#000000" stroke="#000000" points="403.37,-224.27 412.56,-229.54 408.66,-219.69 403.37,-224.27"/>
+</g>
+<!-- proc~torch_tensor_power_real32 -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_node11" class="node">
+<title>proc~torch_tensor_power_real32</title>
+<g id="a_proc~~torch_tensor_get_dtype~~CalledByGraph_node11"><a xlink:href="../proc/torch_tensor_power_real32.html" xlink:title="torch_tensor_power_real32">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="283.29,-66.27 128.52,-66.27 128.52,-42 283.29,-42 283.29,-66.27"/>
+<text xml:space="preserve" text-anchor="middle" x="205.91" y="-50.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_power_real32</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_power_real32&#45;&gt;proc~torch_tensor_get_dtype -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_edge10" class="edge">
+<title>proc~torch_tensor_power_real32&#45;&gt;proc~torch_tensor_get_dtype</title>
+<path fill="none" stroke="#000000" d="M266.82,-66.76C272.6,-69.1 278.2,-71.86 283.29,-75.14 342.97,-113.5 390.29,-185.18 411.57,-221.24"/>
+<polygon fill="#000000" stroke="#000000" points="408.31,-222.59 416.34,-229.5 414.37,-219.09 408.31,-222.59"/>
+</g>
+<!-- proc~torch_tensor_power_real64 -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_node12" class="node">
+<title>proc~torch_tensor_power_real64</title>
+<g id="a_proc~~torch_tensor_get_dtype~~CalledByGraph_node12"><a xlink:href="../proc/torch_tensor_power_real64.html" xlink:title="torch_tensor_power_real64">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="283.29,-24.27 128.52,-24.27 128.52,0 283.29,0 283.29,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="205.91" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_power_real64</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_power_real64&#45;&gt;proc~torch_tensor_get_dtype -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_edge11" class="edge">
+<title>proc~torch_tensor_power_real64&#45;&gt;proc~torch_tensor_get_dtype</title>
+<path fill="none" stroke="#000000" d="M268.36,-24.71C273.65,-27.06 278.72,-29.84 283.29,-33.13 351.9,-82.6 396.87,-176.69 414.89,-220.12"/>
+<polygon fill="#000000" stroke="#000000" points="411.61,-221.34 418.59,-229.31 418.1,-218.72 411.61,-221.34"/>
+</g>
+<!-- proc~torch_tensor_subtract -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_node13" class="node">
+<title>proc~torch_tensor_subtract</title>
+<g id="a_proc~~torch_tensor_get_dtype~~CalledByGraph_node13"><a xlink:href="../proc/torch_tensor_subtract.html" xlink:title="torch_tensor_subtract">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="269.04,-276.27 142.77,-276.27 142.77,-252 269.04,-252 269.04,-276.27"/>
+<text xml:space="preserve" text-anchor="middle" x="205.91" y="-260.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_subtract</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_subtract&#45;&gt;proc~torch_tensor_get_dtype -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_edge12" class="edge">
+<title>proc~torch_tensor_subtract&#45;&gt;proc~torch_tensor_get_dtype</title>
+<path fill="none" stroke="#000000" d="M269.35,-258.09C281.47,-256.92 294.54,-255.65 307.75,-254.37"/>
+<polygon fill="#000000" stroke="#000000" points="307.75,-257.89 317.37,-253.44 307.08,-250.92 307.75,-257.89"/>
+</g>
+<!-- interface~assignment (=) -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_node14" class="node">
+<title>interface~assignment (=)</title>
+<g id="a_proc~~torch_tensor_get_dtype~~CalledByGraph_node14"><a xlink:href="../interface/assignment (=).html" xlink:title="assignment (=)">
+<polygon fill="#a7506f" stroke="#a7506f" points="92.52,-444.27 0,-444.27 0,-420 92.52,-420 92.52,-444.27"/>
+<text xml:space="preserve" text-anchor="middle" x="46.26" y="-428.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">assignment (=)</text>
+</a>
+</g>
+</g>
+<!-- interface~assignment (=)&#45;&gt;proc~torch_tensor_assign -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_edge14" class="edge">
+<title>interface~assignment (=)&#45;&gt;proc~torch_tensor_assign</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M92.86,-432.13C106.41,-432.13 121.56,-432.13 136.24,-432.13"/>
+<polygon fill="#000000" stroke="#000000" points="135.82,-435.64 145.82,-432.14 135.82,-428.64 135.82,-435.64"/>
+</g>
+<!-- interface~operator (+) -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_node15" class="node">
+<title>interface~operator (+)</title>
+<g id="a_proc~~torch_tensor_get_dtype~~CalledByGraph_node15"><a xlink:href="../interface/operator (+).html" xlink:title="operator (+)">
+<polygon fill="#a7506f" stroke="#a7506f" points="85.02,-486.27 7.5,-486.27 7.5,-462 85.02,-462 85.02,-486.27"/>
+<text xml:space="preserve" text-anchor="middle" x="46.26" y="-470.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">operator (+)</text>
+</a>
+</g>
+</g>
+<!-- interface~operator (+)&#45;&gt;proc~torch_tensor_add -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_edge13" class="edge">
+<title>interface~operator (+)&#45;&gt;proc~torch_tensor_add</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M85.42,-474.13C102.56,-474.13 123.22,-474.13 142.51,-474.13"/>
+<polygon fill="#000000" stroke="#000000" points="142.47,-477.64 152.47,-474.14 142.47,-470.64 142.47,-477.64"/>
+</g>
+<!-- interface~operator (&#45;) -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_node16" class="node">
+<title>interface~operator (&#45;)</title>
+<g id="a_proc~~torch_tensor_get_dtype~~CalledByGraph_node16"><a xlink:href="../interface/operator (-).html" xlink:title="operator (&#45;)">
+<polygon fill="#a7506f" stroke="#a7506f" points="82.39,-297.27 10.12,-297.27 10.12,-273 82.39,-273 82.39,-297.27"/>
+<text xml:space="preserve" text-anchor="middle" x="46.26" y="-281.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">operator (&#45;)</text>
+</a>
+</g>
+</g>
+<!-- interface~operator (&#45;)&#45;&gt;proc~torch_tensor_negative -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_edge17" class="edge">
+<title>interface~operator (&#45;)&#45;&gt;proc~torch_tensor_negative</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M82.64,-289.85C96.58,-291.7 113.16,-293.91 129.53,-296.09"/>
+<polygon fill="#000000" stroke="#000000" points="128.93,-299.55 139.3,-297.4 129.85,-292.61 128.93,-299.55"/>
+</g>
+<!-- interface~operator (&#45;)&#45;&gt;proc~torch_tensor_subtract -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_edge24" class="edge">
+<title>interface~operator (&#45;)&#45;&gt;proc~torch_tensor_subtract</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M82.64,-280.42C97.09,-278.5 114.36,-276.2 131.32,-273.94"/>
+<polygon fill="#000000" stroke="#000000" points="131.43,-277.45 140.88,-272.66 130.5,-270.52 131.43,-277.45"/>
+</g>
+<!-- interface~operator (ASTERISK) -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_node17" class="node">
+<title>interface~operator (ASTERISK)</title>
+<g id="a_proc~~torch_tensor_get_dtype~~CalledByGraph_node17"><a xlink:href="../interface/operator (ASTERISK).html" xlink:title="operator (*)">
+<polygon fill="#a7506f" stroke="#a7506f" points="83.14,-360.27 9.37,-360.27 9.37,-336 83.14,-336 83.14,-360.27"/>
+<text xml:space="preserve" text-anchor="middle" x="46.26" y="-344.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">operator (*)</text>
+</a>
+</g>
+</g>
+<!-- interface~operator (ASTERISK)&#45;&gt;proc~torch_tensor_multiply -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_edge16" class="edge">
+<title>interface~operator (ASTERISK)&#45;&gt;proc~torch_tensor_multiply</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M83.43,-348.13C97.76,-348.13 114.78,-348.13 131.47,-348.13"/>
+<polygon fill="#000000" stroke="#000000" points="131.43,-351.64 141.43,-348.14 131.43,-344.64 131.43,-351.64"/>
+</g>
+<!-- interface~operator (ASTERISKASTERISK) -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_node18" class="node">
+<title>interface~operator (ASTERISKASTERISK)</title>
+<g id="a_proc~~torch_tensor_get_dtype~~CalledByGraph_node18"><a xlink:href="../interface/operator (ASTERISKASTERISK).html" xlink:title="operator (**)">
+<polygon fill="#a7506f" stroke="#a7506f" points="85.77,-129.27 6.75,-129.27 6.75,-105 85.77,-105 85.77,-129.27"/>
+<text xml:space="preserve" text-anchor="middle" x="46.26" y="-113.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">operator (**)</text>
+</a>
+</g>
+</g>
+<!-- interface~operator (ASTERISKASTERISK)&#45;&gt;proc~torch_tensor_power_int16 -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_edge18" class="edge">
+<title>interface~operator (ASTERISKASTERISK)&#45;&gt;proc~torch_tensor_power_int16</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M55.96,-129.72C69.39,-148.17 96.93,-182.41 128.52,-201.13 130.95,-202.58 133.49,-203.92 136.09,-205.18"/>
+<polygon fill="#000000" stroke="#000000" points="134.45,-208.29 145.03,-209 137.2,-201.85 134.45,-208.29"/>
+</g>
+<!-- interface~operator (ASTERISKASTERISK)&#45;&gt;proc~torch_tensor_power_int32 -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_edge19" class="edge">
+<title>interface~operator (ASTERISKASTERISK)&#45;&gt;proc~torch_tensor_power_int32</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M68.42,-129.63C84.49,-138.73 107.37,-150.87 128.52,-159.13 133.11,-160.93 137.91,-162.63 142.78,-164.24"/>
+<polygon fill="#000000" stroke="#000000" points="141.44,-167.49 152.03,-167.13 143.53,-160.8 141.44,-167.49"/>
+</g>
+<!-- interface~operator (ASTERISKASTERISK)&#45;&gt;proc~torch_tensor_power_int64 -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_edge20" class="edge">
+<title>interface~operator (ASTERISKASTERISK)&#45;&gt;proc~torch_tensor_power_int64</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M86.23,-122.33C96.66,-123.72 108.36,-125.27 120.24,-126.86"/>
+<polygon fill="#000000" stroke="#000000" points="119.77,-130.32 130.14,-128.18 120.69,-123.39 119.77,-130.32"/>
+</g>
+<!-- interface~operator (ASTERISKASTERISK)&#45;&gt;proc~torch_tensor_power_int8 -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_edge21" class="edge">
+<title>interface~operator (ASTERISKASTERISK)&#45;&gt;proc~torch_tensor_power_int8</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M86.23,-111.94C97.77,-110.41 110.85,-108.66 124.02,-106.91"/>
+<polygon fill="#000000" stroke="#000000" points="124.11,-110.43 133.56,-105.64 123.19,-103.49 124.11,-110.43"/>
+</g>
+<!-- interface~operator (ASTERISKASTERISK)&#45;&gt;proc~torch_tensor_power_real32 -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_edge22" class="edge">
+<title>interface~operator (ASTERISKASTERISK)&#45;&gt;proc~torch_tensor_power_real32</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M68.42,-104.64C84.49,-95.54 107.37,-83.4 128.52,-75.14 133.11,-73.34 137.91,-71.64 142.78,-70.03"/>
+<polygon fill="#000000" stroke="#000000" points="143.53,-73.47 152.03,-67.14 141.44,-66.78 143.53,-73.47"/>
+</g>
+<!-- interface~operator (ASTERISKASTERISK)&#45;&gt;proc~torch_tensor_power_real64 -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_edge23" class="edge">
+<title>interface~operator (ASTERISKASTERISK)&#45;&gt;proc~torch_tensor_power_real64</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M55.96,-104.55C69.39,-86.1 96.93,-51.86 128.52,-33.13 130.95,-31.69 133.49,-30.35 136.09,-29.09"/>
+<polygon fill="#000000" stroke="#000000" points="137.2,-32.42 145.03,-25.27 134.45,-25.98 137.2,-32.42"/>
+</g>
+<!-- interface~operator (SLASH) -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_node19" class="node">
+<title>interface~operator (SLASH)</title>
+<g id="a_proc~~torch_tensor_get_dtype~~CalledByGraph_node19"><a xlink:href="../interface/operator (SLASH).html" xlink:title="operator (/)">
+<polygon fill="#a7506f" stroke="#a7506f" points="82.39,-402.27 10.12,-402.27 10.12,-378 82.39,-378 82.39,-402.27"/>
+<text xml:space="preserve" text-anchor="middle" x="46.26" y="-386.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">operator (/)</text>
+</a>
+</g>
+</g>
+<!-- interface~operator (SLASH)&#45;&gt;proc~torch_tensor_divide -->
+<g id="proc~~torch_tensor_get_dtype~~CalledByGraph_edge15" class="edge">
+<title>interface~operator (SLASH)&#45;&gt;proc~torch_tensor_divide</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M82.64,-390.13C98.58,-390.13 117.96,-390.13 136.55,-390.13"/>
+<polygon fill="#000000" stroke="#000000" points="136.47,-393.64 146.47,-390.14 136.47,-386.64 136.47,-393.64"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CalledByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 14.1.2 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 28.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.873868 0.873868) rotate(0) translate(4 28.27)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 729.52,-28.27 729.52,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="69.27,-24.27 0,-24.27 0,0 69.27,0 69.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="34.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="143.89,-24.27 87.38,-24.27 87.38,0 143.89,0 143.89,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="115.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="221.39,-24.27 161.88,-24.27 161.88,0 221.39,0 221.39,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="191.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="368.27,-24.27 239,-24.27 239,0 368.27,0 368.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="303.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="529.39,-24.27 385.88,-24.27 385.88,0 529.39,0 529.39,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="457.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="603.89,-24.27 547.38,-24.27 547.38,0 603.89,0 603.89,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="575.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="725.52,-24.27 621.75,-24.27 621.75,0 725.52,0 725.52,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="673.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">  </span><span class="k">function </span><span class="n">torch_tensor_get_dtype</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+<span class="w">    </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="nb">iso_c_binding</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">c_int</span>
+<span class="kt">    </span><span class="k">class</span><span class="p">(</span><span class="n">torch_tensor</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">self</span><span class="w">  </span><span class="c">!! Tensor to get the data type of</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">(</span><span class="kt">c_int</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dtype</span><span class="w">                  </span><span class="c">!! Data type of tensor</span>
+
+<span class="w">    </span><span class="k">interface</span>
+<span class="k">      function </span><span class="n">torch_tensor_get_dtype_c</span><span class="p">(</span><span class="n">tensor_c</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">dtype_c</span><span class="p">)</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">          </span><span class="k">bind</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"torch_tensor_get_dtype"</span><span class="p">)</span>
+<span class="w">        </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="nb">iso_c_binding</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">c_int</span><span class="p">,</span><span class="w"> </span><span class="kt">c_ptr</span>
+<span class="kt">        </span><span class="k">implicit none</span>
+<span class="k">        type</span><span class="p">(</span><span class="kt">c_ptr</span><span class="p">),</span><span class="w"> </span><span class="k">value</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">tensor_c</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">(</span><span class="kt">c_int</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dtype_c</span>
+<span class="w">      </span><span class="k">end function </span><span class="n">torch_tensor_get_dtype_c</span>
+<span class="w">    </span><span class="k">end interface</span>
+
+<span class="k">    if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">c_associated</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">p</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">      write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">"Error :: tensor has not been constructed so its data type is unset"</span>
+<span class="w">      </span><span class="k">stop </span><span class="mi">1</span>
+<span class="w">    </span><span class="k">end if</span>
+<span class="k">    </span><span class="n">dtype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">torch_tensor_get_dtype_c</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">p</span><span class="p">)</span>
+<span class="w">  </span><span class="k">end function </span><span class="n">torch_tensor_get_dtype</span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              FTorch
+ was developed by ICCS Cambridge<br>              &copy; 2026 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

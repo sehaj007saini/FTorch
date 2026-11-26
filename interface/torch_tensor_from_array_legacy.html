@@ -1,0 +1,4468 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="FTorch - A library for coupling (Py)Torch machine learning models to Fortran codes.Written in modern Fortran (2008) with source code available on GitHub it has been used in multiple scientific projects.The associated JOSS paper can read here.">
+    <meta name="author" content="ICCS Cambridge" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>torch_tensor_from_array_legacy &ndash; FTorch</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+      <link href="../css/user.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">FTorch </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../page/index.html">User Guide</a></li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>torch_tensor_from_array_legacy
+      <small>Interface</small>
+      <span class="badge bg-danger depwarn">Deprecated</span>
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a></li>
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title="<p> 0.8% of total for procedures.</p>Including implementation: 872 statements, 22.3% of total for procedures.">32 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/ftorch_tensor.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/ftorch_tensor.f90.html'>ftorch_tensor.f90</a></li>
+                <li class="breadcrumb-item"><a href='../module/ftorch_tensor.html'>ftorch_tensor</a></li>
+            <li class="breadcrumb-item active" aria-current="page">torch_tensor_from_array_legacy</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#modprocs-0"
+         aria-expanded="false" aria-controls="modprocs-0">
+         <h4 class="card-header bg-primary text-white">Module Procedures</h4>
+      </a>
+      <div id="modprocs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_int8_1d_legacy">torch_tensor_from_array_int8_1d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_int8_2d_legacy">torch_tensor_from_array_int8_2d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_int8_3d_legacy">torch_tensor_from_array_int8_3d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_int8_4d_legacy">torch_tensor_from_array_int8_4d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_int8_5d_legacy">torch_tensor_from_array_int8_5d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_int16_1d_legacy">torch_tensor_from_array_int16_1d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_int16_2d_legacy">torch_tensor_from_array_int16_2d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_int16_3d_legacy">torch_tensor_from_array_int16_3d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_int16_4d_legacy">torch_tensor_from_array_int16_4d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_int16_5d_legacy">torch_tensor_from_array_int16_5d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_int32_1d_legacy">torch_tensor_from_array_int32_1d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_int32_2d_legacy">torch_tensor_from_array_int32_2d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_int32_3d_legacy">torch_tensor_from_array_int32_3d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_int32_4d_legacy">torch_tensor_from_array_int32_4d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_int32_5d_legacy">torch_tensor_from_array_int32_5d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_int64_1d_legacy">torch_tensor_from_array_int64_1d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_int64_2d_legacy">torch_tensor_from_array_int64_2d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_int64_3d_legacy">torch_tensor_from_array_int64_3d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_int64_4d_legacy">torch_tensor_from_array_int64_4d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_int64_5d_legacy">torch_tensor_from_array_int64_5d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_real32_1d_legacy">torch_tensor_from_array_real32_1d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_real32_2d_legacy">torch_tensor_from_array_real32_2d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_real32_3d_legacy">torch_tensor_from_array_real32_3d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_real32_4d_legacy">torch_tensor_from_array_real32_4d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_real32_5d_legacy">torch_tensor_from_array_real32_5d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_real64_1d_legacy">torch_tensor_from_array_real64_1d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_real64_2d_legacy">torch_tensor_from_array_real64_2d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_real64_3d_legacy">torch_tensor_from_array_real64_3d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_real64_4d_legacy">torch_tensor_from_array_real64_4d_legacy</a>
+            <a class="list-group-item" href="../interface/torch_tensor_from_array_legacy.html#moduleprocedure-torch_tensor_from_array_real64_5d_legacy">torch_tensor_from_array_real64_5d_legacy</a>
+        </div>
+      </div>
+    </div>
+
+  
+
+
+  </div>
+
+    </div>
+
+    <div class="col-md-9" id='text'>
+      <h2>public interface torch_tensor_from_array_legacy</h2>
+      <p>This is the old layout-required signature for torch_tensor_from_array:
+<code>(tensor, data, layout, device_type, [device_index], [requires_grad])</code>.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Calls</h3>
+          </div>
+          <div class="card-body">
+            <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 14.1.2 (0)
+ -->
+<!-- Title: interface~~torch_tensor_from_array_legacy~~CallsGraph Pages: 1 -->
+<svg id="interfacetorch_tensor_from_array_legacyCallsGraph" width="641pt" height="1025pt"
+ viewBox="0.00 0.00 641.00 1025.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph" class="graph" transform="scale(0.820134 0.820134) rotate(0) translate(4 1246.27)">
+<title>interface~~torch_tensor_from_array_legacy~~CallsGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-1246.27 777.58,-1246.27 777.58,4 -4,4"/>
+<!-- interface~torch_tensor_from_array_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node1" class="node">
+<title>interface~torch_tensor_from_array_legacy</title>
+<polygon fill="none" stroke="black" points="181.77,-633.27 0,-633.27 0,-609 181.77,-609 181.77,-633.27"/>
+<text xml:space="preserve" text-anchor="middle" x="90.88" y="-617.53" font-family="Helvetica,sans-Serif" font-size="10.50">torch_tensor_from_array_legacy</text>
+</g>
+<!-- proc~torch_tensor_from_array_int16_1d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node2" class="node">
+<title>proc~torch_tensor_from_array_int16_1d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node2"><a xlink:href="../proc/torch_tensor_from_array_int16_1d_legacy.html" xlink:title="torch_tensor_from_array_int16_1d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-1242.27 221.15,-1242.27 221.15,-1218 453.92,-1218 453.92,-1242.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1226.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_1d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int16_1d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge1" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int16_1d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M92.72,-633.7C98.11,-711.35 130.71,-1125.15 217.77,-1209.13 218.39,-1209.73 219.02,-1210.32 219.67,-1210.89"/>
+<polygon fill="#000000" stroke="#000000" points="217.26,-1213.46 227.35,-1216.68 221.47,-1207.87 217.26,-1213.46"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_2d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node3" class="node">
+<title>proc~torch_tensor_from_array_int16_2d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node3"><a xlink:href="../proc/torch_tensor_from_array_int16_2d_legacy.html" xlink:title="torch_tensor_from_array_int16_2d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-1200.27 221.15,-1200.27 221.15,-1176 453.92,-1176 453.92,-1200.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1184.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_2d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int16_2d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge2" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int16_2d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M92.92,-633.53C99.36,-707.46 136.3,-1089.76 217.77,-1167.13 218.4,-1167.73 219.03,-1168.31 219.68,-1168.88"/>
+<polygon fill="#000000" stroke="#000000" points="217.29,-1171.47 227.41,-1174.62 221.47,-1165.85 217.29,-1171.47"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_3d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node4" class="node">
+<title>proc~torch_tensor_from_array_int16_3d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node4"><a xlink:href="../proc/torch_tensor_from_array_int16_3d_legacy.html" xlink:title="torch_tensor_from_array_int16_3d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-1158.27 221.15,-1158.27 221.15,-1134 453.92,-1134 453.92,-1158.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1142.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_3d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int16_3d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge3" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int16_3d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M93.17,-633.49C100.75,-703.94 141.92,-1054.4 217.77,-1125.13 218.42,-1125.74 219.07,-1126.33 219.74,-1126.9"/>
+<polygon fill="#000000" stroke="#000000" points="217.59,-1129.67 227.74,-1132.72 221.71,-1124.01 217.59,-1129.67"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_4d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node5" class="node">
+<title>proc~torch_tensor_from_array_int16_4d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node5"><a xlink:href="../proc/torch_tensor_from_array_int16_4d_legacy.html" xlink:title="torch_tensor_from_array_int16_4d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-1116.27 221.15,-1116.27 221.15,-1092 453.92,-1092 453.92,-1116.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1100.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_4d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int16_4d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge4" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int16_4d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M93.5,-633.77C102.41,-701.3 147.62,-1019.1 217.77,-1083.13 218.42,-1083.73 219.09,-1084.31 219.76,-1084.88"/>
+<polygon fill="#000000" stroke="#000000" points="217.64,-1087.67 227.81,-1090.64 221.72,-1081.98 217.64,-1087.67"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_5d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node6" class="node">
+<title>proc~torch_tensor_from_array_int16_5d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node6"><a xlink:href="../proc/torch_tensor_from_array_int16_5d_legacy.html" xlink:title="torch_tensor_from_array_int16_5d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-1074.27 221.15,-1074.27 221.15,-1050 453.92,-1050 453.92,-1074.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1058.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int16_5d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int16_5d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge5" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int16_5d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M91.34,-633.49C89.54,-690.17 90.12,-927.52 217.77,-1041.13 218.56,-1041.84 219.36,-1042.52 220.17,-1043.18"/>
+<polygon fill="#000000" stroke="#000000" points="217.95,-1045.9 228.17,-1048.71 221.94,-1040.14 217.95,-1045.9"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_1d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node7" class="node">
+<title>proc~torch_tensor_from_array_int32_1d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node7"><a xlink:href="../proc/torch_tensor_from_array_int32_1d_legacy.html" xlink:title="torch_tensor_from_array_int32_1d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-1032.27 221.15,-1032.27 221.15,-1008 453.92,-1008 453.92,-1032.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-1016.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_1d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int32_1d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge6" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int32_1d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M91.8,-633.69C92.19,-687.27 101.28,-898.56 217.77,-999.13 218.58,-999.84 219.41,-1000.52 220.26,-1001.19"/>
+<polygon fill="#000000" stroke="#000000" points="218.29,-1004.08 228.55,-1006.75 222.19,-998.27 218.29,-1004.08"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_2d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node8" class="node">
+<title>proc~torch_tensor_from_array_int32_2d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node8"><a xlink:href="../proc/torch_tensor_from_array_int32_2d_legacy.html" xlink:title="torch_tensor_from_array_int32_2d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-990.27 221.15,-990.27 221.15,-966 453.92,-966 453.92,-990.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-974.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_2d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int32_2d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge7" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int32_2d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M92.38,-633.66C95.09,-683.5 112.16,-869.31 217.77,-957.13 218.74,-957.94 219.72,-958.72 220.73,-959.47"/>
+<polygon fill="#000000" stroke="#000000" points="218.65,-962.29 228.95,-964.75 222.43,-956.4 218.65,-962.29"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_3d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node9" class="node">
+<title>proc~torch_tensor_from_array_int32_3d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node9"><a xlink:href="../proc/torch_tensor_from_array_int32_3d_legacy.html" xlink:title="torch_tensor_from_array_int32_3d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-948.27 221.15,-948.27 221.15,-924 453.92,-924 453.92,-948.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-932.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_3d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int32_3d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge8" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int32_3d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M93.11,-633.67C98.33,-679.61 122.94,-839.91 217.77,-915.13 218.92,-916.05 220.1,-916.93 221.31,-917.78"/>
+<polygon fill="#000000" stroke="#000000" points="219.31,-920.66 229.67,-922.86 222.94,-914.67 219.31,-920.66"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_4d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node10" class="node">
+<title>proc~torch_tensor_from_array_int32_4d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node10"><a xlink:href="../proc/torch_tensor_from_array_int32_4d_legacy.html" xlink:title="torch_tensor_from_array_int32_4d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-906.27 221.15,-906.27 221.15,-882 453.92,-882 453.92,-906.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-890.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_4d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int32_4d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge9" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int32_4d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M94.05,-633.62C101.99,-675.24 133.51,-810.24 217.77,-873.13 219.13,-874.15 220.53,-875.13 221.96,-876.06"/>
+<polygon fill="#000000" stroke="#000000" points="220.02,-878.99 230.44,-880.88 223.48,-872.9 220.02,-878.99"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_5d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node11" class="node">
+<title>proc~torch_tensor_from_array_int32_5d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node11"><a xlink:href="../proc/torch_tensor_from_array_int32_5d_legacy.html" xlink:title="torch_tensor_from_array_int32_5d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-864.27 221.15,-864.27 221.15,-840 453.92,-840 453.92,-864.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-848.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int32_5d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int32_5d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge10" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int32_5d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M95.34,-633.61C106.28,-670.59 143.89,-780.28 217.77,-831.13 219.4,-832.26 221.07,-833.33 222.78,-834.34"/>
+<polygon fill="#000000" stroke="#000000" points="221.09,-837.41 231.58,-838.92 224.32,-831.2 221.09,-837.41"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_1d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node12" class="node">
+<title>proc~torch_tensor_from_array_int64_1d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node12"><a xlink:href="../proc/torch_tensor_from_array_int64_1d_legacy.html" xlink:title="torch_tensor_from_array_int64_1d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-822.27 221.15,-822.27 221.15,-798 453.92,-798 453.92,-822.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-806.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_1d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int64_1d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge11" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int64_1d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M97.1,-633.36C111.28,-664.99 153.82,-749.8 217.77,-789.13 219.83,-790.4 221.94,-791.59 224.09,-792.72"/>
+<polygon fill="#000000" stroke="#000000" points="222.57,-795.87 233.12,-796.87 225.5,-789.51 222.57,-795.87"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_2d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node13" class="node">
+<title>proc~torch_tensor_from_array_int64_2d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node13"><a xlink:href="../proc/torch_tensor_from_array_int64_2d_legacy.html" xlink:title="torch_tensor_from_array_int64_2d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-780.27 221.15,-780.27 221.15,-756 453.92,-756 453.92,-780.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-764.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_2d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int64_2d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge12" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int64_2d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M100.25,-633.64C118.32,-659.54 163.75,-718.98 217.77,-747.13 220.83,-748.73 223.98,-750.2 227.21,-751.57"/>
+<polygon fill="#000000" stroke="#000000" points="225.73,-754.75 236.33,-755.03 228.22,-748.21 225.73,-754.75"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_3d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node14" class="node">
+<title>proc~torch_tensor_from_array_int64_3d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node14"><a xlink:href="../proc/torch_tensor_from_array_int64_3d_legacy.html" xlink:title="torch_tensor_from_array_int64_3d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-738.27 221.15,-738.27 221.15,-714 453.92,-714 453.92,-738.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-722.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_3d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int64_3d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge13" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int64_3d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M106.24,-633.67C128.49,-652.38 173.39,-687.32 217.77,-705.13 222.49,-707.03 227.38,-708.75 232.37,-710.32"/>
+<polygon fill="#000000" stroke="#000000" points="231.39,-713.68 241.97,-713.09 233.33,-706.96 231.39,-713.68"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_4d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node15" class="node">
+<title>proc~torch_tensor_from_array_int64_4d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node15"><a xlink:href="../proc/torch_tensor_from_array_int64_4d_legacy.html" xlink:title="torch_tensor_from_array_int64_4d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-696.27 221.15,-696.27 221.15,-672 453.92,-672 453.92,-696.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-680.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_4d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int64_4d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge14" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int64_4d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M125.15,-633.72C150.3,-642.88 185.84,-655.03 217.77,-663.13 226.5,-665.35 235.65,-667.41 244.83,-669.31"/>
+<polygon fill="#000000" stroke="#000000" points="244.04,-672.73 254.53,-671.25 245.41,-665.86 244.04,-672.73"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_5d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node16" class="node">
+<title>proc~torch_tensor_from_array_int64_5d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node16"><a xlink:href="../proc/torch_tensor_from_array_int64_5d_legacy.html" xlink:title="torch_tensor_from_array_int64_5d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="453.92,-654.27 221.15,-654.27 221.15,-630 453.92,-630 453.92,-654.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-638.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int64_5d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int64_5d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge15" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int64_5d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M181.94,-628.87C190.95,-629.64 200.21,-630.43 209.5,-631.23"/>
+<polygon fill="#000000" stroke="#000000" points="209.07,-634.71 219.34,-632.08 209.67,-627.73 209.07,-634.71"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_1d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node17" class="node">
+<title>proc~torch_tensor_from_array_int8_1d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node17"><a xlink:href="../proc/torch_tensor_from_array_int8_1d_legacy.html" xlink:title="torch_tensor_from_array_int8_1d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="450.54,-612.27 224.52,-612.27 224.52,-588 450.54,-588 450.54,-612.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-596.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_1d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int8_1d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge16" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int8_1d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M181.94,-613.4C192.04,-612.54 202.47,-611.64 212.9,-610.75"/>
+<polygon fill="#000000" stroke="#000000" points="213.04,-614.25 222.71,-609.91 212.44,-607.27 213.04,-614.25"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_2d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node18" class="node">
+<title>proc~torch_tensor_from_array_int8_2d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node18"><a xlink:href="../proc/torch_tensor_from_array_int8_2d_legacy.html" xlink:title="torch_tensor_from_array_int8_2d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="450.54,-570.27 224.52,-570.27 224.52,-546 450.54,-546 450.54,-570.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-554.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_2d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int8_2d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge17" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int8_2d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M125.15,-608.55C150.3,-599.39 185.84,-587.24 217.77,-579.13 226.5,-576.92 235.65,-574.86 244.83,-572.96"/>
+<polygon fill="#000000" stroke="#000000" points="245.41,-576.41 254.53,-571.02 244.04,-569.54 245.41,-576.41"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_3d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node19" class="node">
+<title>proc~torch_tensor_from_array_int8_3d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node19"><a xlink:href="../proc/torch_tensor_from_array_int8_3d_legacy.html" xlink:title="torch_tensor_from_array_int8_3d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="450.54,-528.27 224.52,-528.27 224.52,-504 450.54,-504 450.54,-528.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-512.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_3d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int8_3d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge18" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int8_3d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M106.24,-608.6C128.49,-589.89 173.39,-554.95 217.77,-537.13 222.49,-535.24 227.38,-533.52 232.37,-531.95"/>
+<polygon fill="#000000" stroke="#000000" points="233.33,-535.31 241.97,-529.18 231.39,-528.59 233.33,-535.31"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_4d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node20" class="node">
+<title>proc~torch_tensor_from_array_int8_4d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node20"><a xlink:href="../proc/torch_tensor_from_array_int8_4d_legacy.html" xlink:title="torch_tensor_from_array_int8_4d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="450.54,-486.27 224.52,-486.27 224.52,-462 450.54,-462 450.54,-486.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-470.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_4d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int8_4d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge19" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int8_4d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M100.25,-608.63C118.32,-582.73 163.75,-523.29 217.77,-495.13 220.83,-493.54 223.98,-492.07 227.21,-490.7"/>
+<polygon fill="#000000" stroke="#000000" points="228.22,-494.06 236.33,-487.24 225.73,-487.52 228.22,-494.06"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_5d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node21" class="node">
+<title>proc~torch_tensor_from_array_int8_5d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node21"><a xlink:href="../proc/torch_tensor_from_array_int8_5d_legacy.html" xlink:title="torch_tensor_from_array_int8_5d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="450.54,-444.27 224.52,-444.27 224.52,-420 450.54,-420 450.54,-444.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-428.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_int8_5d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int8_5d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge20" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_int8_5d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M97.1,-608.91C111.28,-577.28 153.82,-492.47 217.77,-453.13 219.83,-451.87 221.94,-450.68 224.09,-449.55"/>
+<polygon fill="#000000" stroke="#000000" points="225.5,-452.76 233.12,-445.4 222.57,-446.4 225.5,-452.76"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_1d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node22" class="node">
+<title>proc~torch_tensor_from_array_real32_1d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node22"><a xlink:href="../proc/torch_tensor_from_array_real32_1d_legacy.html" xlink:title="torch_tensor_from_array_real32_1d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="457.29,-402.27 217.77,-402.27 217.77,-378 457.29,-378 457.29,-402.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-386.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_1d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real32_1d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge21" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real32_1d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M95.34,-608.66C106.28,-571.68 143.89,-461.99 217.77,-411.13 219.4,-410.01 221.07,-408.94 222.78,-407.93"/>
+<polygon fill="#000000" stroke="#000000" points="224.32,-411.07 231.58,-403.35 221.09,-404.86 224.32,-411.07"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_2d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node23" class="node">
+<title>proc~torch_tensor_from_array_real32_2d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node23"><a xlink:href="../proc/torch_tensor_from_array_real32_2d_legacy.html" xlink:title="torch_tensor_from_array_real32_2d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="457.29,-360.27 217.77,-360.27 217.77,-336 457.29,-336 457.29,-360.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-344.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_2d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real32_2d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge22" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real32_2d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M94.05,-608.65C101.99,-567.03 133.51,-432.03 217.77,-369.13 219.13,-368.12 220.53,-367.14 221.96,-366.21"/>
+<polygon fill="#000000" stroke="#000000" points="223.48,-369.37 230.44,-361.39 220.02,-363.28 223.48,-369.37"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_3d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node24" class="node">
+<title>proc~torch_tensor_from_array_real32_3d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node24"><a xlink:href="../proc/torch_tensor_from_array_real32_3d_legacy.html" xlink:title="torch_tensor_from_array_real32_3d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="457.29,-318.27 217.77,-318.27 217.77,-294 457.29,-294 457.29,-318.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-302.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_3d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real32_3d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge23" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real32_3d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M93.11,-608.6C98.33,-562.66 122.94,-402.36 217.77,-327.13 218.92,-326.22 220.1,-325.34 221.31,-324.49"/>
+<polygon fill="#000000" stroke="#000000" points="222.94,-327.6 229.67,-319.41 219.31,-321.61 222.94,-327.6"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_4d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node25" class="node">
+<title>proc~torch_tensor_from_array_real32_4d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node25"><a xlink:href="../proc/torch_tensor_from_array_real32_4d_legacy.html" xlink:title="torch_tensor_from_array_real32_4d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="457.29,-276.27 217.77,-276.27 217.77,-252 457.29,-252 457.29,-276.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-260.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_4d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real32_4d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge24" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real32_4d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M92.38,-608.61C95.09,-558.77 112.16,-372.96 217.77,-285.13 218.74,-284.33 219.72,-283.55 220.73,-282.8"/>
+<polygon fill="#000000" stroke="#000000" points="222.43,-285.87 228.95,-277.52 218.65,-279.98 222.43,-285.87"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_5d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node26" class="node">
+<title>proc~torch_tensor_from_array_real32_5d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node26"><a xlink:href="../proc/torch_tensor_from_array_real32_5d_legacy.html" xlink:title="torch_tensor_from_array_real32_5d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="457.29,-234.27 217.77,-234.27 217.77,-210 457.29,-210 457.29,-234.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-218.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real32_5d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real32_5d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge25" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real32_5d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M91.8,-608.58C92.19,-555 101.28,-343.71 217.77,-243.13 218.58,-242.43 219.41,-241.75 220.26,-241.08"/>
+<polygon fill="#000000" stroke="#000000" points="222.19,-244 228.55,-235.52 218.29,-238.19 222.19,-244"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_1d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node27" class="node">
+<title>proc~torch_tensor_from_array_real64_1d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node27"><a xlink:href="../proc/torch_tensor_from_array_real64_1d_legacy.html" xlink:title="torch_tensor_from_array_real64_1d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="457.29,-192.27 217.77,-192.27 217.77,-168 457.29,-168 457.29,-192.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-176.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_1d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real64_1d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge26" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real64_1d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M91.34,-608.78C89.54,-552.1 90.12,-314.75 217.77,-201.13 218.56,-200.43 219.36,-199.75 220.17,-199.09"/>
+<polygon fill="#000000" stroke="#000000" points="221.94,-202.13 228.17,-193.56 217.95,-196.37 221.94,-202.13"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_2d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node28" class="node">
+<title>proc~torch_tensor_from_array_real64_2d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node28"><a xlink:href="../proc/torch_tensor_from_array_real64_2d_legacy.html" xlink:title="torch_tensor_from_array_real64_2d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="457.29,-150.27 217.77,-150.27 217.77,-126 457.29,-126 457.29,-150.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-134.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_2d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real64_2d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge27" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real64_2d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M93.5,-608.5C102.41,-540.97 147.62,-223.17 217.77,-159.13 218.42,-158.54 219.09,-157.96 219.76,-157.39"/>
+<polygon fill="#000000" stroke="#000000" points="221.72,-160.29 227.81,-151.63 217.64,-154.6 221.72,-160.29"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_3d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node29" class="node">
+<title>proc~torch_tensor_from_array_real64_3d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node29"><a xlink:href="../proc/torch_tensor_from_array_real64_3d_legacy.html" xlink:title="torch_tensor_from_array_real64_3d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="457.29,-108.27 217.77,-108.27 217.77,-84 457.29,-84 457.29,-108.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-92.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_3d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real64_3d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge28" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real64_3d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M93.17,-608.78C100.75,-538.33 141.92,-187.87 217.77,-117.14 218.42,-116.53 219.07,-115.94 219.74,-115.37"/>
+<polygon fill="#000000" stroke="#000000" points="221.71,-118.26 227.74,-109.55 217.59,-112.6 221.71,-118.26"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_4d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node30" class="node">
+<title>proc~torch_tensor_from_array_real64_4d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node30"><a xlink:href="../proc/torch_tensor_from_array_real64_4d_legacy.html" xlink:title="torch_tensor_from_array_real64_4d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="457.29,-66.27 217.77,-66.27 217.77,-42 457.29,-42 457.29,-66.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-50.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_4d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real64_4d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge29" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real64_4d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M92.92,-608.74C99.36,-534.81 136.3,-152.51 217.77,-75.14 218.4,-74.54 219.03,-73.96 219.68,-73.39"/>
+<polygon fill="#000000" stroke="#000000" points="221.47,-76.42 227.41,-67.65 217.29,-70.8 221.47,-76.42"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_5d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node31" class="node">
+<title>proc~torch_tensor_from_array_real64_5d_legacy</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node31"><a xlink:href="../proc/torch_tensor_from_array_real64_5d_legacy.html" xlink:title="torch_tensor_from_array_real64_5d_legacy">
+<polygon fill="#d9534f" stroke="#d9534f" points="457.29,-24.27 217.77,-24.27 217.77,0 457.29,0 457.29,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="337.53" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_array_real64_5d_legacy</text>
+</a>
+</g>
+</g>
+<!-- interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real64_5d_legacy -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge30" class="edge">
+<title>interface~torch_tensor_from_array_legacy&#45;&gt;proc~torch_tensor_from_array_real64_5d_legacy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M92.72,-608.57C98.11,-530.92 130.71,-117.12 217.77,-33.13 218.39,-32.54 219.02,-31.95 219.67,-31.38"/>
+<polygon fill="#000000" stroke="#000000" points="221.47,-34.4 227.35,-25.59 217.26,-28.81 221.47,-34.4"/>
+</g>
+<!-- proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node32" class="node">
+<title>proc~torch_tensor_from_blob</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node32"><a xlink:href="../proc/torch_tensor_from_blob.html" xlink:title="torch_tensor_from_blob">
+<polygon fill="#d9534f" stroke="#d9534f" points="629.31,-633.27 493.29,-633.27 493.29,-609 629.31,-609 629.31,-633.27"/>
+<text xml:space="preserve" text-anchor="middle" x="561.3" y="-617.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_tensor_from_blob</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_array_int16_1d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge31" class="edge">
+<title>proc~torch_tensor_from_array_int16_1d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M446.91,-1217.57C450.63,-1215.12 454.11,-1212.32 457.29,-1209.13 538.58,-1127.72 556.35,-745.26 559.63,-645.16"/>
+<polygon fill="#000000" stroke="#000000" points="563.13,-645.29 559.94,-635.19 556.13,-645.08 563.13,-645.29"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_2d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge32" class="edge">
+<title>proc~torch_tensor_from_array_int16_2d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M446.86,-1175.52C450.59,-1173.08 454.09,-1170.3 457.29,-1167.13 533.04,-1092.25 554.76,-740.22 559.29,-644.96"/>
+<polygon fill="#000000" stroke="#000000" points="562.79,-645.16 559.74,-635.01 555.79,-644.84 562.79,-645.16"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_3d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge33" class="edge">
+<title>proc~torch_tensor_from_array_int16_3d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M446.54,-1133.63C450.38,-1131.16 453.99,-1128.35 457.29,-1125.13 527.5,-1056.77 553.03,-735.28 558.89,-644.85"/>
+<polygon fill="#000000" stroke="#000000" points="562.38,-645.17 559.51,-634.97 555.39,-644.73 562.38,-645.17"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_4d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge34" class="edge">
+<title>proc~torch_tensor_from_array_int16_4d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M446.47,-1091.55C450.33,-1089.11 453.96,-1086.32 457.29,-1083.13 521.89,-1021.34 551.09,-730.89 558.4,-645.07"/>
+<polygon fill="#000000" stroke="#000000" points="561.88,-645.5 559.21,-635.24 554.9,-644.92 561.88,-645.5"/>
+</g>
+<!-- proc~torch_tensor_from_array_int16_5d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge35" class="edge">
+<title>proc~torch_tensor_from_array_int16_5d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M446.12,-1049.63C450.1,-1047.17 453.85,-1044.36 457.29,-1041.13 516.46,-985.72 549.1,-724.94 557.87,-644.69"/>
+<polygon fill="#000000" stroke="#000000" points="561.33,-645.24 558.91,-634.93 554.37,-644.5 561.33,-645.24"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_1d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge36" class="edge">
+<title>proc~torch_tensor_from_array_int32_1d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M446.02,-1007.52C450.03,-1005.09 453.81,-1002.31 457.29,-999.13 510.94,-950.16 546.78,-719.74 557.18,-644.77"/>
+<polygon fill="#000000" stroke="#000000" points="560.59,-645.63 558.47,-635.25 553.65,-644.69 560.59,-645.63"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_2d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge37" class="edge">
+<title>proc~torch_tensor_from_array_int32_2d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M445.62,-965.54C449.77,-963.11 453.68,-960.33 457.29,-957.13 551.57,-873.75 560.79,-706.57 560.82,-644.79"/>
+<polygon fill="#000000" stroke="#000000" points="564.32,-645.07 560.73,-635.1 557.32,-645.13 564.32,-645.07"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_3d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge38" class="edge">
+<title>proc~torch_tensor_from_array_int32_3d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M445.19,-923.52C449.48,-921.1 453.54,-918.32 457.29,-915.13 540.81,-844.15 556.65,-701.29 559.63,-644.85"/>
+<polygon fill="#000000" stroke="#000000" points="563.11,-645.25 560.04,-635.11 556.12,-644.95 563.11,-645.25"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_4d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge39" class="edge">
+<title>proc~torch_tensor_from_array_int32_4d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M444.44,-881.58C448.98,-879.15 453.3,-876.36 457.29,-873.13 530.2,-814.31 551.96,-695.52 558.07,-644.87"/>
+<polygon fill="#000000" stroke="#000000" points="561.53,-645.37 559.14,-635.05 554.58,-644.61 561.53,-645.37"/>
+</g>
+<!-- proc~torch_tensor_from_array_int32_5d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge40" class="edge">
+<title>proc~torch_tensor_from_array_int32_5d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M443.61,-839.52C448.43,-837.12 453.02,-834.34 457.29,-831.13 519.88,-784.06 546.63,-688.72 556.02,-644.56"/>
+<polygon fill="#000000" stroke="#000000" points="559.39,-645.52 557.92,-635.03 552.53,-644.15 559.39,-645.52"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_1d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge41" class="edge">
+<title>proc~torch_tensor_from_array_int64_1d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M442.1,-797.56C447.42,-795.16 452.53,-792.38 457.29,-789.13 509.85,-753.34 540.39,-680.95 553.18,-643.98"/>
+<polygon fill="#000000" stroke="#000000" points="556.42,-645.35 556.24,-634.75 549.77,-643.15 556.42,-645.35"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_2d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge42" class="edge">
+<title>proc~torch_tensor_from_array_int64_2d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M439.51,-755.59C445.71,-753.21 451.69,-750.42 457.29,-747.13 499.87,-722.17 532.3,-672.61 548.61,-643.64"/>
+<polygon fill="#000000" stroke="#000000" points="551.62,-645.43 553.34,-634.97 545.48,-642.08 551.62,-645.43"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_3d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge43" class="edge">
+<title>proc~torch_tensor_from_array_int64_3d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M434.79,-713.5C442.56,-711.17 450.15,-708.4 457.29,-705.13 490.4,-689.97 521.84,-661.57 541.08,-642.03"/>
+<polygon fill="#000000" stroke="#000000" points="543.58,-644.48 547.98,-634.84 538.53,-639.63 543.58,-644.48"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_4d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge44" class="edge">
+<title>proc~torch_tensor_from_array_int64_4d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M422.74,-671.53C434.43,-669.12 446.23,-666.33 457.29,-663.13 479.89,-656.61 504.29,-646.79 523.68,-638.28"/>
+<polygon fill="#000000" stroke="#000000" points="525.09,-641.49 532.79,-634.21 522.23,-635.1 525.09,-641.49"/>
+</g>
+<!-- proc~torch_tensor_from_array_int64_5d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge45" class="edge">
+<title>proc~torch_tensor_from_array_int64_5d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M454.29,-631.17C463.49,-630.3 472.64,-629.44 481.5,-628.6"/>
+<polygon fill="#000000" stroke="#000000" points="481.82,-632.08 491.44,-627.66 481.16,-625.11 481.82,-632.08"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_1d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge46" class="edge">
+<title>proc~torch_tensor_from_array_int8_1d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M451.04,-610.79C461.48,-611.78 471.9,-612.76 481.93,-613.71"/>
+<polygon fill="#000000" stroke="#000000" points="481.27,-617.17 491.56,-614.63 481.93,-610.2 481.27,-617.17"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_2d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge47" class="edge">
+<title>proc~torch_tensor_from_array_int8_2d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M422.74,-570.74C434.43,-573.15 446.23,-575.94 457.29,-579.13 479.89,-585.66 504.29,-595.48 523.68,-603.99"/>
+<polygon fill="#000000" stroke="#000000" points="522.23,-607.17 532.79,-608.06 525.09,-600.78 522.23,-607.17"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_3d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge48" class="edge">
+<title>proc~torch_tensor_from_array_int8_3d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M434.79,-528.77C442.56,-531.1 450.15,-533.87 457.29,-537.13 490.4,-552.3 521.84,-580.7 541.08,-600.24"/>
+<polygon fill="#000000" stroke="#000000" points="538.53,-602.64 547.98,-607.43 543.58,-597.79 538.53,-602.64"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_4d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge49" class="edge">
+<title>proc~torch_tensor_from_array_int8_4d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M439.51,-486.68C445.71,-489.06 451.69,-491.85 457.29,-495.13 499.87,-520.1 532.3,-569.66 548.61,-598.63"/>
+<polygon fill="#000000" stroke="#000000" points="545.48,-600.19 553.34,-607.3 551.62,-596.84 545.48,-600.19"/>
+</g>
+<!-- proc~torch_tensor_from_array_int8_5d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge50" class="edge">
+<title>proc~torch_tensor_from_array_int8_5d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M442.1,-444.71C447.42,-447.11 452.53,-449.89 457.29,-453.13 509.85,-488.93 540.39,-561.32 553.18,-598.29"/>
+<polygon fill="#000000" stroke="#000000" points="549.77,-599.12 556.24,-607.52 556.42,-596.92 549.77,-599.12"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_1d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge51" class="edge">
+<title>proc~torch_tensor_from_array_real32_1d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M443.61,-402.75C448.43,-405.15 453.02,-407.93 457.29,-411.13 519.88,-458.21 546.63,-553.55 556.02,-597.71"/>
+<polygon fill="#000000" stroke="#000000" points="552.53,-598.12 557.92,-607.24 559.39,-596.75 552.53,-598.12"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_2d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge52" class="edge">
+<title>proc~torch_tensor_from_array_real32_2d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M444.44,-360.69C448.98,-363.12 453.3,-365.91 457.29,-369.13 530.2,-427.96 551.96,-546.75 558.07,-597.4"/>
+<polygon fill="#000000" stroke="#000000" points="554.58,-597.66 559.14,-607.22 561.53,-596.9 554.58,-597.66"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_3d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge53" class="edge">
+<title>proc~torch_tensor_from_array_real32_3d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M445.19,-318.75C449.48,-321.17 453.54,-323.95 457.29,-327.13 540.81,-398.12 556.65,-540.98 559.63,-597.42"/>
+<polygon fill="#000000" stroke="#000000" points="556.12,-597.32 560.04,-607.16 563.11,-597.02 556.12,-597.32"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_4d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge54" class="edge">
+<title>proc~torch_tensor_from_array_real32_4d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M445.62,-276.73C449.77,-279.16 453.68,-281.94 457.29,-285.13 551.57,-368.52 560.79,-535.7 560.82,-597.48"/>
+<polygon fill="#000000" stroke="#000000" points="557.32,-597.14 560.73,-607.17 564.32,-597.2 557.32,-597.14"/>
+</g>
+<!-- proc~torch_tensor_from_array_real32_5d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge55" class="edge">
+<title>proc~torch_tensor_from_array_real32_5d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M446.02,-234.75C450.03,-237.18 453.81,-239.96 457.29,-243.13 510.94,-292.11 546.78,-522.53 557.18,-597.5"/>
+<polygon fill="#000000" stroke="#000000" points="553.65,-597.58 558.47,-607.02 560.59,-596.64 553.65,-597.58"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_1d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge56" class="edge">
+<title>proc~torch_tensor_from_array_real64_1d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M446.12,-192.64C450.1,-195.1 453.85,-197.91 457.29,-201.13 516.46,-256.55 549.1,-517.33 557.87,-597.58"/>
+<polygon fill="#000000" stroke="#000000" points="554.37,-597.77 558.91,-607.34 561.33,-597.03 554.37,-597.77"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_2d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge57" class="edge">
+<title>proc~torch_tensor_from_array_real64_2d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M446.47,-150.72C450.33,-153.16 453.96,-155.95 457.29,-159.13 521.89,-220.93 551.09,-511.38 558.4,-597.2"/>
+<polygon fill="#000000" stroke="#000000" points="554.9,-597.35 559.21,-607.03 561.88,-596.77 554.9,-597.35"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_3d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge58" class="edge">
+<title>proc~torch_tensor_from_array_real64_3d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M446.54,-108.64C450.38,-111.11 453.99,-113.92 457.29,-117.14 527.5,-185.5 553.03,-506.99 558.89,-597.42"/>
+<polygon fill="#000000" stroke="#000000" points="555.39,-597.54 559.51,-607.3 562.38,-597.1 555.39,-597.54"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_4d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge59" class="edge">
+<title>proc~torch_tensor_from_array_real64_4d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M446.86,-66.75C450.59,-69.19 454.09,-71.97 457.29,-75.14 533.04,-150.02 554.76,-502.05 559.29,-597.31"/>
+<polygon fill="#000000" stroke="#000000" points="555.79,-597.43 559.74,-607.26 562.79,-597.11 555.79,-597.43"/>
+</g>
+<!-- proc~torch_tensor_from_array_real64_5d_legacy&#45;&gt;proc~torch_tensor_from_blob -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge60" class="edge">
+<title>proc~torch_tensor_from_array_real64_5d_legacy&#45;&gt;proc~torch_tensor_from_blob</title>
+<path fill="none" stroke="#000000" d="M446.91,-24.7C450.63,-27.15 454.11,-29.95 457.29,-33.13 538.58,-114.55 556.35,-497.01 559.63,-597.11"/>
+<polygon fill="#000000" stroke="#000000" points="556.13,-597.19 559.94,-607.08 563.13,-596.98 556.13,-597.19"/>
+</g>
+<!-- interface~torch_from_blob_c -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_node33" class="node">
+<title>interface~torch_from_blob_c</title>
+<g id="a_interface~~torch_tensor_from_array_legacy~~CallsGraph_node33"><a xlink:href="../interface/torch_from_blob_c.html" xlink:title="torch_from_blob_c">
+<polygon fill="#a7506f" stroke="#a7506f" points="773.58,-633.27 665.31,-633.27 665.31,-609 773.58,-609 773.58,-633.27"/>
+<text xml:space="preserve" text-anchor="middle" x="719.45" y="-617.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">torch_from_blob_c</text>
+</a>
+</g>
+</g>
+<!-- proc~torch_tensor_from_blob&#45;&gt;interface~torch_from_blob_c -->
+<g id="interface~~torch_tensor_from_array_legacy~~CallsGraph_edge61" class="edge">
+<title>proc~torch_tensor_from_blob&#45;&gt;interface~torch_from_blob_c</title>
+<path fill="none" stroke="#000000" d="M629.43,-621.13C637.42,-621.13 645.58,-621.13 653.54,-621.13"/>
+<polygon fill="#000000" stroke="#000000" points="653.52,-624.64 663.52,-621.14 653.52,-617.64 653.52,-624.64"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var paninterfacetorch_tensor_from_array_legacyCallsGraph = svgPanZoom('#interfacetorch_tensor_from_array_legacyCallsGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 14.1.2 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 28.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.873868 0.873868) rotate(0) translate(4 28.27)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 729.52,-28.27 729.52,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="69.27,-24.27 0,-24.27 0,0 69.27,0 69.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="34.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="143.89,-24.27 87.38,-24.27 87.38,0 143.89,0 143.89,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="115.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="221.39,-24.27 161.88,-24.27 161.88,0 221.39,0 221.39,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="191.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="368.27,-24.27 239,-24.27 239,0 368.27,0 368.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="303.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="529.39,-24.27 385.88,-24.27 385.88,0 529.39,0 529.39,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="457.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="603.89,-24.27 547.38,-24.27 547.38,0 603.89,0 603.89,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="575.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="725.52,-24.27 621.75,-24.27 621.75,0 725.52,0 725.52,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="673.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+<br>
+
+
+        <h2>Module Procedures</h2>
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_int8_1d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_int8_1d_legacy.html'>torch_tensor_from_array_int8_1d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~35"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~31"></span>
+              integer(kind=int8),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(1)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~38"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~38"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~39"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_int8_2d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_int8_2d_legacy.html'>torch_tensor_from_array_int8_2d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~36"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~32"></span>
+              integer(kind=int8),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:,:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~2"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(2)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~39"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~39"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~40"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_int8_3d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_int8_3d_legacy.html'>torch_tensor_from_array_int8_3d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~37"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~33"></span>
+              integer(kind=int8),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:,:,:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~3"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(3)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~40"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~40"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~41"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_int8_4d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_int8_4d_legacy.html'>torch_tensor_from_array_int8_4d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~38"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~34"></span>
+              integer(kind=int8),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:,:,:,:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~4"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(4)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~41"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~41"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~42"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_int8_5d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_int8_5d_legacy.html'>torch_tensor_from_array_int8_5d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~39"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~35"></span>
+              integer(kind=int8),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:,:,:,:,:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~5"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(5)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~42"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~42"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~43"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_int16_1d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_int16_1d_legacy.html'>torch_tensor_from_array_int16_1d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~40"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~36"></span>
+              integer(kind=int16),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~6"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(1)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~43"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~43"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~44"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_int16_2d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_int16_2d_legacy.html'>torch_tensor_from_array_int16_2d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~41"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~37"></span>
+              integer(kind=int16),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:,:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~7"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(2)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~44"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~44"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~45"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_int16_3d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_int16_3d_legacy.html'>torch_tensor_from_array_int16_3d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~42"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~38"></span>
+              integer(kind=int16),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:,:,:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~8"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(3)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~45"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~45"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~46"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_int16_4d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_int16_4d_legacy.html'>torch_tensor_from_array_int16_4d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~43"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~39"></span>
+              integer(kind=int16),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:,:,:,:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~9"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(4)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~46"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~46"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~47"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_int16_5d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_int16_5d_legacy.html'>torch_tensor_from_array_int16_5d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~44"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~40"></span>
+              integer(kind=int16),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:,:,:,:,:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~10"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(5)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~47"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~47"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~48"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_int32_1d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_int32_1d_legacy.html'>torch_tensor_from_array_int32_1d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~45"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~41"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~11"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(1)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~48"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~48"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~49"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_int32_2d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_int32_2d_legacy.html'>torch_tensor_from_array_int32_2d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~46"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~42"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:,:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~12"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(2)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~49"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~49"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~50"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_int32_3d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_int32_3d_legacy.html'>torch_tensor_from_array_int32_3d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~47"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~43"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:,:,:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~13"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(3)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~50"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~50"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~51"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_int32_4d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_int32_4d_legacy.html'>torch_tensor_from_array_int32_4d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~48"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~44"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:,:,:,:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~14"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(4)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~51"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~51"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~52"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_int32_5d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_int32_5d_legacy.html'>torch_tensor_from_array_int32_5d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~49"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~45"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:,:,:,:,:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~15"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(5)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~52"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~52"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~53"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_int64_1d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_int64_1d_legacy.html'>torch_tensor_from_array_int64_1d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~50"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~46"></span>
+              integer(kind=int64),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~16"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(1)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~53"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~53"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~54"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_int64_2d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_int64_2d_legacy.html'>torch_tensor_from_array_int64_2d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~51"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~47"></span>
+              integer(kind=int64),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:,:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~17"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(2)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~54"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~54"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~55"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_int64_3d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_int64_3d_legacy.html'>torch_tensor_from_array_int64_3d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~52"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~48"></span>
+              integer(kind=int64),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:,:,:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~18"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(3)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~55"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~55"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~56"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_int64_4d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_int64_4d_legacy.html'>torch_tensor_from_array_int64_4d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~53"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~49"></span>
+              integer(kind=int64),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:,:,:,:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~19"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(4)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~56"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~56"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~57"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_int64_5d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_int64_5d_legacy.html'>torch_tensor_from_array_int64_5d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~54"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~50"></span>
+              integer(kind=int64),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:,:,:,:,:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~20"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(5)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~57"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~57"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~58"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_real32_1d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_real32_1d_legacy.html'>torch_tensor_from_array_real32_1d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~55"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~51"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~21"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(1)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~58"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~58"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~59"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_real32_2d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_real32_2d_legacy.html'>torch_tensor_from_array_real32_2d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~56"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~52"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:,:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~22"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(2)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~59"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~59"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~60"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_real32_3d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_real32_3d_legacy.html'>torch_tensor_from_array_real32_3d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~57"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~53"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:,:,:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~23"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(3)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~60"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~60"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~61"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_real32_4d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_real32_4d_legacy.html'>torch_tensor_from_array_real32_4d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~58"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~54"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:,:,:,:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~24"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(4)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~61"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~61"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~62"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_real32_5d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_real32_5d_legacy.html'>torch_tensor_from_array_real32_5d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~59"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~55"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:,:,:,:,:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~25"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(5)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~62"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~62"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~63"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_real64_1d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_real64_1d_legacy.html'>torch_tensor_from_array_real64_1d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~60"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~56"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~26"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(1)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~63"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~63"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~64"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_real64_2d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_real64_2d_legacy.html'>torch_tensor_from_array_real64_2d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~61"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~57"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:,:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~27"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(2)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~64"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~64"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~65"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_real64_3d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_real64_3d_legacy.html'>torch_tensor_from_array_real64_3d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~62"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~58"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:,:,:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~28"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(3)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~65"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~65"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~66"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_real64_4d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_real64_4d_legacy.html'>torch_tensor_from_array_real64_4d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~63"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~59"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:,:,:,:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~29"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(4)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~66"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~66"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~67"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+            <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_tensor_from_array_real64_5d_legacy"></span> <h3>public  subroutine <a href='../proc/torch_tensor_from_array_real64_5d_legacy.html'>torch_tensor_from_array_real64_5d_legacy</a>(tensor, data_in, layout, device_type, device_index, requires_grad)  <span class="badge bg-danger depwarn">Deprecated</span>
+</h3></div>
+    <div class="card-body">
+          
+  <p>This is the old layout-required signature for torch_tensor_from_array.
+Use <code>torch_tensor_from_array</code> instead. This will be removed in a future release.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tensor~64"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tensor</strong></td>
+            <td>
+<p>Returned tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-data_in~60"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer, contiguous
+            </td>
+            <td>::</td>
+            <td><strong>data_in</strong>(:,:,:,:,:)</td>
+            <td>
+<p>Input data that tensor will point at</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-layout~30"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>layout</strong>(5)</td>
+            <td>
+<p>Control order of indices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type~67"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index~67"></span>
+              integer,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~68"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+</div>
+  </div>
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              FTorch
+ was developed by ICCS Cambridge<br>              &copy; 2026 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

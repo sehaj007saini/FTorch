@@ -1,0 +1,1073 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="FTorch - A library for coupling (Py)Torch machine learning models to Fortran codes.Written in modern Fortran (2008) with source code available on GitHub it has been used in multiple scientific projects.The associated JOSS paper can read here.">
+    <meta name="author" content="ICCS Cambridge" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>ftorch_model &ndash; FTorch</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+      <link href="../css/user.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">FTorch </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../page/index.html">User Guide</a></li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>ftorch_model
+      <small>Module</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a></li>
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 4.4% of total for modules and submodules.">177 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/ftorch_model.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/ftorch_model.f90.html'>ftorch_model.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">ftorch_model</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#types-0"
+         aria-expanded="false" aria-controls="types-0">
+         <h4 class="card-header bg-primary text-white">Derived Types</h4>
+      </a>
+      <div id="types-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/ftorch_model.html#type-torch_model">torch_model</a>
+        </div>
+      </div>
+    </div>
+
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#funcs-0"
+         aria-expanded="false" aria-controls="funcs-0">
+         <h4 class="card-header bg-primary text-white">Functions</h4>
+      </a>
+      <div id="funcs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/ftorch_model.html#proc-torch_model_is_training">torch_model_is_training</a>
+        </div>
+      </div>
+    </div>
+
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/ftorch_model.html#proc-torch_model_delete">torch_model_delete</a>
+            <a class="list-group-item" href="../module/ftorch_model.html#proc-torch_model_forward">torch_model_forward</a>
+            <a class="list-group-item" href="../module/ftorch_model.html#proc-torch_model_load">torch_model_load</a>
+            <a class="list-group-item" href="../module/ftorch_model.html#proc-torch_model_parameters">torch_model_parameters</a>
+            <a class="list-group-item" href="../module/ftorch_model.html#proc-torch_model_print_parameters">torch_model_print_parameters</a>
+            <a class="list-group-item" href="../module/ftorch_model.html#proc-torch_model_save">torch_model_save</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+
+    <div class="col-md-9" id='text'>
+      <p>Module for the FTorch <code>torch_model</code> type and associated procedures.</p>
+<ul>
+<li>License
+   FTorch is released under an MIT license.
+   See the <a href="https://github.com/Cambridge-ICCS/FTorch/blob/main/LICENSE">LICENSE</a>
+   file for details.</li>
+</ul>
+<br>          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='ftorch_devices.html'>ftorch_devices</a></li>
+                  <li class="list-inline-item"><a href='http://fortranwiki.org/fortran/show/iso_c_binding'>iso_c_binding</a></li>
+                  <li class="list-inline-item"><a href='ftorch_tensor.html'>ftorch_tensor</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 14.1.2 (0)
+ -->
+<!-- Title: module~~ftorch_model~~UsesGraph Pages: 1 -->
+<svg id="moduleftorch_modelUsesGraph" width="460pt" height="154pt"
+ viewBox="0.00 0.00 460.00 154.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~ftorch_model~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 150.27)">
+<title>module~~ftorch_model~~UsesGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-150.27 455.83,-150.27 455.83,4 -4,4"/>
+<!-- module~ftorch_model -->
+<g id="module~~ftorch_model~~UsesGraph_node1" class="node">
+<title>module~ftorch_model</title>
+<polygon fill="none" stroke="black" points="451.83,-124.27 370.56,-124.27 370.56,-100 451.83,-100 451.83,-124.27"/>
+<text xml:space="preserve" text-anchor="middle" x="411.19" y="-108.54" font-family="Helvetica,sans-Serif" font-size="10.50">ftorch_model</text>
+</g>
+<!-- iso_c_binding -->
+<g id="module~~ftorch_model~~UsesGraph_node2" class="node">
+<title>iso_c_binding</title>
+<g id="a_module~~ftorch_model~~UsesGraph_node2"><a xlink:href="http://fortranwiki.org/fortran/show/iso_c_binding" xlink:title="iso_c_binding">
+<polygon fill="#337ab7" stroke="#337ab7" points="214.66,-146.27 131.9,-146.27 131.9,-122 214.66,-122 214.66,-146.27"/>
+<text xml:space="preserve" text-anchor="middle" x="173.28" y="-130.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_c_binding</text>
+</a>
+</g>
+</g>
+<!-- module~ftorch_model&#45;&gt;iso_c_binding -->
+<g id="module~~ftorch_model~~UsesGraph_edge1" class="edge">
+<title>module~ftorch_model&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M292.93,-133.13C271.13,-133.28 247.08,-133.47 226.36,-133.65"/>
+<polygon fill="#000000" stroke="#000000" points="226.4,-130.15 216.43,-133.74 226.46,-137.15 226.4,-130.15"/>
+</g>
+<!-- module~ftorch_devices -->
+<g id="module~~ftorch_model~~UsesGraph_node3" class="node">
+<title>module~ftorch_devices</title>
+<g id="a_module~~ftorch_model~~UsesGraph_node3"><a xlink:href="../module/ftorch_devices.html" xlink:title="ftorch_devices">
+<polygon fill="#337ab7" stroke="#337ab7" points="217.29,-104.27 129.27,-104.27 129.27,-80 217.29,-80 217.29,-104.27"/>
+<text xml:space="preserve" text-anchor="middle" x="173.28" y="-88.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ftorch_devices</text>
+</a>
+</g>
+</g>
+<!-- module~ftorch_model&#45;&gt;module~ftorch_devices -->
+<g id="module~~ftorch_model~~UsesGraph_edge2" class="edge">
+<title>module~ftorch_model&#45;&gt;module~ftorch_devices</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M370.24,-122.94C348.21,-128 320.25,-132.97 294.93,-133.13"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M292.93,-133.13C277.27,-133.24 241.83,-120.31 213.73,-108.95"/>
+<polygon fill="#000000" stroke="#000000" points="215.36,-105.84 204.78,-105.28 212.71,-112.31 215.36,-105.84"/>
+</g>
+<!-- module~ftorch_tensor -->
+<g id="module~~ftorch_model~~UsesGraph_node4" class="node">
+<title>module~ftorch_tensor</title>
+<g id="a_module~~ftorch_model~~UsesGraph_node4"><a xlink:href="../module/ftorch_tensor.html" xlink:title="ftorch_tensor">
+<polygon fill="#337ab7" stroke="#337ab7" points="334.56,-104.27 253.29,-104.27 253.29,-80 334.56,-80 334.56,-104.27"/>
+<text xml:space="preserve" text-anchor="middle" x="293.93" y="-88.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ftorch_tensor</text>
+</a>
+</g>
+</g>
+<!-- module~ftorch_model&#45;&gt;module~ftorch_tensor -->
+<g id="module~~ftorch_model~~UsesGraph_edge3" class="edge">
+<title>module~ftorch_model&#45;&gt;module~ftorch_tensor</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M370.2,-105.2C362.42,-103.85 354.17,-102.41 346.09,-101.01"/>
+<polygon fill="#000000" stroke="#000000" points="346.79,-97.58 336.34,-99.32 345.59,-104.48 346.79,-97.58"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="module~~ftorch_model~~UsesGraph_node5" class="node">
+<title>iso_fortran_env</title>
+<g id="a_module~~ftorch_model~~UsesGraph_node5"><a xlink:href="http://fortranwiki.org/fortran/show/iso_fortran_env" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="93.27,-84.27 0,-84.27 0,-60 93.27,-60 93.27,-84.27"/>
+<text xml:space="preserve" text-anchor="middle" x="46.63" y="-68.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+</g>
+<!-- module~ftorch_devices&#45;&gt;iso_fortran_env -->
+<g id="module~~ftorch_model~~UsesGraph_edge4" class="edge">
+<title>module~ftorch_devices&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M129.04,-85.2C121.11,-83.92 112.72,-82.58 104.47,-81.25"/>
+<polygon fill="#000000" stroke="#000000" points="105.27,-77.84 94.84,-79.71 104.16,-84.75 105.27,-77.84"/>
+</g>
+<!-- module~ftorch_tensor&#45;&gt;iso_c_binding -->
+<g id="module~~ftorch_model~~UsesGraph_edge5" class="edge">
+<title>module~ftorch_tensor&#45;&gt;iso_c_binding</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M257.33,-104.74C245.71,-108.85 232.65,-113.47 220.37,-117.82"/>
+<polygon fill="#000000" stroke="#000000" points="219.54,-114.4 211.28,-121.04 221.87,-121 219.54,-114.4"/>
+</g>
+<!-- module~ftorch_tensor&#45;&gt;module~ftorch_devices -->
+<g id="module~~ftorch_model~~UsesGraph_edge7" class="edge">
+<title>module~ftorch_tensor&#45;&gt;module~ftorch_devices</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M253.09,-92.14C245.31,-92.14 237.03,-92.14 228.87,-92.14"/>
+<polygon fill="#000000" stroke="#000000" points="228.99,-88.64 218.99,-92.14 228.99,-95.64 228.99,-88.64"/>
+</g>
+<!-- module~ftorch_tensor&#45;&gt;iso_fortran_env -->
+<g id="module~~ftorch_model~~UsesGraph_edge6" class="edge">
+<title>module~ftorch_tensor&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M255.26,-79.52C243.26,-76.09 229.85,-72.85 217.29,-71.14 180.09,-66.07 137.87,-66.29 104.86,-67.8"/>
+<polygon fill="#000000" stroke="#000000" points="104.9,-64.29 95.1,-68.3 105.26,-71.28 104.9,-64.29"/>
+</g>
+<!-- module~ftorch_types -->
+<g id="module~~ftorch_model~~UsesGraph_node6" class="node">
+<title>module~ftorch_types</title>
+<g id="a_module~~ftorch_model~~UsesGraph_node6"><a xlink:href="../module/ftorch_types.html" xlink:title="ftorch_types">
+<polygon fill="#337ab7" stroke="#337ab7" points="211.29,-24.27 135.27,-24.27 135.27,0 211.29,0 211.29,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="173.28" y="-8.54" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ftorch_types</text>
+</a>
+</g>
+</g>
+<!-- module~ftorch_tensor&#45;&gt;module~ftorch_types -->
+<g id="module~~ftorch_model~~UsesGraph_edge8" class="edge">
+<title>module~ftorch_tensor&#45;&gt;module~ftorch_types</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M276.06,-79.53C260.9,-68.34 237.91,-51.7 217.29,-38.14 213.35,-35.55 209.16,-32.89 205,-30.32"/>
+<polygon fill="#000000" stroke="#000000" points="207.13,-27.52 196.77,-25.3 203.49,-33.49 207.13,-27.52"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 14.1.2 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="511pt" height="32pt"
+ viewBox="0.00 0.00 511.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28.27)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 506.88,-28.27 506.88,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24.27 0,-24.27 0,0 54,0 54,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="27" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="144.13,-24.27 71.87,-24.27 71.87,0 144.13,0 144.13,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="108" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="231.63,-24.27 162.37,-24.27 162.37,0 231.63,0 231.63,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="197" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="306.26,-24.27 249.74,-24.27 249.74,0 306.26,0 306.26,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="278" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="381.26,-24.27 324.74,-24.27 324.74,0 381.26,0 381.26,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="353" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="502.88,-24.27 399.12,-24.27 399.12,0 502.88,0 502.88,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="451" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+          <div class="card">
+      <h3 class="card-header card-title bg-light">Used by</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 14.1.2 (0)
+ -->
+<!-- Title: module~~ftorch_model~~UsedByGraph Pages: 1 -->
+<svg id="moduleftorch_modelUsedByGraph" width="179pt" height="32pt"
+ viewBox="0.00 0.00 179.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~ftorch_model~~UsedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28.27)">
+<title>module~~ftorch_model~~UsedByGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 175.27,-28.27 175.27,4 -4,4"/>
+<!-- module~ftorch_model -->
+<g id="module~~ftorch_model~~UsedByGraph_node1" class="node">
+<title>module~ftorch_model</title>
+<polygon fill="none" stroke="black" points="81.27,-24.27 0,-24.27 0,0 81.27,0 81.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="40.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">ftorch_model</text>
+</g>
+<!-- module~ftorch -->
+<g id="module~~ftorch_model~~UsedByGraph_node2" class="node">
+<title>module~ftorch</title>
+<g id="a_module~~ftorch_model~~UsedByGraph_node2"><a xlink:href="../module/ftorch.html" xlink:title="ftorch">
+<polygon fill="#337ab7" stroke="#337ab7" points="171.27,-24.27 117.27,-24.27 117.27,0 171.27,0 171.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="144.27" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ftorch</text>
+</a>
+</g>
+</g>
+<!-- module~ftorch&#45;&gt;module~ftorch_model -->
+<g id="module~~ftorch_model~~UsedByGraph_edge1" class="edge">
+<title>module~ftorch&#45;&gt;module~ftorch_model</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M116.83,-12.13C109.56,-12.13 101.41,-12.13 93.23,-12.13"/>
+<polygon fill="#000000" stroke="#000000" points="93.25,-8.64 83.25,-12.14 93.25,-15.64 93.25,-8.64"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsedByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsedByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 14.1.2 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="511pt" height="32pt"
+ viewBox="0.00 0.00 511.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28.27)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 506.88,-28.27 506.88,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24.27 0,-24.27 0,0 54,0 54,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="27" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="144.13,-24.27 71.87,-24.27 71.87,0 144.13,0 144.13,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="108" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="231.63,-24.27 162.37,-24.27 162.37,0 231.63,0 231.63,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="197" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="306.26,-24.27 249.74,-24.27 249.74,0 306.26,0 306.26,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="278" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="381.26,-24.27 324.74,-24.27 324.74,0 381.26,0 381.26,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="353" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="502.88,-24.27 399.12,-24.27 399.12,0 502.88,0 502.88,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="451" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+      <br>
+
+
+
+
+
+
+        <section>
+          <h2>Derived Types</h2>
+              <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-torch_model"></span>
+      <h3>
+        type, public&nbsp;::&nbsp;
+        <a href='../type/torch_model.html'>torch_model</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      <p>Type for holding a torch neural net (nn.Module).</p>
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p"></span>
+              type(c_ptr),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>p</strong></td>
+<td> =</td>
+                <td>c_null_ptr</td>
+            <td>
+<p>pointer to the neural net in memory</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+        <h4>Finalizations Procedures</h4>
+        <table class="table table-striped varlist">
+          <tbody>
+              <tr>
+                <td>final :: <strong>torch_model_delete</strong></td>
+                <td></td>
+              </tr>
+          </tbody>
+        </table>
+
+        <h4>Type-Bound Procedures</h4>
+        <table class="table table-striped varlist">
+          <tbody>
+              <tr>
+                <td>  procedure, public ::
+  <strong><a href='../type/torch_model.html#boundprocedure-is_training'>is_training</a></strong> => <a href='/home/runner/work/FTorch/FTorch/doc/proc/torch_model_is_training.html'>torch_model_is_training</a></td>
+                  <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, public ::
+  <strong><a href='../type/torch_model.html#boundprocedure-print_parameters'>print_parameters</a></strong> => <a href='/home/runner/work/FTorch/FTorch/doc/proc/torch_model_print_parameters.html'>torch_model_print_parameters</a></td>
+                  <td></td>
+              </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+        <section>
+          <h2>Functions</h2>
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_model_is_training"></span> <h3>public  function <a href='../proc/torch_model_is_training.html'>torch_model_is_training</a>(self) result(is_training)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Determines whether a model is set up for training</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~2"></span>
+              class(<a href='../type/torch_model.html'>torch_model</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+<p>Model to query</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    <p>Whether the model is set up for training</p>
+
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+        <section>
+          <h2>Subroutines</h2>
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_model_delete"></span> <h3>public  subroutine <a href='../proc/torch_model_delete.html'>torch_model_delete</a>(model)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Deallocates a TorchScript model</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-model~5"></span>
+              type(<a href='../type/torch_model.html'>torch_model</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>model</strong></td>
+            <td>
+<p>Torch Model to deallocate</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_model_forward"></span> <h3>public  subroutine <a href='../proc/torch_model_forward.html'>torch_model_forward</a>(model, input_tensors, output_tensors, requires_grad)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Performs a forward pass of the model with the input tensors</p><a href="../proc/torch_model_forward.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-model~3"></span>
+              type(<a href='../type/torch_model.html'>torch_model</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>model</strong></td>
+            <td>
+<p>Model</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-input_tensors"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(:)
+            </td>
+            <td>::</td>
+            <td><strong>input_tensors</strong></td>
+            <td>
+<p>Array of Input tensors</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-output_tensors"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              dimension(:)
+            </td>
+            <td>::</td>
+            <td><strong>output_tensors</strong></td>
+            <td>
+<p>Returned output tensors</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad~2"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_model_load"></span> <h3>public  subroutine <a href='../proc/torch_model_load.html'>torch_model_load</a>(model, filename, device_type, device_index, requires_grad, is_training)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Loads a TorchScript nn.module (pre-trained PyTorch model saved with TorchScript)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-model"></span>
+              type(<a href='../type/torch_model.html'>torch_model</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>model</strong></td>
+            <td>
+<p>Returned deserialized model</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-filename"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>filename</strong></td>
+            <td>
+<p>Filename of saved TorchScript model</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_type"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_type</strong></td>
+            <td>
+<p>Device type the tensor will live on (<code>torch_kCPU</code> or a GPU device type)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-device_index"></span>
+              integer(kind=c_int),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>device_index</strong></td>
+            <td>
+<p>Device index for GPU devices</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-requires_grad"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>requires_grad</strong></td>
+            <td>
+<p>Whether gradients need to be computed for the created tensor</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-is_training~2"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>is_training</strong></td>
+            <td>
+<p>Whether the model is being trained, rather than evaluated</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_model_parameters"></span> <h3>public  subroutine <a href='../proc/torch_model_parameters.html'>torch_model_parameters</a>(model, output_tensors)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Extracts the parameters from a model</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-model~4"></span>
+              type(<a href='../type/torch_model.html'>torch_model</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>model</strong></td>
+            <td>
+<p>Model</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-output_tensors~2"></span>
+              type(<a href='../type/torch_tensor.html'>torch_tensor</a>),
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              dimension(:)
+            </td>
+            <td>::</td>
+            <td><strong>output_tensors</strong></td>
+            <td>
+<p>Returned output tensors</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_model_print_parameters"></span> <h3>public  subroutine <a href='../proc/torch_model_print_parameters.html'>torch_model_print_parameters</a>(self)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Prints the parameters associated with a model
+ NOTE: While viewing parameters in this way can be helpful for small toy models, it will produce
+       large amounts of output for models with many, large, or high-dimensional parameters. In
+       particular, tensors of 3 or more dimensions will be represented in terms of 2D arrays.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self"></span>
+              class(<a href='../type/torch_model.html'>torch_model</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+<p>Model to print the parameters of</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-torch_model_save"></span> <h3>public  subroutine <a href='../proc/torch_model_save.html'>torch_model_save</a>(model, filename)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Writes out a model to file in TorchScript format</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-model~2"></span>
+              type(<a href='../type/torch_model.html'>torch_model</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>model</strong></td>
+            <td>
+<p>Model to write out</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-filename~2"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>filename</strong></td>
+            <td>
+<p>Filename for saved TorchScript model</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+
+
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              FTorch
+ was developed by ICCS Cambridge<br>              &copy; 2026 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>
